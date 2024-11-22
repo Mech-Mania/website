@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+
+:root {
+    color: white;
+    font-family: 'IBM Plex Mono';
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    @media only screen and (min-width: 768px) {
+        font-size: 4rem;
+    }
+}
+h2 {
+    font-size: 2rem;
+    @media only screen and (min-width: 768px) {
+        font-size: 1.5rem;
+    }
+}
+
+@tailwind utilities;
