@@ -1,7 +1,5 @@
 import Load from "./components/load/load"
 import Gears from "./components/gears/gears"
-import { useState } from "react";
-import Wheel from "./components/gears/wheel";
 
 function App() {
   const getRem = () => {
