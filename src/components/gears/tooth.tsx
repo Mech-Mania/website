@@ -1,7 +1,7 @@
 function Tooth() {
     return (
         <>
-            <img className="w-16 invert-[10%]" src="geartooth.svg"/>
+            <img className="w-16 invert-[15%]" src="geartooth.svg"/>
         </>
     )
 }
