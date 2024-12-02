@@ -45,9 +45,9 @@ function Gears(props: any) {
                         
                     ], // Animation keyframes
                     {
-                        duration: (currWidth/4+props.height/4-2)*2000/3, // Duration in ms
+                        duration: (currWidth/4+props.height/4-2)*2000/2, // Duration in ms
                         iterations: Infinity, // Infinite looping
-                        delay: index * -2000/3,
+                        delay: index * -2000/2,
                     }
                 );
             }
