@@ -58,10 +58,10 @@ function Load() {
 
   return (
     <>
-      <div className="w-full h-full p-8 flex flex-col lg:flex-row items-center justify-center">
-        <img id="loaderShadow" src="mechmania.svg"></img>
+      <div className="w-full h-full px-16 py-8 flex flex-col lg:flex-row items-center justify-center">
+        <img id="loaderShadow" className="" src="mechmania.svg"></img>
         <img id="loaderImage" className="absolute brightness-0 invert-[20%] origin-right" src="mechmania.svg"></img>
-        <div style={{ maxWidth: window.innerWidth>=1024 ? '0px' : 'auto', maxHeight: window.innerWidth>=1024 ? 'auto' : '0px' }} className={clsx("box-border w-fit overflow-hidden flex flex-row items-start justify-start", animateClass)}>
+        <div className={clsx("max-h-0 max-w-0 box-border w-fit overflow-hidden flex flex-row items-start justify-start", animateClass)}>
           <div className="pt-8 pl-0 lg:pt-0 lg:pl-16 lg:w-auto flex flex-col items-start justify-center">
             <p className="w-full text-center lg:text-left">May 12 - More Info Coming Soon</p>
             <h1 className="w-full text-center lg:text-left">MechMania</h1>
