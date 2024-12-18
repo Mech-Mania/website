@@ -10,7 +10,6 @@
     position: relative;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    padding-bottom: 10rem;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -24,6 +23,9 @@
 }
 body {
     overflow-x: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 10rem;
 }
 @media (min-width: 1024px) {
     :root {
