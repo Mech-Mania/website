@@ -17,6 +17,9 @@
     justify-content: center;
     text-align: center;
 }
+body {
+    overflow-x: hidden;
+}
 @media (min-width: 1024px) {
     :root {
         text-align: left;
