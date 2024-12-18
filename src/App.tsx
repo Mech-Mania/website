@@ -108,7 +108,7 @@ function App() {
             </div>
           </Gears>
           <Gears dir nopad>
-            <div className="w-[200vw]">
+            <div className="-left-[50vw] w-[200vw]">
               <Carousel/>
             </div>
           </Gears>
