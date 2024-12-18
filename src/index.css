@@ -5,24 +5,55 @@
     background-color: black;
     color: white;
     font-family: 'IBM Plex Mono';
-    overflow: hidden;
-    height: 100vh;
+    overflow-x: hidden;
     z-index: 0;
     position: relative;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding-bottom: 10rem;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+@media (min-width: 1024px) {
+    :root {
+        text-align: left;
+    }
+}
+
+:root::-webkit-scrollbar {
+    display: none;
 }
 
 h1 {
     font-size: 3rem;
     font-weight: 900;
-    @media only screen and (min-width: 768px) {
-        font-size: 4rem;
-    }
 }
 h2 {
     font-size: 2rem;
-    @media only screen and (min-width: 768px) {
-        font-size: 1.5rem;
-    }
+}
+
+p {
+    color: #999;
+}
+
+strong {
+    color: white;
+}
+
+#loaderImage {
+    animation: dooropen 1s ease-out;
+    transform: perspective(40rem) rotateY(90deg);
+    height: 12rem;
+    width: 12rem;
+}
+#loaderShadow {
+    animation: glow 1s ease-out;
+    filter: blur(0px) brightness(0%) invert(100%) opacity(100%);
+    height: 12rem;
+    width: 12rem;
 }
 
 @tailwind utilities;

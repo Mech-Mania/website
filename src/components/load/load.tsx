@@ -58,7 +58,7 @@ function Load() {
 
   return (
     <>
-      <div className="w-full h-full px-16 py-8 flex flex-col lg:flex-row items-center justify-center">
+      <div className="w-screen h-screen bg-black top-0 left-0 z-[100] flex flex-col lg:flex-row items-center justify-center">
         <img id="loaderShadow" className="" src="mechmania.svg"></img>
         <img id="loaderImage" className="absolute brightness-0 invert-[20%] origin-right" src="mechmania.svg"></img>
         <div className={clsx("max-h-0 max-w-0 box-border w-fit overflow-hidden flex flex-row items-start justify-start", animateClass)}>
