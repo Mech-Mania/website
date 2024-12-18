@@ -17,6 +17,11 @@
     justify-content: center;
     text-align: center;
 }
+#root {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
 body {
     overflow-x: hidden;
 }

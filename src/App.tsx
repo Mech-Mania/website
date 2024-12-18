@@ -27,10 +27,11 @@ function App() {
   useEffect(() => {
     setSize([window.innerWidth, window.innerHeight])
     setWidth(window.innerWidth)
-    setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
+    setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 14*parseFloat(getComputedStyle(document.documentElement).fontSize)))
     window.addEventListener("resize", function(){
+      updateMarginTop();
       setSize([window.innerWidth, window.innerHeight])
-      setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
+      setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 14*parseFloat(getComputedStyle(document.documentElement).fontSize)))
     });
     setTimeout(function(){
       updateMarginTop()
