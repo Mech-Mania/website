@@ -21,18 +21,18 @@ function Gears(props: any) {
     const updateDimensions = () => {
         const clientWidth = currRef.current.clientWidth;
         const clientHeight = currRef.current.clientHeight;
-        setContWidth(Math.ceil(clientWidth / getRem() / 2) * 2);
-        setContHeight(Math.ceil(clientHeight / getRem() / 2) * 2);
-        console.log(clientWidth)
-        console.log(clientHeight)
-        setCurrWidth(Math.ceil(clientWidth / getRem() / 2) * 2+'rem')
-        setCurrHeight(Math.ceil(clientHeight / getRem() / 2) * 2+'rem')
+        setContWidth(Math.ceil(clientWidth / getRem() / 8) * 8);
+        setContHeight(Math.ceil(clientHeight / getRem() / 8) * 8);
+        console.log(Math.ceil(clientWidth / getRem() / 8) * 8)
+        console.log(Math.ceil(clientHeight / getRem() / 8) * 8)
+        setCurrWidth(Math.ceil(clientWidth / getRem() / 8) * 8+'rem')
+        setCurrHeight(Math.ceil(clientHeight / getRem() / 8) * 8+'rem')
         setUpdated(prev => prev+1)
     };
 
     const addTeeth = () => {
         const lst = [];
-        for (let i = 0; i < Math.ceil((contWidth + contHeight) / 8) * 2 + 2; i++) {
+        for (let i = 0; i < (contWidth + contHeight) / 4 + 2; i++) {
             lst.push(
                 <div
                     className="absolute w-16 h-16 -z-10"
@@ -72,9 +72,9 @@ function Gears(props: any) {
                         { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(360deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`, offset: 1 },
                     ],
                     {
-                        duration: (Math.ceil((contWidth + contHeight) / 8) * 2 + 2) * 1000,
+                        duration: ((contWidth + contHeight) / 4 + 2) * 1000,
                         iterations: Infinity,
-                        delay: (Math.ceil((contWidth + contHeight) / 8) * 2 + 2) * -2000 + (dir ? 500 : 0) + index * -1000 + (dir ? -1 : 1) * (Math.ceil((contWidth + contHeight) / 8) * 2 + 2) * 1000 * (1.5 * contWidth + 2 * contHeight + 40) / (2 * contWidth + 2 * contHeight + 40),
+                        delay: ((contWidth + contHeight) / 4 + 2) * -2000 + (dir ? 500 : 0) + index * -1000 + (dir ? -1 : 1) * ((contWidth + contHeight) / 4 + 2) * 1000 * (1.5 * contWidth + 2 * contHeight + 40) / (2 * contWidth + 2 * contHeight + 40),
                         direction: dir ? "reverse" : "normal",
                     }
                 );
