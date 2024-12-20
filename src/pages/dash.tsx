@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-
-function Home() {
-  
+function Dash() {
 
     return (
         <>
@@ -11,4 +9,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Dash;

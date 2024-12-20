@@ -6,7 +6,6 @@ import { FaArrowDown } from "react-icons/fa";
 import Carousel from "../components/carousel/carousel";
 import Load from "../components/load/load";
 
-
 function Home() {
     const [marginTop, setMarginTop] = useState(0);
     const divRef = useRef<HTMLDivElement>(null);
@@ -117,7 +116,7 @@ function Home() {
                                 <br/>
                                 {error}
                                 <div className="mt-2 flex flex-col lg:flex-row gap-2 rounded-full p-2 overflow-hidden bg-[#aaa]">
-                                    <input onKeyDown = {(e)=>{handleKeyPress(e)}} value={email} onChange = {(e)=>{setEmail(e.target.value)}} placeholder="Join our emailing list" className="outline-none focus:ring focus:ring-black text-black p-4 rounded-t-full lg:rounded-l-full lg:rounded-r-none grow"></input>
+                                    <input onKeyDown = {(e)=>{handleKeyPress(e)}} value={email} onChange = {(e)=>{setEmail(e.target.value)}} placeholder="Join our emailing list" className="text-center lg:text-left outline-none focus:ring focus:ring-black text-black p-4 rounded-t-full lg:rounded-l-full lg:rounded-r-none grow"></input>
                                     <button onClick = {()=>{submit(email)}} className="text-black p-4 rounded-b-full lg:rounded-l-none lg:rounded-r-full bg-white outline-none focus:ring focus:ring-black">
                                         Submit
                                     </button>
