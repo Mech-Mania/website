@@ -26,7 +26,12 @@ function Home() {
         }
     };
 
+    var myBool = true
     useEffect(() => {
+        if (myBool){
+            newVisit()
+            myBool = false
+        }
         setSize([window.innerWidth, window.innerHeight])
         setWidth(window.innerWidth)
         setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
@@ -49,6 +54,20 @@ function Home() {
             }
         }
     };
+
+    const newVisit = async() => {
+        const response = await fetch('api/incrementVisits.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+      
+        if (!response.ok) {
+            throw new Error('Failed to increment visits');
+        }
+        const data = await response.json();
+    }
 
     const submit = async (str: string) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
