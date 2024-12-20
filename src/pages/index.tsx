@@ -56,7 +56,7 @@ function Home() {
     };
 
     const newVisit = async() => {
-        const response = await fetch('api/incrementVisits.js', {
+        const response = await fetch('api/visits.js', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
