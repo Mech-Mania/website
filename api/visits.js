@@ -16,11 +16,6 @@ const app = initializeApp({
 const db = getFirestore(app);
 
 export default async function handler(req, res) {
-    const allowedOrigin = ["https://wcim-app-v2.vercel.app", "https://wcimap.vercel.app"]; // Add development URLs if needed
-    const origin = req.headers.origin;
-    if (!allowedOrigin.includes(origin)) {
-        return res.status(403).json({ error: "Unauthorized request" });
-    }
     // Verify request origin
 
     if (req.method != 'POST') {
