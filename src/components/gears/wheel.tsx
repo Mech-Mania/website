@@ -29,10 +29,9 @@ function Wheel(props: any) {
         for (let i = 0; i < 6; i++) {
             lst.push(
                 <div
-                    className="absolute w-16 h-16 -z-10"
+                    className="absolute w-16 h-16 -z-10 pointer-events-none"
                     key={i}
                     ref={(el) => (teethRefs.current[i] = el)} // Save the reference
-                    onClick={()=>{console.log(i)}}
                 >
                     <Tooth />
                 </div>

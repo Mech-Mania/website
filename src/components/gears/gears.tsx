@@ -23,8 +23,6 @@ function Gears(props: any) {
         const clientHeight = currRef.current.clientHeight;
         setContWidth(Math.ceil(clientWidth / getRem() / 8) * 8);
         setContHeight(Math.ceil(clientHeight / getRem() / 8) * 8);
-        console.log(Math.ceil(clientWidth / getRem() / 8) * 8)
-        console.log(Math.ceil(clientHeight / getRem() / 8) * 8)
         setCurrWidth(Math.ceil(clientWidth / getRem() / 8) * 8+'rem')
         setCurrHeight(Math.ceil(clientHeight / getRem() / 8) * 8+'rem')
         setUpdated(prev => prev+1)
@@ -35,7 +33,7 @@ function Gears(props: any) {
         for (let i = 0; i < (contWidth + contHeight) / 4 + 2; i++) {
             lst.push(
                 <div
-                    className="absolute w-16 h-16 -z-10"
+                    className="absolute w-16 h-16 -z-10 pointer-events-none"
                     key={i}
                     ref={(el) => (teethRefs.current[i] = el)} // Save the reference
                 >
