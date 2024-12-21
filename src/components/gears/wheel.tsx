@@ -108,7 +108,7 @@ function Wheel(props: any) {
             className="z-50 relative bg-black box-content border-[#444] rounded-full border-[16px] border-solid"
         >
             <div
-                className="z-50 bg-clip-padding relative outline-[#444] box-border rounded-full bg-black outline-[8px] outline outline-[#444] w-32 h-32 flex items-center justify-center"
+                className="overflow-hidden z-50 bg-clip-padding relative outline-[#444] box-border rounded-full bg-black outline-[8px] outline outline-[#444] w-32 h-32 flex items-center justify-center"
             >
                 {props.children}
             </div>

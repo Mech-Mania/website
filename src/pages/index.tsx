@@ -5,6 +5,7 @@ import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
 import Carousel from "../components/carousel/carousel";
 import Load from "../components/load/load";
+import Team from "../components/team/team";
 
 function Home() {
     const [marginTop, setMarginTop] = useState(0);
@@ -15,6 +16,7 @@ function Home() {
     const [error, setError] = useState(<></>)
     const scrollRef = useRef<HTMLDivElement>(null);
     const sponsorRef = useRef<HTMLDivElement>(null);
+    const teamRef = useRef<HTMLDivElement>(null);
 
     const updateMarginTop = () => {
         if (window.innerHeight!=size[1]){
@@ -37,6 +39,77 @@ function Home() {
         setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
         window.addEventListener("resize", function(){
             updateMarginTop();
+            if (window.innerWidth>=1024){
+                setTeam(
+                    <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
+                        <div className="items-center justify-center flex flex-row gap-16">
+                            <Wheel>
+                                <Team src="/loukas.png"/>
+                            </Wheel>
+                            <Wheel dir>
+                                <Team src="/gavin.png"/>
+                            </Wheel>
+                            <Wheel>
+                                <Team src="/mylan.png"/>
+                            </Wheel>
+                            <Wheel dir>
+                                <Team src="/amit.png"/>
+                            </Wheel>
+                        </div>
+                        <div className="items-center justify-center flex flex-row gap-16">
+                            <Wheel dir>
+                                <Team src="/taran.png"/>
+                            </Wheel>
+                            <Wheel>
+                                <Team src="/william.png"/>
+                            </Wheel>
+                            <Wheel dir>
+                                <Team src="/daniel.png"/>
+                            </Wheel>
+                            <Wheel>
+                                <Team src="/derek.png"/>
+                            </Wheel>
+                        </div>
+                    </div>
+                )
+            } else {
+                setTeam(
+                    <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
+                        <div className="items-center justify-center flex flex-row gap-16">
+                            <Wheel>
+                                <Team src="/loukas.png"/>
+                            </Wheel>
+                            <Wheel dir>
+                                <Team src="/gavin.png"/>
+                            </Wheel>
+                        </div>
+                        <div className="items-center justify-center flex flex-row gap-16">
+                            <Wheel dir>
+                                <Team src="/mylan.png"/>
+                            </Wheel>
+                            <Wheel>
+                                <Team src="/amit.png"/>
+                            </Wheel>
+                        </div>
+                        <div className="items-center justify-center flex flex-row gap-16">
+                            <Wheel>
+                                <Team src="/taran.png"/>
+                            </Wheel>
+                            <Wheel dir>
+                                <Team src="/william.png"/>
+                            </Wheel>
+                        </div>
+                        <div className="items-center justify-center flex flex-row gap-16">
+                            <Wheel dir>
+                                <Team src="/daniel.png"/>
+                            </Wheel>
+                            <Wheel>
+                                <Team src="/derek.png"/>
+                            </Wheel>
+                        </div>
+                    </div>
+                )
+            }
             setSize([window.innerWidth, window.innerHeight])
             setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
         });
@@ -100,6 +173,75 @@ function Home() {
         }
     }
 
+    const [team, setTeam] = useState(
+        window.innerWidth>=1024 ? 
+        <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
+            <div className="items-center justify-center flex flex-row gap-16">
+                <Wheel>
+                    <Team src="/loukas.png"/>
+                </Wheel>
+                <Wheel dir>
+                    <Team src="/gavin.png"/>
+                </Wheel>
+                <Wheel>
+                    <Team src="/mylan.png"/>
+                </Wheel>
+                <Wheel dir>
+                    <Team src="/amit.png"/>
+                </Wheel>
+            </div>
+            <div className="items-center justify-center flex flex-row gap-16">
+                <Wheel dir>
+                    <Team src="/taran.png"/>
+                </Wheel>
+                <Wheel>
+                    <Team src="/william.png"/>
+                </Wheel>
+                <Wheel dir>
+                    <Team src="/daniel.png"/>
+                </Wheel>
+                <Wheel>
+                    <Team src="/derek.png"/>
+                </Wheel>
+            </div>
+        </div>
+        :
+        <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
+            <div className="items-center justify-center flex flex-row gap-16">
+                <Wheel>
+                    <Team src="/loukas.png"/>
+                </Wheel>
+                <Wheel dir>
+                    <Team src="/gavin.png"/>
+                </Wheel>
+            </div>
+            <div className="items-center justify-center flex flex-row gap-16">
+                <Wheel dir>
+                    <Team src="/mylan.png"/>
+                </Wheel>
+                <Wheel>
+                    <Team src="/amit.png"/>
+                </Wheel>
+            </div>
+            <div className="items-center justify-center flex flex-row gap-16">
+                <Wheel>
+                    <Team src="/taran.png"/>
+                </Wheel>
+                <Wheel dir>
+                    <Team src="/william.png"/>
+                </Wheel>
+            </div>
+            <div className="items-center justify-center flex flex-row gap-16">
+                <Wheel dir>
+                    <Team src="/daniel.png"/>
+                </Wheel>
+                <Wheel>
+                    <Team src="/derek.png"/>
+                </Wheel>
+            </div>
+        </div>
+    )
+
     return (
         <>
             <div className="w-screen h-screen fixed top-0 left-0 loaded z-[100] animate-loaded pointer-events-none"><Load/></div>
@@ -139,6 +281,28 @@ function Home() {
                                     <button onClick = {()=>{submit(email)}} className="text-black p-4 rounded-b-full lg:rounded-l-none lg:rounded-r-full bg-white outline-none focus:ring focus:ring-black">
                                         Submit
                                     </button>
+                                </div>
+                                <br/>
+                                <hr/>
+                                <br/>
+                                <h2>2024 in review:</h2>
+                                <br/>
+                                <div className="flex flex-row flex-wrap gap-4">
+                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
+                                        <h2 className="text-black">5 schools</h2>
+                                    </div>
+                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
+                                        <h2 className="text-black">5 hours</h2>
+                                    </div>
+                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
+                                        <h2 className="text-black">7 teams</h2>
+                                    </div>
+                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
+                                        <h2 className="text-black">80+ students</h2>
+                                    </div>
+                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
+                                        <h2 className="text-black">$0 entry fee</h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +395,7 @@ function Home() {
                                 <div className="flex flex-col">
                                     <h2>Support us</h2>
                                     <br/>
-                                    <p>MechMania relies on <strong>generous sponsors</strong> to provide a life-changing experience to <strong>hundreds of students</strong>. By sponsoring, you'll gain access to <strong>significant marketing opportunity</strong>.</p>
+                                    <p>Sponsoring MechMania is your chance to directly <strong>support local students and their growth in robotics</strong>. Your contribution helps <strong>make our competition accessible</strong> by providing students with <strong>resources, hands on challenges, and workshops</strong> to build their skills. This is more than just a competition; it’s <strong>an opportunity to empower young innovators from all backgrounds</strong>. By sponsoring, you will gain <strong>visibility in the Waterloo Region’s tech and education community</strong>, showing your commitment to supporting the next generation. <strong className="underline">Together, we can make a real impact</strong>.</p>
                                     <br/>
                                     <hr/>
                                     <br/>
@@ -246,6 +410,51 @@ function Home() {
                                     </div>
                                     <br/>
                                     <p>Interested? Email us at <a href="mailto:organizers@mechmania.ca" className="underline text-white">organizers@mechmania.ca</a>.</p>
+                                </div>
+                            </div>
+                        </Gears>
+                    </div>
+                    <div className="flex flex-col gap-16 w-full items-center justify-center">
+                        <Gears>
+                            <div className="w-full cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
+                                <div className="flex flex-col w-full">
+                                    <h2>FAQ</h2>
+                                    <br/>
+                                    <h3>Who can attend?</h3>
+                                    <hr className="my-2"/>
+                                    <p>Anybody in middle or high school! We welcome all skill levels, with workshops to help kickstart beginners.</p>
+                                    <br/>
+                                    <h3>Must I bring my own parts?</h3>
+                                    <hr className="my-2"/>
+                                    <p>Nope! Mechmania provides parts and access to 3d printers, so all teams start on a level playing field.</p>
+                                    <br/>
+                                    <h3>Is there a cost to attend?</h3>
+                                    <hr className="my-2"/>
+                                    <p>While robotics competitions, are expensive, we're committed to delivering an affordable experience. Last year, we we're able to make MechMania free; this year, we're looking to do the same.</p>
+                                    <br/>
+                                    <h3>Is there a school or team member limit?</h3>
+                                    <hr className="my-2"/>
+                                    <p>We recommend teams range in size from 5 to 10 people. A school can bring as many teams as they wish.</p>
+                                </div>
+                            </div>
+                        </Gears>
+                    </div>
+                    <Wheel dir>
+                        <div className="animate-bounce pt-4 cursor-pointer" onClick={()=>{scrollClick(null)}}>
+                            <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
+                                <FaArrowDown/>
+                            </IconContext.Provider>
+                        </div>
+                    </Wheel>
+                    <div className="flex flex-col gap-16 w-full items-center justify-center" ref={teamRef}>
+                        <Gears>
+                            <div className="items-center justify-center w-full cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
+                                <div className="flex flex-col w-full">
+                                    <h2>Meet our team!</h2>
+                                    <br/>
+                                    <div className="h-16"/>
+                                    {team}
+                                    <div className="h-16"/>
                                 </div>
                             </div>
                         </Gears>
