@@ -26,9 +26,9 @@ function Dash() {
         if (data.message=="Success"){
             setEmails(data.emails)
             setVisits(data.visits)
+            setDisplayPW('none')
         }
         setPW('')
-        setDisplayPW('none')
     }
     const handleKeyPress = (event:any) => {
         if (event){
