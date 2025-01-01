@@ -52,7 +52,7 @@ function Dash() {
                         Submit
                     </button>
                 </div>
-                <div className="flex w-full flex-col gap-8 items-center justify-center grow">
+                <div className="flex w-full flex-col gap-8 items-center justify-center grow gap-4 p-8">
                     <div className="flex w-full flex-col border-8 border-solid border-[#444]">
                         <div className="w-full p-4 gap-8 flex flex-row items-center justify-center">
                             <h3 className="grow">{"Emails: "+emails.length}</h3>
