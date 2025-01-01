@@ -44,30 +44,30 @@ function Home() {
                     <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
                         <div className="items-center justify-center flex flex-row gap-16">
                             <Wheel>
-                                <Team src="/loukas.png"/>
+                                <Team name="Loukas Juritsch" src="/loukas.png"/>
                             </Wheel>
                             <Wheel dir>
-                                <Team src="/gavin.png"/>
+                                <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
                             </Wheel>
                             <Wheel>
-                                <Team src="/mylan.png"/>
+                                <Team name="My Lan Tight" src="/mylan.png"/>
                             </Wheel>
                             <Wheel dir>
-                                <Team src="/amit.png"/>
+                                <Team name="Amit Weis" src="/amit.png"/>
                             </Wheel>
                         </div>
                         <div className="items-center justify-center flex flex-row gap-16">
                             <Wheel dir>
-                                <Team src="/taran.png"/>
+                                <Team name="Taran Flora" src="/taran.png"/>
                             </Wheel>
                             <Wheel>
-                                <Team src="/william.png"/>
+                                <Team name="William Babapulle" src="/william.png"/>
                             </Wheel>
                             <Wheel dir>
-                                <Team src="/daniel.png"/>
+                                <Team name="Daniel Li" src="/daniel.png"/>
                             </Wheel>
                             <Wheel>
-                                <Team src="/derek.png"/>
+                                <Team name="Derek Gou" src="/derek.png"/>
                             </Wheel>
                         </div>
                     </div>
@@ -77,34 +77,34 @@ function Home() {
                     <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
                         <div className="items-center justify-center flex flex-row gap-16">
                             <Wheel>
-                                <Team src="/loukas.png"/>
+                                <Team name="Loukas Juritsch" src="/loukas.png"/>
                             </Wheel>
                             <Wheel dir>
-                                <Team src="/gavin.png"/>
+                                <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
                             </Wheel>
                         </div>
                         <div className="items-center justify-center flex flex-row gap-16">
                             <Wheel dir>
-                                <Team src="/mylan.png"/>
+                                <Team name="My Lan Tight" src="/mylan.png"/>
                             </Wheel>
                             <Wheel>
-                                <Team src="/amit.png"/>
+                                <Team name="Amit Weis" src="/amit.png"/>
                             </Wheel>
                         </div>
                         <div className="items-center justify-center flex flex-row gap-16">
                             <Wheel>
-                                <Team src="/taran.png"/>
+                                <Team name="Taran Flora" src="/taran.png"/>
                             </Wheel>
                             <Wheel dir>
-                                <Team src="/william.png"/>
+                                <Team name="William Babapulle" src="/william.png"/>
                             </Wheel>
                         </div>
                         <div className="items-center justify-center flex flex-row gap-16">
                             <Wheel dir>
-                                <Team src="/daniel.png"/>
+                                <Team name="Daniel Li" src="/daniel.png"/>
                             </Wheel>
                             <Wheel>
-                                <Team src="/derek.png"/>
+                                <Team name="Derek Gou" src="/derek.png"/>
                             </Wheel>
                         </div>
                     </div>
@@ -178,30 +178,30 @@ function Home() {
         <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel>
-                    <Team src="/loukas.png"/>
+                    <Team name="Loukas Juritsch" src="/loukas.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Team src="/gavin.png"/>
+                    <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
                 </Wheel>
                 <Wheel>
-                    <Team src="/mylan.png"/>
+                    <Team name="My Lan Tight" src="/mylan.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Team src="/amit.png"/>
+                    <Team name="Amit Weis" src="/amit.png"/>
                 </Wheel>
             </div>
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel dir>
-                    <Team src="/taran.png"/>
+                    <Team name="Taran Flora" src="/taran.png"/>
                 </Wheel>
                 <Wheel>
-                    <Team src="/william.png"/>
+                    <Team name="William Babapulle" src="/william.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Team src="/daniel.png"/>
+                    <Team name="Daniel Li" src="/daniel.png"/>
                 </Wheel>
                 <Wheel>
-                    <Team src="/derek.png"/>
+                    <Team name="Derek Gou" src="/derek.png"/>
                 </Wheel>
             </div>
         </div>
@@ -209,34 +209,34 @@ function Home() {
         <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel>
-                    <Team src="/loukas.png"/>
+                    <Team name="Loukas Juritsch" src="/loukas.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Team src="/gavin.png"/>
+                    <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
                 </Wheel>
             </div>
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel dir>
-                    <Team src="/mylan.png"/>
+                    <Team name="My Lan Tight" src="/mylan.png"/>
                 </Wheel>
                 <Wheel>
-                    <Team src="/amit.png"/>
+                    <Team name="Amit Weis" src="/amit.png"/>
                 </Wheel>
             </div>
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel>
-                    <Team src="/taran.png"/>
+                    <Team name="Taran Flora" src="/taran.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Team src="/william.png"/>
+                    <Team name="William Babapulle" src="/william.png"/>
                 </Wheel>
             </div>
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel dir>
-                    <Team src="/daniel.png"/>
+                    <Team name="Daniel Li" src="/daniel.png"/>
                 </Wheel>
                 <Wheel>
-                    <Team src="/derek.png"/>
+                    <Team name="Derek Gou" src="/derek.png"/>
                 </Wheel>
             </div>
         </div>
@@ -459,6 +459,9 @@ function Home() {
                             </div>
                         </Gears>
                     </div>
+                </div>
+                <div className="my-20">
+                    <p>Made with love by <a href="https://derekgou.github.io" target="_blank">Derek Gou</a></p>
                 </div>
             </div>
         </>

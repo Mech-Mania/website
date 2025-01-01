@@ -13,7 +13,6 @@ const app = initializeApp({
   }),
 });
 
-
 const db = getFirestore(app);
 
 export default async function handler(req, res) {

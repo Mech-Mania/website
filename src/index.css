@@ -26,7 +26,6 @@ body {
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
-    padding-bottom: 10rem;
 }
 @media (min-width: 1024px) {
     :root {
@@ -51,6 +50,7 @@ h3 {
 
 p {
     color: #999;
+    font-weight: 500;
 }
 
 strong {
