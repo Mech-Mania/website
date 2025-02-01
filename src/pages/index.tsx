@@ -6,6 +6,7 @@ import { FaArrowDown } from "react-icons/fa";
 import Carousel from "../components/carousel/carousel";
 import Load from "../components/load/load";
 import Team from "../components/team/team";
+import Stats from "../components/stats/stats";
 
 function Home() {
     const [marginTop, setMarginTop] = useState(0);
@@ -116,6 +117,11 @@ function Home() {
         setTimeout(function(){
             updateMarginTop()
             window.scrollTo(0, 0)
+            document.body.style.overflow = 'hidden';
+
+            setTimeout(() => {
+                document.body.style.overflow = '';
+            }, 500);
         }, 1000)
     }, []);
 
@@ -285,25 +291,7 @@ function Home() {
                                 <br/>
                                 <hr/>
                                 <br/>
-                                <h2>2024 in review:</h2>
-                                <br/>
-                                <div className="flex flex-row flex-wrap gap-4">
-                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
-                                        <h2 className="text-black">5 schools</h2>
-                                    </div>
-                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
-                                        <h2 className="text-black">5 hours</h2>
-                                    </div>
-                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
-                                        <h2 className="text-black">7 teams</h2>
-                                    </div>
-                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
-                                        <h2 className="text-black">80+ students</h2>
-                                    </div>
-                                    <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
-                                        <h2 className="text-black">$0 entry fee</h2>
-                                    </div>
-                                </div>
+                                <Stats/>
                             </div>
                         </div>
                     </Gears>
@@ -312,76 +300,6 @@ function Home() {
                             <Carousel/>
                         </div>
                     </Gears>
-                    <Wheel>
-                        <div className="animate-bounce pt-4 cursor-pointer" onClick={()=>{scrollClick(sponsorRef)}}>
-                            <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
-                                <FaArrowDown/>
-                            </IconContext.Provider>
-                        </div>
-                    </Wheel>
-                    <div className="flex flex-row gap-16">
-                        <Wheel>
-                            <div className="flex flex-col items-center justify-center">
-                                <h2>3</h2>
-                                <p>challenges</p>
-                            </div>
-                        </Wheel>
-                        <Wheel dir>
-                            <div className="flex flex-col items-center justify-center">
-                                <h2>12</h2>
-                                <p>schools</p>
-                            </div>
-                        </Wheel>
-                        <Wheel>
-                            <div className="animate-bounce pt-4 cursor-pointer" onClick={()=>{scrollClick(sponsorRef)}}>
-                                <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
-                                    <FaArrowDown/>
-                                </IconContext.Provider>
-                            </div>
-                        </Wheel>
-                    </div>
-                    <div className="flex flex-row gap-16">
-                        <Wheel dir>
-                            <div className="flex flex-col items-center justify-center">
-                                <h2>$10</h2>
-                                <p>a person</p>
-                            </div>
-                        </Wheel>
-                        <Wheel>
-                            <div className="flex flex-col items-center justify-center">
-                                <h2>8</h2>
-                                <p>hours</p>
-                            </div>
-                        </Wheel>
-                        <Wheel dir>
-                            <div className="animate-bounce pt-4 cursor-pointer" onClick={()=>{scrollClick(sponsorRef)}}>
-                                <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
-                                    <FaArrowDown/>
-                                </IconContext.Provider>
-                            </div>
-                        </Wheel>
-                    </div>
-                    <div className="flex flex-row gap-16">
-                        <Wheel>
-                            <div className="animate-bounce pt-4 cursor-pointer" onClick={()=>{scrollClick(sponsorRef)}}>
-                                <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
-                                    <FaArrowDown/>
-                                </IconContext.Provider>
-                            </div>
-                        </Wheel>
-                        <Wheel dir>
-                            <div className="flex flex-col items-center justify-center">
-                                <h2>120</h2>
-                                <p>students</p>
-                            </div>
-                        </Wheel>
-                        <Wheel>
-                            <div className="flex flex-col items-center justify-center">
-                                <h2>1</h2>
-                                <p>champion</p>
-                            </div>
-                        </Wheel>
-                    </div>
                     <Wheel>
                         <div className="animate-bounce pt-4 cursor-pointer" onClick={()=>{scrollClick(sponsorRef)}}>
                             <IconContext.Provider value={{ color: "#999", size: "4rem" }}>

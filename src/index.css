@@ -26,6 +26,7 @@ body {
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    height: 100vh;
 }
 @media (min-width: 1024px) {
     :root {
@@ -71,6 +72,12 @@ strong {
 }
 .cont {
     max-width: 95vw !important;
+}
+.pentagon-left {
+    clip-path: polygon(0% 50%, 10% 0%, 100% 0%, 100% 100%, 10% 100%);
+}
+.pentagon-right {
+    clip-path: polygon(100% 50%, 90% 0%, 0% 0%, 0% 100%, 90% 100%);
 }
 
 @tailwind utilities;
