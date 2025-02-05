@@ -114,13 +114,12 @@ function Home() {
             setSize([window.innerWidth, window.innerHeight])
             setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
         });
+        document.body.style.overflow = 'hidden';
         setTimeout(function(){
             updateMarginTop()
             window.scrollTo(0, 0)
-            document.body.style.overflow = 'hidden';
             setTimeout(() => {
                 document.body.style.overflow = '';
-                window.scrollTo(0, 0)
             }, 500);
         }, 1000)
     }, []);
