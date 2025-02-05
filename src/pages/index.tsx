@@ -118,9 +118,9 @@ function Home() {
             updateMarginTop()
             window.scrollTo(0, 0)
             document.body.style.overflow = 'hidden';
-
             setTimeout(() => {
                 document.body.style.overflow = '';
+                window.scrollTo(0, 0)
             }, 500);
         }, 1000)
     }, []);
