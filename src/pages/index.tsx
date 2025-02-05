@@ -120,7 +120,7 @@ function Home() {
             window.scrollTo(0, 0)
             setTimeout(() => {
                 document.body.style.overflow = '';
-            }, 500);
+            }, 1500);
         }, 1000)
     }, []);
 
