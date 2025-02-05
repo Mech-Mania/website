@@ -357,7 +357,7 @@ function Home() {
                         </Gears>
                     </div>
                     <Wheel dir>
-                        <div className="animate-bounce pt-4 cursor-pointer" onClick={()=>{scrollClick(null)}}>
+                        <div className="animate-bounce pt-4 cursor-pointer" onClick={()=>{scrollClick(teamRef)}}>
                             <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
                                 <FaArrowDown/>
                             </IconContext.Provider>

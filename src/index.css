@@ -21,12 +21,14 @@
     display: flex !important;
     align-items: center;
     justify-content: center;
+    scroll-behavior: smooth;
 }
 body {
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
     height: 100vh;
+    scroll-behavior: smooth;
 }
 @media (min-width: 1024px) {
     :root {
