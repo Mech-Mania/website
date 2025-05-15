@@ -378,7 +378,7 @@ function Home() {
                     </div>
                 </div>
                 <div className="my-20">
-                    <p>Made with love by <a href="https://derekgou.github.io" target="_blank">Derek Gou</a></p>
+                    <p>Made by <a href="https://derekgou.com" target="_blank">Derek Gou</a></p>
                 </div>
             </div>
         </>
