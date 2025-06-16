@@ -31,7 +31,13 @@ export default async function handler(req, res) {
         transaction.set(docRef, { val: [req.body] });
       } else {
         const currentVal = doc?.data()?.val || [];
-        transaction.update(docRef, { val: [...currentVal, req.body] });
+
+        if (!currentVal.includes(req.body)){ // To stop repeat emails
+          transaction.update(docRef, { val: [...currentVal, req.body] });
+        } else {
+          return res.stats(409).json({error: "Email already in use"})
+        }
+
       }
     });
 
