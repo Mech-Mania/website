@@ -9,7 +9,6 @@ const members = [
     'Taran Flora',
     'William Babapulle',
     'Daniel Li',
-    'Derek Gou'
 ]
 const wideDisplay = 4; // Amount of members shown in each row
 const smallDisplay = 2;
@@ -43,7 +42,7 @@ function Team(props:any) {
                 {members.slice(index*4,(members.length+1 > index*4+4) ? index*4+4: members.length+1).map((member, loc_index) => (
 
                         <div>
-                            {create_member(loc_index, member)}
+                            {create_member(index+loc_index, member)}
                         </div>
                 ))}
                 </div>
