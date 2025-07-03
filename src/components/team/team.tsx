@@ -18,6 +18,20 @@ const smallDisplay = 2;
 //0 4 
 //
 
+function create_member(index:number, member:string){
+
+    return (
+        index % 2 == 0 ?
+        <Wheel>
+           <Member name={member} src={'/' + member.split(' ')[0] + '.png'}/>
+        </Wheel>
+        :
+        <Wheel dir>
+           <Member name={member} src={'/' + member.split(' ')[0] + '.png'}/>
+        </Wheel>
+    )
+}
+
 function Team(props:any) {
     
     return (
@@ -26,18 +40,11 @@ function Team(props:any) {
         <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
             {[...Array(Math.ceil(members.length/wideDisplay)).keys()].map((e,index)=>(
                 <div className="items-center justify-center flex flex-row gap-16">
-                {members.slice(index*4,(members.length+1 > index*4+4) ? index*4+4: members.length+1).map((member, index) => (
-                        // <li key={index}
-                        //     style={{
-                        //         marginBottom: '10px',
-                        //         color: 'blue',
-                        //         cursor: 'pointer'
-                        //     }}>
-                        //     Number {number}-
-                        // </li>
-                        <Wheel>
-                            <Member name={member} src={'/' + member.split(' ')[0] + '.png'}/>
-                        </Wheel>
+                {members.slice(index*4,(members.length+1 > index*4+4) ? index*4+4: members.length+1).map((member, loc_index) => (
+
+                        <div>
+                            {create_member(loc_index, member)}
+                        </div>
                 ))}
                 </div>
             ))}
