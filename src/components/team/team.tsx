@@ -14,7 +14,9 @@ const members = [
 const wideDisplay = 4; // Amount of members shown in each row
 const smallDisplay = 2;
 
-
+//2
+//0 4 
+//
 
 function Team(props:any) {
     
@@ -24,14 +26,14 @@ function Team(props:any) {
         <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
             {[...Array(Math.ceil(members.length/wideDisplay)).keys()].map((e,index)=>(
                 <div className="items-center justify-center flex flex-row gap-16">
-                {members.slice(index*4-1,(members.length+1 > index*4+4) ? index*4+4: members.length+1).map((member, index) => (
+                {members.slice(index*4,(members.length+1 > index*4+4) ? index*4+4: members.length+1).map((member, index) => (
                         // <li key={index}
                         //     style={{
                         //         marginBottom: '10px',
                         //         color: 'blue',
                         //         cursor: 'pointer'
                         //     }}>
-                        //     Number {number}
+                        //     Number {number}-
                         // </li>
                         <Wheel>
                             <Member name={member} src={'/' + member.split(' ')[0] + '.png'}/>
