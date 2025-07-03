@@ -9,6 +9,7 @@ const members = [
     'Taran Flora',
     'William Babapulle',
     'Daniel Li',
+    'Derek Gou'
 ]
 const wideDisplay = 4; // Amount of members shown in each row
 const smallDispaly = 2;
@@ -21,7 +22,7 @@ function Team(props:any) {
         window.innerWidth >= 1024 ? 
         <>
         <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
-            {members.map((member, index) => (
+            {/* {members.map((member, index) => (
                     // <li key={index}
                     //     style={{
                     //         marginBottom: '10px',
@@ -33,8 +34,8 @@ function Team(props:any) {
                     <Wheel>
                         <Member name={member} src={'/' + member.split(' ')[0] + '.png'}/>
                     </Wheel>
-            ))}
-            {/* <div className="items-center justify-center flex flex-row gap-16">
+            ))} */}
+            <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel>
                     <Member name="Loukas Juritsch" src="/loukas.png"/>
                 </Wheel>
@@ -61,7 +62,7 @@ function Team(props:any) {
                 <Wheel>
                     <Member name="Alexander" src="/Alexander.png"/>
                 </Wheel>
-            </div> */}
+            </div>
         </div>
 
         </>
