@@ -40,77 +40,6 @@ function Home() {
         setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
         window.addEventListener("resize", function(){
             updateMarginTop();
-            if (window.innerWidth>=1024){
-                setTeam(
-                    <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel>
-                                <Team name="Loukas Juritsch" src="/loukas.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="My Lan Tight" src="/mylan.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="Amit Weis" src="/amit.png"/>
-                            </Wheel>
-                        </div>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel dir>
-                                <Team name="Taran Flora" src="/taran.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="William Babapulle" src="/william.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="Daniel Li" src="/daniel.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="Derek Gou" src="/derek.png"/>
-                            </Wheel>
-                        </div>
-                    </div>
-                )
-            } else {
-                setTeam(
-                    <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel>
-                                <Team name="Loukas Juritsch" src="/loukas.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
-                            </Wheel>
-                        </div>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel dir>
-                                <Team name="My Lan Tight" src="/mylan.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="Amit Weis" src="/amit.png"/>
-                            </Wheel>
-                        </div>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel>
-                                <Team name="Taran Flora" src="/taran.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="William Babapulle" src="/william.png"/>
-                            </Wheel>
-                        </div>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel dir>
-                                <Team name="Daniel Li" src="/daniel.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="Derek Gou" src="/derek.png"/>
-                            </Wheel>
-                        </div>
-                    </div>
-                )
-            }
             setSize([window.innerWidth, window.innerHeight])
             setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
         });
@@ -178,74 +107,6 @@ function Home() {
         }
     }
 
-    const [team, setTeam] = useState(
-        window.innerWidth>=1024 ? 
-        <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel>
-                    <Team name="Loukas Juritsch" src="/loukas.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="My Lan Tight" src="/mylan.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="Amit Weis" src="/amit.png"/>
-                </Wheel>
-            </div>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel dir>
-                    <Team name="Taran Flora" src="/taran.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="William Babapulle" src="/william.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="Daniel Li" src="/daniel.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="Derek Gou" src="/derek.png"/>
-                </Wheel>
-            </div>
-        </div>
-        :
-        <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel>
-                    <Team name="Loukas Juritsch" src="/loukas.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
-                </Wheel>
-            </div>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel dir>
-                    <Team name="My Lan Tight" src="/mylan.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="Amit Weis" src="/amit.png"/>
-                </Wheel>
-            </div>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel>
-                    <Team name="Taran Flora" src="/taran.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="William Babapulle" src="/william.png"/>
-                </Wheel>
-            </div>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel dir>
-                    <Team name="Daniel Li" src="/daniel.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="Derek Gou" src="/derek.png"/>
-                </Wheel>
-            </div>
-        </div>
-    )
 
     return (
         <>
@@ -370,7 +231,7 @@ function Home() {
                                     <h2>Meet our team!</h2>
                                     <br/>
                                     <div className="h-16"/>
-                                    {team}
+                                        <Team/>
                                     <div className="h-16"/>
                                 </div>
                             </div>
