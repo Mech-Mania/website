@@ -37,30 +37,30 @@ function Team(props:any) {
             ))} */}
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel>
-                    <Member name="Loukas Juritsch" src="/Loukas.png"/>
+                    <Member name="Loukas Juritsch" src="/loukas.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Member name="Gavin William Lyle Heatherington" src="/Gavin.png"/>
+                    <Member name="Gavin William Lyle Heatherington" src="/gavin.png"/>
                 </Wheel>
                 <Wheel>
-                    <Member name="My Lan Tight" src="/My.png"/>
+                    <Member name="My Lan Tight" src="/my.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Member name="Amit Weis" src="/Amit.png"/>
+                    <Member name="Amit Weis" src="/amit.png"/>
                 </Wheel>
             </div>
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel dir>
-                    <Member name="Taran Flora" src="/Taran.png"/>
+                    <Member name="Taran Flora" src="/taran.png"/>
                 </Wheel>
                 <Wheel>
-                    <Member name="William Babapulle" src="/William.png"/>
+                    <Member name="William Babapulle" src="/william.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Member name="Daniel Li" src="/Daniel.png"/>
+                    <Member name="Daniel Li" src="/daniel.png"/>
                 </Wheel>
                 <Wheel>
-                    <Member name="Derek Gou" src="/Derek.png"/>
+                    <Member name="Derek Gou" src="/derek.png"/>
                 </Wheel>
             </div>
         </div>
@@ -81,7 +81,7 @@ function Team(props:any) {
             </div>
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel dir>
-                    <Member name="My Lan Tight" src="/mylan.png"/>
+                    <Member name="My Lan Tight" src="/my.png"/>
                 </Wheel>
                 <Wheel>
                     <Member name="Amit Weis" src="/amit.png"/>
