@@ -2,13 +2,17 @@ import Member from './member';
 import Wheel from '../gears/wheel';
 
 const members = [
-    'Loukas Juritsch',
     'Gavin William Lyle Heatherington',
     'My Lan Tight',
-    'Amit Weis',
     'Taran Flora',
-    'William Babapulle',
-    'Daniel Li',
+    'Daniel Li', 
+    'Alexander Edwards',
+    'Yusef Soror',
+    'Junpei Ariizumi',
+    'Vivienne Hardy',
+    'Ali Bagheri',
+    'Victor Jiao',
+    'Suvethan Ravichandran',
 ]
 const wideDisplay = 4; // Amount of members shown in each row
 const smallDisplay = 2;
@@ -29,16 +33,17 @@ function create_member(index:number, member:string){
 }
 
 function Team(props:any) {
+    // Takes members and automatically finds their images and positions them
     let per_row_count:number = (window.innerWidth >= 1024) ? wideDisplay : smallDisplay
     return (
         <>
         <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
             {[...Array(Math.ceil(members.length/per_row_count)).keys()].map((e,index)=>(
-                <div className="items-center flex flex-row gap-16">
+                <div className="items-center flex flex-row gap-16" key={index}>
                 
                 {members.slice(index*per_row_count,(members.length+1 > index*per_row_count+per_row_count) ? index*per_row_count+per_row_count: members.length+1).map((member, loc_index) => (
 
-                        <div>
+                        <div key={loc_index}>
                             {create_member(index+loc_index, member)}
                         </div>
                 ))}
