@@ -9,7 +9,6 @@ const members = [
     'Taran Flora',
     'William Babapulle',
     'Daniel Li',
-    'Derek Gou'
 ]
 const wideDisplay = 4; // Amount of members shown in each row
 const smallDispaly = 2;
