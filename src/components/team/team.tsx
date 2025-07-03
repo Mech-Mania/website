@@ -37,30 +37,30 @@ function Team(props:any) {
             ))} */}
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel>
-                    <Member name="Loukas Juritsch" src="/loukas.png"/>
+                    <Member name="Loukas Juritsch" src="/Loukas.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Member name="Gavin William Lyle Heatherington" src="/gavin.png"/>
+                    <Member name="Gavin William Lyle Heatherington" src="/Gavin.png"/>
                 </Wheel>
                 <Wheel>
-                    <Member name="My Lan Tight" src="/mylan.png"/>
+                    <Member name="My Lan Tight" src="/My.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Member name="Amit Weis" src="/amit.png"/>
+                    <Member name="Amit Weis" src="/Amit.png"/>
                 </Wheel>
             </div>
             <div className="items-center justify-center flex flex-row gap-16">
                 <Wheel dir>
-                    <Member name="Taran Flora" src="/taran.png"/>
+                    <Member name="Taran Flora" src="/Taran.png"/>
                 </Wheel>
                 <Wheel>
-                    <Member name="William Babapulle" src="/william.png"/>
+                    <Member name="William Babapulle" src="/William.png"/>
                 </Wheel>
                 <Wheel dir>
-                    <Member name="Daniel Li" src="/daniel.png"/>
+                    <Member name="Daniel Li" src="/Daniel.png"/>
                 </Wheel>
                 <Wheel>
-                    <Member name="Alexander" src="/Alexander.png"/>
+                    <Member name="Derek Gou" src="/Derek.png"/>
                 </Wheel>
             </div>
         </div>
