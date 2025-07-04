@@ -6,7 +6,7 @@ const members = [
     'My Lan Tight',
     'Taran Flora',
     'Daniel Li', 
-    'Alexander Edwards',
+    'Alex Edwards',
     'Yusef Soror',
     'Junpei Ariizumi',
     'Vivienne Hardy',
