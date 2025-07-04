@@ -44,7 +44,7 @@ function Carousel(props: any) {
                 { transform: `translateX(-${374.5*filePaths.length}px)`, offset: 1 },
             ],
             {
-                duration: 30000,
+                duration: 2727*filePaths.length,
                 iterations: Infinity,
                 direction: dir ? "reverse" : "normal",
             }
