@@ -2,13 +2,21 @@ import { useEffect, useState, useRef } from "react";
 function Carousel(props: any) {
     const filePaths = [
         "/carousel/1.jpg",
+        "/carousel/2.jpg",
         "/carousel/3.jpg",
+        "/carousel/4.jpg",
         "/carousel/5.jpg",
         "/carousel/6.jpg",
         "/carousel/7.jpg",
-        "/carousel/9.jpg",
-        "/carousel/11.jpg",
+        "/carousel/8.png",
+        "/carousel/9.png",
+        "/carousel/10.png",
+        "/carousel/11.png",
+        "/carousel/12.jpg",
+        "/carousel/13.jpg",
+        "/carousel/14.jpg",
     ]
+    
     const [images, setImages] = useState<any>([])
     const currRef: any = useRef(null);
 

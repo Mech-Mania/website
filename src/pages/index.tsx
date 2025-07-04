@@ -204,11 +204,11 @@ function Home() {
                                     <br/>
                                     <h3>Must I bring my own parts?</h3>
                                     <hr className="my-2"/>
-                                    <p>Nope! Mechmania provides parts and access to 3d printers, so all teams start on a level playing field.</p>
+                                    <p>Nope! Mechmania provides parts and some access to 3d printers, so all teams start on a level playing field. However, teams are encouraged to use all the tools they have at their disposal to engineer amazing robots.</p>
                                     <br/>
                                     <h3>Is there a cost to attend?</h3>
                                     <hr className="my-2"/>
-                                    <p>While robotics competitions, are expensive, we're committed to delivering an affordable experience. Last year, we we're able to make MechMania free; this year, we're looking to do the same.</p>
+                                    <p>While robotics competitions are expensive, we're committed to delivering an affordable experience. Last year, we we're able to make MechMania free; this year, we are looking to do the same.</p>
                                     <br/>
                                     <h3>Is there a school or team member limit?</h3>
                                     <hr className="my-2"/>
