@@ -31,10 +31,10 @@ function Stats() {
             <div className="flex items-center justify-center" id='bar'>
                 
                 {years.map((year,index)=>(
-                    <div className="w-32">
-                    <div  onClick={()=>{buttonClick(years.indexOf(year))}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
-                        <h2 style={{ color:  (years.indexOf(year)==active) ? 'white' : '#aaa' }} className="transition-all text-right">{year}</h2>
-                    </div>
+                    <div key={index} className="w-32">
+                        <div onClick={()=>{buttonClick(years.indexOf(year))}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
+                            <h2 style={{ color:  (years.indexOf(year)==active) ? 'white' : '#aaa' }} className="transition-all text-right">{year}</h2>
+                        </div>
                     </div>
                 ))}
                 

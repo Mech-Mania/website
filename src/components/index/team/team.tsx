@@ -1,5 +1,5 @@
 import Member from './member';
-import Wheel from '../gears/wheel';
+import Wheel from '../../gears/wheel';
 
 const members = [
     'Gavin William Lyle Heatherington',

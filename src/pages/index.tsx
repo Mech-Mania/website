@@ -3,10 +3,10 @@ import Gears from "../components/gears/gears";
 import Wheel from "../components/gears/wheel";
 import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
-import Carousel from "../components/carousel/carousel";
+import Carousel from "../components/index/carousel/carousel";
 import Load from "../components/load/load";
-import Team from "../components/team/team";
-import Stats from "../components/stats/stats";
+import Team from "../components/index/team/team";
+import Stats from "../components/index/stats/stats";
 
 function Home() {
     const [marginTop, setMarginTop] = useState(0);

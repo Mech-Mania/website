@@ -3,6 +3,7 @@ import Tooth from "./tooth";
 import Reload from "../reload/reload";
 
 function Gears(props: any) {
+    // Ok so just a note to any future people working on this after me, I just inherited this code from the previous guy, and touching just about anything breaks the entire website, so leave it alone it should work fine.
     const [color, setColor] = useState("#4440");
     const [teeth, setTeeth]: any[] = useState([]);
     const [set, setSet] = useState(0);
