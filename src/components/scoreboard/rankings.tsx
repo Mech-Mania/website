@@ -10,7 +10,7 @@ function Stats() {
     const [loading, setStatus] = useState(true)
 
     const getRaw = async () => {
-        const response = await fetch('api/scoreboard.ts', {
+        const response = await fetch('api/scoreboard.js', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "text/plain",
