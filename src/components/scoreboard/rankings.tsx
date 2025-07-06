@@ -47,7 +47,7 @@ function Stats() {
             :
             
                 <p>
-                {rankings}
+                {JSON.stringify(rankings)}
                 </p>
             
             }
