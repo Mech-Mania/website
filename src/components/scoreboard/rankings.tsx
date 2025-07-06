@@ -24,9 +24,9 @@ function Stats() {
 
 
         const body = await response.json()
-        const teamPoints = body.team
+        const teamPoints = body.teams
         setRankings(teamPoints)
-        console.log(rankings, teamPoints, body)
+
         return null
     }
 
