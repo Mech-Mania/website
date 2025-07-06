@@ -29,13 +29,13 @@ export default async function handler(req, res) {
       await db.runTransaction(async (transaction) => {
         const doc1 = await transaction.get(docRef1);
         if (doc1.exists){
-          currentVal1 = doc1?.data()?.val || [];
-          console.log(currentVal1)
-          currentVal1 = doc1.get('Points');
-          console.log(currentVal1)
+          teams = doc1?.data()?.val || [];
+          console.log(teams)
+          teams = doc1.get('Points');
+          console.log(teams)
         }
     });
-    return res.status(200).json({ message: "Success", teams:currentVal1});
+    return res.status(200).json({ message: "Success", teams:teams});
 
 
 
