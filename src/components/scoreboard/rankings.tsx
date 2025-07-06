@@ -10,14 +10,21 @@ function Stats() {
     const [loading, setStatus] = useState(true)
 
     const getRaw = async () => {
-        const response = await (await fetch('api/scoreboard.ts', {
+        const response = await fetch('api/scoreboard.ts', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "text/plain",
                 },
-        })).json();
+        });
 
-        const teamPoints = response.team
+
+        if (response.status != 200){
+            return null
+        }
+
+
+        const body = await response.json()
+        const teamPoints = body.team
         setRankings(teamPoints)
         
         return null
@@ -38,7 +45,9 @@ function Stats() {
             </div>
             :
             <div>
+                <p>
                 {rankings}
+                </p>
             </div>
             }
 
