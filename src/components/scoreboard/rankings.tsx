@@ -25,6 +25,7 @@ function Stats() {
 
         const body = await response.json()
         const teamPoints = body.teams
+        // i think it works it just throws a formatting error with the jsx work on this again later
         setRankings(teamPoints)
 
         return null
@@ -37,19 +38,20 @@ function Stats() {
     return (
 
         <>
-            {(loading) ? 
             <div>
+            {(loading) ? 
+            
                 <h1>
                     Loading...
                 </h1>
-            </div>
             :
-            <div>
+            
                 <p>
                 {rankings}
                 </p>
-            </div>
+            
             }
+            </div>
 
         </>
     )
