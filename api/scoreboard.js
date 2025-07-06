@@ -34,11 +34,11 @@ export default async function handler(req, res) {
     });
 
     let games = ''
-    const docRef2 = db.collection('scoreboard').doc('teams');
+    const docRef2 = db.collection('scoreboard').doc('Games');
       await db.runTransaction(async (transaction) => {
         const doc2 = await transaction.get(docRef2);
         if (doc2.exists){
-          games = doc2.data() || {};
+          games = doc2.get('Games') || {};
         }
     });
 
