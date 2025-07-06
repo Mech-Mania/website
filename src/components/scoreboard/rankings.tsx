@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import './rankings.css'
-
+import Overalls from "./overalls"
 
 function Stats() {
     
@@ -8,6 +8,7 @@ function Stats() {
     const [games, setGames] = useState(0)
     const [rankings, setRankings] = useState(null)
     const [loading, setStatus] = useState(true)
+    const [mode, setMode] = useState('Global')
 
     const getRaw = async () => {
         const response = await fetch('api/scoreboard.js', {
@@ -38,6 +39,9 @@ function Stats() {
     return (
 
         <>
+
+
+
             <div>
             {(loading) ? 
             
@@ -46,9 +50,9 @@ function Stats() {
                 </h1>
             :
             
-                <p>
-                {JSON.stringify(rankings)}
-                </p>
+         
+                <Overalls teams={rankings}/>
+
             
             }
             </div>
