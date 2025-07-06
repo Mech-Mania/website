@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       await db.runTransaction(async (transaction) => {
         const doc2 = await transaction.get(docRef2);
         if (doc2.exists){
-          games = doc2.get('Games') || {};
+          games = doc2.data() || {};
         }
     });
 
