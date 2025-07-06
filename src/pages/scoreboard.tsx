@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import Load from "../components/load/load";
 import Gears from "../components/gears/gears";
 import Wheel from "../components/gears/wheel";
+import Rankings from '../components/scoreboard/rankings'
 import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
 
@@ -84,10 +85,12 @@ function Scoreboard() {
                                 </IconContext.Provider>
                             </div>
                         </Wheel>
+                        
                         <Gears>
-                            
+                             <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
+                                <Rankings/>
+                            </div>
                         </Gears>
-     
                 </div>
             </div>
         </>

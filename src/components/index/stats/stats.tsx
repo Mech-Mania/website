@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import './stats.css'
-import { eventNames } from "process"
 
 const contents = [
         ['5 hours', '5 schools', '7 teams', '80+ students', '0$ entry fee'],
