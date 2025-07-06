@@ -7,7 +7,7 @@ function Stats() {
     const defaults = ['Overall']
     const [games, setGames] = useState(0)
     const [rankings, setRankings] = useState(null)
-    let loading = true
+    const [loading, setStatus] = useState(true)
 
     const getRaw = async () => {
         const response = await (await fetch('api/scoreboard.ts', {
@@ -25,7 +25,7 @@ function Stats() {
 
     useEffect(()=>{
         getRaw()
-        loading = false
+        setStatus(false)
     },[])
     return (
 
