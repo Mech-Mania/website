@@ -6,7 +6,7 @@ const app = initializeApp({
     credential: cert({
         projectId: process.env.FIREBASE_PROJECT_ID,
         clientEmail: process.env.CLIENT_EMAIL,
-        privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(
+        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(
             /\\n/g,
            '\n',
         ),
@@ -15,7 +15,7 @@ const app = initializeApp({
 
 const db = getFirestore(app);
 
-export default async function handler(req, res) {
+export default async function handler(req:any, res:any) {
 
     if (req.method !== 'POST') {
       return res.status(405).json({ error: `${req.method} not allowed` });
@@ -29,13 +29,23 @@ export default async function handler(req, res) {
       await db.runTransaction(async (transaction) => {
         const doc1 = await transaction.get(docRef1);
         if (doc1.exists){
-          teams = doc1?.data()?.val || [];
-          console.log(teams)
-          teams = doc1.get('Points');
-          console.log(teams)
+          teams = doc1.get('Points') || {};
         }
     });
-    return res.status(200).json({ message: "Success", teams:teams});
+
+    let games = ''
+    const docRef2 = db.collection('scoreboard').doc('teams');
+      await db.runTransaction(async (transaction) => {
+        const doc2 = await transaction.get(docRef2);
+        if (doc2.exists){
+          games = doc2.get('Games') || {};
+        }
+    });
+
+
+
+
+    return res.status(200).json({ message: "Success", teams:teams, games:games});
 
 
 
