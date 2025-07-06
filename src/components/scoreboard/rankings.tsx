@@ -8,7 +8,7 @@ function Stats() {
     const [games, setGames] = useState(0)
 
     const getGlobal = async () => {
-        const response = await fetch('api/pw.js', {
+        const response = await fetch('api/scoreboard.js', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "text/plain",
