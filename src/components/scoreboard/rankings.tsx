@@ -4,14 +4,16 @@ import Overalls from "./overalls"
 import Gears from "../gears/gears"
 import Wheel from "../gears/wheel"
 import Queue from "./queue"
-function Stats() {
+import type { gameCont, gameType } from "./rankings.types"
+
+function Rankings() {
     
     const defaults = ['Overall']
     const [games, setGames] = useState(0)
     const [rankings, setRankings] = useState(null)
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
-    const [gameContainer, setgameContainer] = useState(null)
+    const [gameContainer, setgameContainer] = useState<gameCont>({Data:[],Names:[]})
 
     const getRaw = async () => {
         const response = await fetch('api/scoreboard.js', {
@@ -51,31 +53,34 @@ function Stats() {
             
             <Gears>
                 <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
-                    <h1 className="gap-0">
-                        Overall Rankings
-                    </h1>
-                    {(loading) ? 
+                    {(loading) ?
                         <h1>
                             Loading...
                         </h1>
                     :
+                    <>
+                    <h1 className="gap-0">
+                        Overall Rankings
+                    </h1>
                     <Overalls teams={rankings}/>
+                    </>
                     }
                 </div>
             </Gears>
 
             <Gears dir>
                 <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
-                    <h1 className="gap-0">
-                        Game Queue
-                    </h1>
                     {(loading) ? 
                         <h1>
                             Loading...
                         </h1>
                     :
-
+                    <>
+                    <h1 className="gap-0">
+                        {(mode!='Global') ? mode: gameContainer['Names'][0]} Game Queue
+                    </h1>
                     <Queue gameContainer={gameContainer} game={mode}></Queue>
+                    </>
                     }
                 </div>
             </Gears>
@@ -85,4 +90,4 @@ function Stats() {
     )
 }
 
-export default Stats
+export default Rankings
