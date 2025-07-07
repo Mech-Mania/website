@@ -15,9 +15,9 @@ function Overalls(props:any) {
             ranktemp.push({rank:-1, name:team, points:teams[team]})
         }
         
-        ranktemp.sort((T1:any, T2:any) => T1.points - T2.points);
+        ranktemp.sort((T1:any, T2:any) => T1.points - T2.points).reverse();
 
-        let rankadjust = 1
+        let rankadjust = 0
         for (let i = 0;i<ranktemp.length;i++){
             ranktemp[i].rank = i
             if (i !=0 && ranktemp[i-1].rank == i-rankadjust){
@@ -56,7 +56,7 @@ function Overalls(props:any) {
                 <p className="text-2xl">{team.name}</p>
                 <p className="text-2xl">{team.points}</p>
             </div>
-            ))};
+            ))}
 
 
 
