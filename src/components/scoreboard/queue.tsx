@@ -7,6 +7,12 @@ function Queue(props:any) {
     const [curGame, setCurGame] = useState((props.game == 'Global') ? props.gameContainer['Names'][0]: props.game)
     const [gameCont, setGameCont] = useState<gameCont>(props.gameContainer)
     const [filterMode, setFilterMode] = useState(props.filter)
+    const [curWidth, setCurWidth] = useState(window.innerWidth)
+
+    useEffect(()=>{
+        setCurWidth(window.innerWidth)
+    },[window.innerWidth])
+
     useEffect(()=>{
         setFilterMode(props.filter)
 
@@ -35,7 +41,8 @@ function Queue(props:any) {
     }
 
     return (
-
+        
+        curWidth > 1024 ?
         <>
 
 
@@ -64,6 +71,28 @@ function Queue(props:any) {
             </div>
             ))}
 
+        </>
+        :
+        <>
+        <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">
+                <h1 className="text-4xl " >Index</h1>
+                <h1 className="text-4xl">A1</h1>
+                <h1 className="text-4xl">A2</h1>
+            </div>
+            
+            {/* Iterator */}
+            {gameCont.Data[
+                gameCont.Names.indexOf(
+                    (curGame != 'Global') ? curGame: props.gameContainer['Names'][0]
+                )
+            ].Matches.filter(queueFilter).map((match:matchData,index:number)=>(
+            // repeatable lines
+            <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
+                <p className="text-2xl">{index+1}</p>
+                <p className="text-2xl">{match.A1.join(', ')}</p>
+                <p className="text-2xl">{match.A2.join(', ')}</p> 
+            </div>
+            ))}
         </>
     )
 }
