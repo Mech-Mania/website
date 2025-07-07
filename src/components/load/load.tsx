@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./load.css"
 import clsx from "clsx";
 
+
 function Load() {
   var bool = true
   const [animateClass, setAnimateClass] = useState("");
@@ -59,8 +60,8 @@ function Load() {
   return (
     <>
       <div className="w-screen h-screen bg-black top-0 left-0 z-[100] flex flex-col lg:flex-row items-center justify-center">
-        <img id="loaderShadow" className="" src="mechmania.svg"></img>
-        <img id="loaderImage" className="absolute brightness-0 invert-[20%] origin-right" src="mechmania.svg"></img>
+        <img id="loaderShadow" className="" src="/mechmania.svg"></img>
+        <img id="loaderImage" className="absolute brightness-0 invert-[20%] origin-right" src="/mechmania.svg"></img>
         <div className={clsx("max-h-0 max-w-0 box-border w-fit overflow-hidden flex flex-row items-start justify-start", animateClass)}>
           <div className="pt-8 pl-0 lg:pt-0 lg:pl-16 lg:w-auto flex flex-col items-start justify-center">
             <p className="w-full text-center lg:text-left">2025/26 - More Info Coming Soon</p>

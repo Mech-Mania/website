@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import Load from "../components/load/load";
-import Gears from "../components/gears/gears";
 import Wheel from "../components/gears/wheel";
 import Rankings from '../components/scoreboard/rankings'
 import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
 import Initial from "../components/initial";
+import { Route, Routes } from "react-router-dom";
+import Gears from "../components/gears/gears";
+import Admin from "../components/scoreboard/admin/admin";
 
 function Scoreboard() {
     // Variable sizing controller states
@@ -73,7 +75,13 @@ function Scoreboard() {
                                 </IconContext.Provider>
                             </div>
                         </Wheel>
-                        <Rankings/>
+                        {/* Router to render admin panel on same page */}
+                        <Routes>
+                            <Route index element={<Rankings/>} />
+                            <Route path='/admin' element={<Admin/>}/> 
+                            <Route path='/*' element={<Gears><h1>404 - Page Not Found</h1></Gears>}/>
+                        </Routes>
+                        
 
                 </div>
             </div>

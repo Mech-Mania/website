@@ -15,7 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/dashboard" element={<Dash/>}/>
-          <Route path="/scoreboard" element={<Scoreboard/>}/>
+          <Route path="/scoreboard/*" element={<Scoreboard/>}/>
+          <Route path='/*' element={<h1>404 - Page Not Found</h1>}/>
         </Routes>
       </Router>
       <Analytics/>

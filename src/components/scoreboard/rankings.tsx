@@ -5,6 +5,7 @@ import Gears from "../gears/gears"
 import Wheel from "../gears/wheel"
 import Queue from "./queue"
 import type { gameCont, gameType } from "./rankings.types"
+import { Outlet } from "react-router-dom"
 
 function Rankings() {
     
@@ -87,8 +88,7 @@ function Rankings() {
                 </Gears>
 
             }
-            
-        
+            <Outlet/>
             
         </>
     )
