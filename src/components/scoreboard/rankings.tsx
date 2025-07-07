@@ -47,6 +47,8 @@ function Rankings() {
     useEffect(()=>{
         getRaw()
     },[])
+
+
     return (
 
         <>
@@ -99,34 +101,31 @@ function Rankings() {
 
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
-                        <div className='flex flex-cols'>
-                            <div className='flex flex-row justify-start'>
-                            {gameContainer['Names'].map((name,index:number)=>(
-                                <div key={index} className="w-40">
-                                    <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
-                                        <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
-                                    </div>
+                        <div className='flex flex-row justify-start'>
+                        {gameContainer['Names'].map((name,index:number)=>(
+                            <div key={index} className="w-40">
+                                <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
+                                    <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
                                 </div>
-                            ))}
                             </div>
+                        ))}
+                        </div>
 
 
-                            <div className='flex flex-row justify-end'>
-                            {['All','Queued'].map((name,index:number)=>(
+                        <div className='flex flex-row justify-end'>
+                            {['All','Queued', 'Finished'].map((name,index:number)=>(
                                 <div key={index} className="w-40">
                                     <div onClick={()=>{setFilterMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
                                         <h2 style={{ color:  (name==filterMode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
                                     </div>
                                 </div>
                             ))}
-                            </div>
-
-
                         </div>
+
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Game Queue
                         </h1>
-                        <Queue gameContainer={gameContainer} game={mode}></Queue>
+                        <Queue gameContainer={gameContainer} game={mode} filter={filterMode}></Queue>
                     </div>
                 </Gears>
 

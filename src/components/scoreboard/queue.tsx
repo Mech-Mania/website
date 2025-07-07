@@ -6,12 +6,13 @@ function Queue(props:any) {
 
     const [curGame, setCurGame] = useState((props.game == 'Global') ? props.gameContainer['Names'][0]: props.game)
     const [gameCont, setGameCont] = useState<gameCont>(props.gameContainer)
+    const [filterMode, setFilterMode] = useState(props.filter)
     useEffect(()=>{
+        setFilterMode(props.filter)
 
+    },[props.filter])
 
-    },[])
-
- 
+    
 
     useEffect(()=>{
         if (props.game == 'Global') {
@@ -21,6 +22,17 @@ function Queue(props:any) {
         }
         setGameCont(props.gameContainer)
     },[props.game, props.gameContainer])
+
+    const queueFilter = (match:matchData) => {
+        ['All','Queued', 'Finished']
+
+        if (filterMode == 'All') return true
+        else if (filterMode == match.Status) return true
+        else if (filterMode == 'Queued' && ['Queued','Ongoing'].includes(match.Status)) return true
+        else if (filterMode == 'Finished' && ['A1 Win', 'A2 Win','Tie'].includes(match.Status))
+        return false
+        
+    }
 
     return (
 
@@ -41,7 +53,7 @@ function Queue(props:any) {
                 gameCont.Names.indexOf(
                     (curGame != 'Global') ? curGame: props.gameContainer['Names'][0]
                 )
-            ].Matches.map((match:matchData,index:number)=>(
+            ].Matches.filter(queueFilter).map((match:matchData,index:number)=>(
             // repeatable lines
             <div className="grid grid-cols-5 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
                 <p className="text-2xl">{index+1}</p>
