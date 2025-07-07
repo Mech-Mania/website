@@ -58,13 +58,13 @@ function Rankings() {
             
             {(loading) ?
                 <Gears>
-                    <h1>
+                    <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
                         Loading...
                     </h1>
                 </Gears>
             :
                 <Gears>
-                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
+                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex flex-row'>
                             {/* Overall */}
                             <div key={0} className="w-48">
@@ -93,14 +93,14 @@ function Rankings() {
                 
             {(loading) ? 
                 <Gears dir>
-                    <h1>
+                    <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
                         Loading...
                     </h1>
                 </Gears>
                 :
 
                 <Gears dir>
-                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
+                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex flex-row'>
                         {gameContainer['Names'].map((name,index:number)=>(
                             <div key={index} className="w-48">
@@ -111,16 +111,6 @@ function Rankings() {
                         ))}
                         </div>
 
-
-                        <div className='flex flex-row'>
-                            {['All','Queued', 'Finished'].map((name,index:number)=>(
-                                <div key={index} className="w-48">
-                                    <div onClick={()=>{setFilterMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
-                                        <h2 style={{ color:  (name==filterMode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
 
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Game Queue
