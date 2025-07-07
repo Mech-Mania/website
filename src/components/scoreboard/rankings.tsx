@@ -35,7 +35,7 @@ function Rankings() {
         // i think it works it just throws a formatting error with the jsx work on this again later
         setRankings(teamPoints)
         setgameContainer(body.games)
-        console.log(gameContainer)
+        console.log(body.games)
 
 
 
