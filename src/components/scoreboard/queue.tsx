@@ -8,8 +8,15 @@ function Queue(props:any) {
 
 
     useEffect(()=>{
-
+        if (props.game == 'Global') {
+            setCurGame(Object.keys(props.gameContainer)[0])
+        } else {
+            setCurGame(props.game)
+        }
     },[])
+
+
+    
     useEffect(()=>{
         if (props.game == 'Global') {
             setCurGame(Object.keys(props.gameContainer)[0])
