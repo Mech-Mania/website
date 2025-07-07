@@ -6,7 +6,7 @@ function Queue(props:any) {
 
     const [curGame, setCurGame] = useState((props.game == 'Global') ? props.gameContainer['Names'][0]: props.game)
     const [gameCont, setGameCont] = useState<gameCont>(props.gameContainer)
-    const [settings, setSettings] = useState<gameSettings>(props.settings)
+    const [settings, setSettings] = useState<gameSettings>({PointsName:'Score'})
     useEffect(()=>{
 
 
