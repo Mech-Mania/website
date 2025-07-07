@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
 
   // Verify request origin
-  
+
   if (req.method !== 'POST') {
       return res.status(405).json({ error: `${req.method} not allowed` });
   }
