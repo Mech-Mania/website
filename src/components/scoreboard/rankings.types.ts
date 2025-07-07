@@ -11,7 +11,6 @@ export type matchData = {
 
 export type gameSettings = {
     PointsName: string,
-    Descending: boolean
 }
 
 export type gameType = {

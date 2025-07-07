@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import './rankings.css'
 import type { matchData } from "./queue.types"
-import { gameCont } from "./rankings.types"
-
+import { gameCont, gameSettings } from "./rankings.types"
 function Queue(props:any) {
 
     const [curGame, setCurGame] = useState((props.game == 'Global') ? props.gameContainer['Names'][0]: props.game)
     const [gameCont, setGameCont] = useState<gameCont>(props.gameContainer)
-
+    const [settings, setSettings] = useState<gameSettings>(props.settings)
     useEffect(()=>{
 
 
@@ -21,9 +20,10 @@ function Queue(props:any) {
         } else {
             setCurGame(props.game)
         }
-    },[props.game])
+        setGameCont(props.gameContainer)
+        setSettings(props.gameContainer.Data[props.gameContainer.Names.indexOf(props.game)].Settings)
+    },[props.game, props.gameContainer])
 
-    useEffect(()=>{setGameCont(props.gameContainer)},[props.game])
     return (
 
         <>
@@ -35,7 +35,7 @@ function Queue(props:any) {
                 <h1 className="text-4xl">Status</h1>
                 <h1 className="text-4xl">A1</h1>
                 <h1 className="text-4xl">A2</h1>
-                <h1 className="text-4xl">Score</h1>
+                <h1 className="text-4xl">{settings.PointsName}</h1>
             </div>
             
             {/* Iterator */}
