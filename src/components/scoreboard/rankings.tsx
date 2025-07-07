@@ -11,6 +11,7 @@ function Stats() {
     const [rankings, setRankings] = useState(null)
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
+    const [gameContainer, setgameContainer] = useState(null)
 
     const getRaw = async () => {
         const response = await fetch('api/scoreboard.js', {
@@ -30,6 +31,10 @@ function Stats() {
         const teamPoints = body.teams
         // i think it works it just throws a formatting error with the jsx work on this again later
         setRankings(teamPoints)
+
+
+
+
 
         return null
     }
@@ -68,7 +73,7 @@ function Stats() {
                     <h1 className="gap-0">
                         Game Queue
                     </h1>
-                    <Queue></Queue>
+                    <Queue gameContainer={gameContainer} game={mode}></Queue>
                 </div>
             </Gears>
 

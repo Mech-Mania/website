@@ -5,7 +5,6 @@ import type {rankData} from './overalls.types'
 function Overalls(props:any) {
 
     //typescript shenanigans
-    
     let x:rankData[] = []
     const [rankings, setRankings] = useState(x)
 

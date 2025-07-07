@@ -1,51 +1,45 @@
 import { useEffect, useState } from "react"
 import './rankings.css'
-
+import type { matchData } from "./queue.types"
 
 function Queue(props:any) {
 
+    const [curGame, setCurGame] = useState(props.game)
 
 
     useEffect(()=>{
 
     },[])
+    useEffect(()=>{
+        if (props.game == 'Global') {
+            setCurGame(Object.keys(props.gameContainer)[0])
+        } else {
+            setCurGame(props.game)
+        }
+    },[props.game])
     return (
 
         <>
 
 
 
-            <table className="table-auto items-center justify-start w-full ">
-                <thead>
-                    <tr className="flex items-center justify-center gap-x-16 text-center">
-                        <th>
-                            <h1 className="text-4xl ">Position</h1>
-
-                            <p className="text-2xl">1</p>
-                        </th>
-                        <th>
-                            <h1 className="text-4xl">Status</h1>
-
-                            <p className="text-2xl">Queued</p>
-                        </th>
-                        <th>
-                            <h1 className="text-4xl">A1</h1>
-
-                            <p className="text-2xl">Team 1, Team2</p>
-                        </th>
-                        <th>
-                            <h1 className="text-4xl">A2</h1>
-
-                            <p className="text-2xl">Team 3, Team 4</p>
-                        </th>
-                        <th>
-                            <h1 className="text-4xl">Score</h1>
-
-                            <p className="text-2xl">TBD</p>
-                        </th>
-                    </tr>
-                </thead>
-            </table>
+            <div className="grid grid-cols-5 grid-flow-row items-center justify-start w-full gap-x-16 text-center">
+                <h1 className="text-4xl " >Position</h1>
+                <h1 className="text-4xl">Status</h1>
+                <h1 className="text-4xl">A1</h1>
+                <h1 className="text-4xl">A2</h1>
+                <h1 className="text-4xl">Score</h1>
+            </div>
+            
+            {props.gameContainer[curGame]['Matches'].map((match:matchData,index:number)=>(
+            <div className="grid grid-cols-5 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
+                <p className="text-2xl">{index+1}</p>
+                <p className="text-2xl">{match.Status}</p>
+                <p className="text-2xl">{match.A1.join(', ')}</p>
+                <p className="text-2xl">{match.A2.join(', ')}</p>
+                <p className="text-2xl">{`${match.Points.A1}-${match.Points.A2}`}</p>
+            </div>
+            ))}
 
         </>
     )
