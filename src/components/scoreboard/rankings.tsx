@@ -15,6 +15,7 @@ function Rankings() {
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:[],Names:[]})
+    const [filterMode, setFilterMode] = useState('Queued')
 
     const getRaw = async () => {
         const response = await fetch('api/scoreboard.js', {
@@ -99,6 +100,7 @@ function Rankings() {
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
                         <div className='flex flex-row'>
+                            <div className='flex flex-row justify-start'>
                             {gameContainer['Names'].map((name,index:number)=>(
                                 <div key={index} className="w-48">
                                     <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
@@ -106,6 +108,20 @@ function Rankings() {
                                     </div>
                                 </div>
                             ))}
+                            </div>
+
+
+                            <div className='flex flex-row justify-end'>
+                            {['All, Queued'].map((name,index:number)=>(
+                                <div key={index} className="w-48">
+                                    <div onClick={()=>{setFilterMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
+                                        <h2 style={{ color:  (name==filterMode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
+                                    </div>
+                                </div>
+                            ))}
+                            </div>
+
+
                         </div>
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Game Queue
