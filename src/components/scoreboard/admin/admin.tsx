@@ -9,7 +9,7 @@ function Admin(props:any) {
     const [error, setError] = useState(<></>)
 
     const submit = async (str:string) => {
-        const response = await fetch('api/scoreboard/pw.js', {
+        const response = await fetch('/api/scoreboard/pw.js', {
             method: 'POST',
             headers: {
                 "Content-Type": "text/plain",
