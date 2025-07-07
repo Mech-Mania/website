@@ -35,7 +35,7 @@ function Queue(props:any) {
                 <h1 className="text-4xl">Status</h1>
                 <h1 className="text-4xl">A1</h1>
                 <h1 className="text-4xl">A2</h1>
-                <h1 className="text-4xl">{settings.PointsName}</h1>
+                <h1 className="text-4xl">{(settings.PointsName!=undefined&&settings.PointsName!=null) ? settings.PointsName: 'Score'}</h1>
             </div>
             
             {/* Iterator */}
