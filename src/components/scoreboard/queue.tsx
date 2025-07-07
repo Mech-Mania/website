@@ -15,7 +15,7 @@ function Queue(props:any) {
         }
     },[])
 
-
+ 
 
     useEffect(()=>{
         if (props.game == 'Global') {

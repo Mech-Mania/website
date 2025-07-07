@@ -7,6 +7,7 @@ import Carousel from "../components/index/carousel/carousel";
 import Load from "../components/load/load";
 import Team from "../components/index/team/team";
 import Stats from "../components/index/stats/stats";
+import Initial from "../components/initial";
 
 function Home() {
     const [marginTop, setMarginTop] = useState(0);
@@ -113,18 +114,7 @@ function Home() {
             <div className="w-screen h-screen fixed top-0 left-0 loaded z-[100] animate-loaded pointer-events-none"><Load/></div>
             <div style={{ width: width+'px' }} className="gap-16 flex flex-col items-center justify-center bg-black">
                 <div ref={divRef} style={{ marginTop: `${marginTop}px` }}>
-                    <Gears>
-                        <div className="w-full cont h-full flex flex-col lg:flex-row items-center justify-center">
-                            <img id="loaderShadow" className="" src="mechmania.svg"></img>
-                            <div className={"box-border w-fit overflow-hidden flex flex-row items-start justify-start"}>
-                                <div className="pt-8 pl-0 lg:pt-0 lg:pl-16 lg:w-auto flex flex-col items-start justify-center">
-                                    <p className="w-full text-center lg:text-left">May 12 - E5/E7 @UW</p>
-                                    <h1 className="w-full text-center lg:text-left">MechMania</h1>
-                                    <h2 className="w-full text-center lg:text-left">Where Metal Meets Mind </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </Gears>
+                    <Initial/>
                 </div>
                 <div ref={scrollRef} className="gap-16 flex flex-col items-center justify-start w-full bg-black lg:px-32 box-border">
                     <Wheel dir>
@@ -238,8 +228,12 @@ function Home() {
                         </Gears>
                     </div>
                 </div>
-                <div className="my-20">
-                    <p>Made by <a href="https://derekgou.com" target="_blank">Derek Gou</a></p>
+                
+                {/* To all future website people: Add your name to this 'by' section. Keep making it better as you go */}
+                <div className="my-20 flex gap-8 justify-center items-center">
+
+                    <p className="text-center text-2xl text-zinc-600">By</p>
+                    <p className="text-center text-zinc-700"> <b>Derek Gou,</b> <br/> <b>Alexander Edwards</b></p>
                 </div>
             </div>
         </>

@@ -5,7 +5,7 @@ import Wheel from "../components/gears/wheel";
 import Rankings from '../components/scoreboard/rankings'
 import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
-
+import Initial from "../components/initial";
 
 function Scoreboard() {
     // Variable sizing controller states
@@ -61,19 +61,7 @@ function Scoreboard() {
 
             <div style={{ width: width+'px' }} className="gap-16 flex flex-col items-center justify-center bg-black">
                 <div ref={divRef} style={{ marginTop: `${marginTop}px` }}>
-                    <Gears>
-                        {/* Initial */}
-                        <div className="w-full cont h-full flex flex-col lg:flex-row items-center justify-center">
-                            <img id="loaderShadow" className="" src="mechmania.svg"></img>
-                            <div className={"box-border w-fit overflow-hidden flex flex-row items-start justify-start"}>
-                                <div className="pt-8 pl-0 lg:pt-0 lg:pl-16 lg:w-auto flex flex-col items-start justify-center">
-                                    <p className="w-full text-center lg:text-left">May 12 - E5/E7 @UW</p>
-                                    <h1 className="w-full text-center lg:text-left">MechMania</h1>
-                                    <h2 className="w-full text-center lg:text-left">Where Metal Meets Mind </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </Gears>
+                    <Initial/>
                 </div>
             
                 <div ref={scrollRef} className="gap-16 flex flex-col items-center justify-start w-full bg-black lg:px-32 box-border">

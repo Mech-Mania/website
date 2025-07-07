@@ -1,6 +1,7 @@
 import Member from './member';
 import Wheel from '../../gears/wheel';
 
+// All image files must be png format
 const members = [
     'Gavin William Lyle Heatherington',
     'My Lan Tight',
