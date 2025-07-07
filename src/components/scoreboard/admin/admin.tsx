@@ -26,7 +26,7 @@ function Admin(props:any) {
         } else {
             setError(<></>)
         }
-        console.log(response.status)
+        console.log(response.status, data.message)
 
     }
     const handleKeyPress = (event:any) => {
