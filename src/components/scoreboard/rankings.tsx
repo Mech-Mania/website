@@ -65,7 +65,7 @@ function Rankings() {
             :
                 <Gears>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
-                        <div className='flex flex-row'>
+                        <div className='flex'>
                             {/* Overall */}
                             <div key={0} className="w-48">
                                     <div onClick={()=>{setMode('Global')}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
@@ -101,7 +101,7 @@ function Rankings() {
 
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
-                        <div className='flex flex-row'>
+                        <div className='flex'>
                         {gameContainer['Names'].map((name,index:number)=>(
                             <div key={index} className="w-48">
                                 <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
