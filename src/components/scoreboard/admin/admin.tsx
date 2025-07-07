@@ -24,7 +24,7 @@ function Admin(props:any) {
         if (response.status != 200){
             setError(<p className="text-red-600">Wrong password - Please try again</p>)
         }
-        
+        console.log(response.status)
 
     }
     const handleKeyPress = (event:any) => {
