@@ -35,13 +35,12 @@ function Stats() {
 
 
 
-
+        setStatus(false)
         return null
     }
 
     useEffect(()=>{
         getRaw()
-        setStatus(false)
     },[])
     return (
 
