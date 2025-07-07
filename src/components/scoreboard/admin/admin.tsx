@@ -17,12 +17,12 @@ function Admin(props:any) {
             body: str,
         });
 
-    
+        setError(<></>)
         if (!response.ok) {
-            setError(<p className="text-red-600">Wrong password - Please try again</p>)
             throw new Error('Failed to login');
-        } else {
-            setError(<></>)
+        }
+        if (response.status != 200){
+            setError(<p className="text-red-600">Wrong password - Please try again</p>)
         }
         
 
