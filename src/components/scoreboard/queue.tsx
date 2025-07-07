@@ -31,7 +31,7 @@ function Queue(props:any) {
 
 
             <div className="grid grid-cols-5 grid-flow-row items-center justify-start w-full gap-x-16 text-center">
-                <h1 className="text-4xl " >Position</h1>
+                <h1 className="text-4xl " >Index</h1>
                 <h1 className="text-4xl">Status</h1>
                 <h1 className="text-4xl">A1</h1>
                 <h1 className="text-4xl">A2</h1>
