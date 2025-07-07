@@ -16,7 +16,7 @@ function Queue(props:any) {
     },[])
 
 
-    
+
     useEffect(()=>{
         if (props.game == 'Global') {
             setCurGame(Object.keys(props.gameContainer)[0])
@@ -38,7 +38,7 @@ function Queue(props:any) {
                 <h1 className="text-4xl">Score</h1>
             </div>
             
-            {props.gameContainer[curGame]['Matches'].map((match:matchData,index:number)=>(
+            {props.gameContainer[(curGame != 'Global') ? curGame: Object.keys(props.gameContainer)[0]]['Matches'].map((match:matchData,index:number)=>(
             <div className="grid grid-cols-5 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
                 <p className="text-2xl">{index+1}</p>
                 <p className="text-2xl">{match.Status}</p>
