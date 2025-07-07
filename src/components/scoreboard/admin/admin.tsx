@@ -21,7 +21,7 @@ function Admin(props:any) {
             throw new Error('Failed to login');
         }
         const data = await response.json()
-        if (data.message != 'success'){
+        if (data.message != 'Success'){
             setError(<p className="text-red-600">Wrong password - Please try again</p>)
         } else {
             setError(<></>)
