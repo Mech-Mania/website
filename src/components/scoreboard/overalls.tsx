@@ -17,10 +17,10 @@ function Overalls(props:any) {
         
         ranktemp.sort((T1:any, T2:any) => T1.points - T2.points).reverse();
 
-        let rankadjust = 0
+        let rankadjust = 1
         for (let i = 0;i<ranktemp.length;i++){
-            ranktemp[i].rank = i
-            if (i !=0 && ranktemp[i-1].rank == i-rankadjust){
+            ranktemp[i].rank = i+1
+            if (i !=0 && ranktemp[i-1].points == ranktemp[i].points){
                 ranktemp[i].rank-=rankadjust
                 rankadjust+=1
             }
