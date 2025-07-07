@@ -72,7 +72,7 @@ function Rankings() {
 
                             {/* Dynamic by game */}
                             {gameContainer['Names'].map((name,index:number)=>(
-                                <div key={index+1} className="w-32">
+                                <div key={index+1} className="w-48">
                                     <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
                                         <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
                                     </div>
@@ -100,7 +100,7 @@ function Rankings() {
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
                         <div className='flex flex-row'>
                             {gameContainer['Names'].map((name,index:number)=>(
-                                <div key={index} className="w-32">
+                                <div key={index} className="w-48">
                                     <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
                                         <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
                                     </div>
