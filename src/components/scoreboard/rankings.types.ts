@@ -11,9 +11,12 @@ export type matchData = {
 export type gameType = {
     Matches: matchData[],
     Name:string
+    Points:{
+        [key: string]: number;
+    }
 }
 
 export type gameCont = {
-    Data:gameType[]
-    Names:string[]
+    Data:gameType[],
+    Names:string[],
 }
