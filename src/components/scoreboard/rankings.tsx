@@ -64,7 +64,7 @@ function Rankings() {
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
                         <div className='flex flex-row'>
                             {/* Overall */}
-                            <div key={0} className="w-32">
+                            <div key={0} className="w-48">
                                     <div onClick={()=>{setMode('Global')}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
                                         <h2 style={{ color:  ('Global'==mode) ? 'white' : '#aaa' }} className="transition-all text-right">Overall</h2>
                                     </div>
