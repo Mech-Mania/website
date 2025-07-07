@@ -6,7 +6,6 @@ function Queue(props:any) {
 
     const [curGame, setCurGame] = useState((props.game == 'Global') ? props.gameContainer['Names'][0]: props.game)
     const [gameCont, setGameCont] = useState<gameCont>(props.gameContainer)
-    const [settings, setSettings] = useState<gameSettings>({PointsName:'Score'})
     useEffect(()=>{
 
 
@@ -21,7 +20,6 @@ function Queue(props:any) {
             setCurGame(props.game)
         }
         setGameCont(props.gameContainer)
-        setSettings(props.gameContainer.Data[props.gameContainer.Names.indexOf(props.game)].Settings)
     },[props.game, props.gameContainer])
 
     return (
@@ -35,7 +33,7 @@ function Queue(props:any) {
                 <h1 className="text-4xl">Status</h1>
                 <h1 className="text-4xl">A1</h1>
                 <h1 className="text-4xl">A2</h1>
-                <h1 className="text-4xl">{(settings.PointsName!=undefined&&settings.PointsName!=null) ? settings.PointsName: 'Score'}</h1>
+                <h1 className="text-4xl">{gameCont.Data[gameCont.Names.indexOf((curGame != 'Global') ? curGame: props.gameContainer['Names'][0])].Settings.PointsName}</h1>
             </div>
             
             {/* Iterator */}
