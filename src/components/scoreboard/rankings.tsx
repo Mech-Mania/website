@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import './rankings.css'
 import Overalls from "./overalls"
-
+import Gears from "../gears/gears"
+import Wheel from "../gears/wheel"
+import Queue from "./queue"
 function Stats() {
     
     const defaults = ['Overall']
@@ -41,22 +43,36 @@ function Stats() {
         <>
 
 
-
-            <div>
-            {(loading) ? 
+            {/* {(loading) ? 
             
                 <h1>
                     Loading...
                 </h1>
             :
             
-         
-                <Overalls teams={rankings}/>
+         s
 
             
-            }
-            </div>
+            } */}
+            <Gears>
+                <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
+                    <h1 className="gap-0">
+                        Overall Rankings
+                    </h1>
+                    <Overalls teams={rankings}/>
+                
+                </div>
+            </Gears>
+            <Gears dir>
+                <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
+                    <h1 className="gap-0">
+                        Game Queue
+                    </h1>
+                    <Queue></Queue>
+                </div>
+            </Gears>
 
+            
         </>
     )
 }

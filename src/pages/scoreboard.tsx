@@ -85,12 +85,8 @@ function Scoreboard() {
                                 </IconContext.Provider>
                             </div>
                         </Wheel>
-                        
-                        <Gears>
-                             <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
-                                <Rankings/>
-                            </div>
-                        </Gears>
+                        <Rankings/>
+
                 </div>
             </div>
         </>
