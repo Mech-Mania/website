@@ -112,7 +112,7 @@ function Rankings() {
                         </div>
 
 
-                        <div className='flex flex-row justify-end'>
+                        <div className='flex flex-row justify-start'>
                             {['All','Queued', 'Finished'].map((name,index:number)=>(
                                 <div key={index} className="w-40">
                                     <div onClick={()=>{setFilterMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
