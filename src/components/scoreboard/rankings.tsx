@@ -48,37 +48,39 @@ function Stats() {
         <>
 
 
-            {(loading) ? 
-                <h1>
-                    Loading...
-                </h1>
-            :
+
             
-                <Gears>
+            <Gears>
                 <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
                     <h1 className="gap-0">
                         Overall Rankings
                     </h1>
-                    <Overalls teams={rankings}/>
-                
-                </div>
-                </Gears>
-            
-            }
-            {(loading) ? 
-                <h1>
-                    Loading...
-                </h1>
-            :
-                <Gears dir>
-                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
-                        <h1 className="gap-0">
-                            Game Queue
+                    {(loading) ? 
+                        <h1>
+                            Loading...
                         </h1>
-                        <Queue gameContainer={gameContainer} game={mode}></Queue>
-                    </div>
-                </Gears>
-            }
+                    :
+                    <Overalls teams={rankings}/>
+                    }
+                </div>
+            </Gears>
+
+            <Gears dir>
+                <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
+                    <h1 className="gap-0">
+                        Game Queue
+                    </h1>
+                    {(loading) ? 
+                        <h1>
+                            Loading...
+                        </h1>
+                    :
+
+                    <Queue gameContainer={gameContainer} game={mode}></Queue>
+                    }
+                </div>
+            </Gears>
+        
             
         </>
     )
