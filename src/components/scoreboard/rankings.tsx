@@ -82,7 +82,9 @@ function Rankings() {
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: 'Overall'} Rankings
                         </h1>
-                        <Overalls teams={(mode=='Global') ? rankings : gameContainer.Data[gameContainer.Names.indexOf(mode)].Points}/>
+                        <Overalls teams={(mode=='Global') ? rankings : gameContainer.Data[gameContainer.Names.indexOf(mode)].Points} 
+                                  settings={(mode=='Global') ? {PointsName:'Score', Descending:true} : gameContainer.Data[gameContainer.Names.indexOf(mode)].Settings}
+                        />
                     </div>
                 </Gears>
             }
