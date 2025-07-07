@@ -80,6 +80,13 @@ function Rankings() {
 
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
+                        {gameContainer['Names'].map((name,index:number)=>(
+                            <div key={index} className="w-32">
+                                <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
+                                    <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
+                                </div>
+                            </div>
+                        ))}
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Game Queue
                         </h1>
