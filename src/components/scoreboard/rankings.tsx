@@ -45,25 +45,31 @@ function Stats() {
     },[])
     return (
 
+        <>
 
 
-            (loading) ? 
-                 <>
+            {(loading) ? 
                 <h1>
                     Loading...
                 </h1>
-                </>
             :
-            <>
+            
                 <Gears>
-                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
-                        <h1 className="gap-0">
-                            Overall Rankings
-                        </h1>
-                        <Overalls teams={rankings}/>
-                    
-                    </div>
+                <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
+                    <h1 className="gap-0">
+                        Overall Rankings
+                    </h1>
+                    <Overalls teams={rankings}/>
+                
+                </div>
                 </Gears>
+            
+            }
+            {(loading) ? 
+                <h1>
+                    Loading...
+                </h1>
+            :
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
                         <h1 className="gap-0">
@@ -72,9 +78,9 @@ function Stats() {
                         <Queue gameContainer={gameContainer} game={mode}></Queue>
                     </div>
                 </Gears>
-
+            }
             
-            </>
+        </>
     )
 }
 
