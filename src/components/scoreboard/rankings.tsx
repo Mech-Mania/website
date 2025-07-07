@@ -99,7 +99,7 @@ function Rankings() {
 
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center">
-                        <div className='flex flex-row'>
+                        <div className='flex flex-cols'>
                             <div className='flex flex-row justify-start'>
                             {gameContainer['Names'].map((name,index:number)=>(
                                 <div key={index} className="w-48">
