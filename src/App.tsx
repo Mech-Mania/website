@@ -15,7 +15,7 @@ function App() {
   })
 
   const getPageData = async () => {
-    const response = await fetch('api/status.js', {
+    const response = await fetch('/api/status.js', {
           method: 'GET',
           headers: {
               'Content-Type': 'application/json',
