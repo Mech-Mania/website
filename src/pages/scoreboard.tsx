@@ -9,7 +9,7 @@ import { Route, Routes } from "react-router-dom";
 import Gears from "../components/gears/gears";
 import Admin from "../components/scoreboard/admin/admin";
 
-function Scoreboard() {
+function Scoreboard(props:any) {
     // Variable sizing controller states
     const [marginTop, setMarginTop] = useState(0);
     const divRef = useRef<HTMLDivElement>(null);
@@ -77,7 +77,7 @@ function Scoreboard() {
                         </Wheel>
                         {/* Router to render admin panel on same page */}
                         <Routes>
-                            <Route index element={<Rankings/>} />
+                            <Route index element={(props.pageStatus.scoreboard) ? <Rankings/> : <></>} />
                             <Route path='/admin' element={<Admin/>}/> 
                             <Route path='/*' element={<Gears><h1>404 - Page Not Found</h1></Gears>}/>
                         </Routes>

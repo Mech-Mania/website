@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
     BrowserRouter as Router,
     Routes,
@@ -9,13 +10,37 @@ import Dash from "./pages/dash";
 import Scoreboard from "./pages/scoreboard"
 
 function App() {
+  const [pageStatus, setPageStatus] = useState({
+    scoreboard:false
+  })
+
+  const getPageData = async () => {
+    const response = await fetch('api/status.js', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+      });
+    
+      if (!response.ok) {
+          throw new Error('Failed to increment visits');
+      }
+      const data = await response.json();
+      setPageStatus(data) 
+      console.log(data)
+  }
+
+  useEffect(()=>{
+    getPageData()
+  },[])
+
   return (
     <>
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/dashboard" element={<Dash/>}/>
-          <Route path="/scoreboard/*" element={<Scoreboard/>}/>
+          <Route path="/scoreboard/*" element={<Scoreboard pageStatus={pageStatus}/>}/>
           <Route path='/*' element={<h1>404 - Page Not Found</h1>}/>
         </Routes>
       </Router>
