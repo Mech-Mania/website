@@ -27,7 +27,7 @@ function App() {
       }
       const data = await response.json();
       await setPageStatus(data) 
-      window.dispatchEvent(new Event('resize'));
+      // window.dispatchEvent(new Event('resize'));
       console.log(data)
   }
 
