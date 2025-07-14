@@ -26,7 +26,8 @@ function App() {
           throw new Error('Failed to increment visits');
       }
       const data = await response.json();
-      setPageStatus(data) 
+      await setPageStatus(data) 
+      window.dispatchEvent(new Event('resize'));
       console.log(data)
   }
 
