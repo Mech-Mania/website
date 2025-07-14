@@ -8,6 +8,7 @@ import Initial from "../components/initial";
 import { Route, Routes } from "react-router-dom";
 import Gears from "../components/gears/gears";
 import Admin from "../components/scoreboard/admin/admin";
+import { setEnvironmentData } from "worker_threads";
 
 function Scoreboard(props:any) {
     // Variable sizing controller states
@@ -16,7 +17,11 @@ function Scoreboard(props:any) {
     const [size, setSize] = useState([0, 0])
     const [width, setWidth] = useState(0)
     const scrollRef = useRef<HTMLDivElement>(null);
+    const [enabled, setEnabled] = useState(false);
 
+    useEffect(()=>{
+        setEnabled(props.pageStatus.scoreboard)
+    },[props.pageStatus.scoreboard])
 
     const updateMarginTop = () => {
         if (window.innerHeight!=size[1]){
@@ -77,7 +82,7 @@ function Scoreboard(props:any) {
                         </Wheel>
                         {/* Router to render admin panel on same page */}
                         <Routes>
-                            <Route index element={(props.pageStatus.scoreboard) ? <Rankings/> : <></>} />
+                            <Route index element={(enabled) ? <Rankings/> : <></>} />
                             <Route path='/admin' element={<Admin/>}/> 
                             <Route path='/*' element={<Gears><h1>404 - Page Not Found</h1></Gears>}/>
                         </Routes>
