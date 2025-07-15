@@ -23,12 +23,11 @@ function App() {
       });
     
       if (!response.ok) {
-          throw new Error('Failed to increment visits');
+          throw new Error('Failed to get pageData');
       }
       const data = await response.json();
-      await setPageStatus(data) 
+      await setPageStatus(data.pageStatus) 
       // window.dispatchEvent(new Event('resize'));
-      console.log(data)
 
   }
 
