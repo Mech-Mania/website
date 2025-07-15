@@ -8,7 +8,6 @@ import Initial from "../components/initial";
 import { Route, Routes } from "react-router-dom";
 import Gears from "../components/gears/gears";
 import Admin from "../components/scoreboard/admin/admin";
-import { setEnvironmentData } from "worker_threads";
 
 function Scoreboard(props:any) {
     // Variable sizing controller states
