@@ -54,7 +54,7 @@ function Rankings(props:any) {
         console.log(props.enabled)
     },[props.enabled])
 
-
+    console.log('areErrorshere')
     return (
 
         <>
