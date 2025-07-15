@@ -20,7 +20,6 @@ function Scoreboard(props:any) {
 
     useEffect(()=>{
         setEnabled(props.pageStatus.scoreboard)
-        console.log(`scoreboard.tsx: ${props.pageStatus.scoreboard}`)
     },[props.pageStatus.scoreboard])
 
     const updateMarginTop = () => {
