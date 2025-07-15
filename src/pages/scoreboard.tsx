@@ -52,11 +52,6 @@ function Scoreboard(props:any) {
             }, 1500);
         }, 1000)
         setEnabled(props.pageStatus.scoreboard)
-        console.log(enabled)
-        console.log(props.pageStatus.scoreboard)
-        setTimeout(function(){
-            console.log(enabled)
-        }, 1000)
     }, []);
 
     const scrollClick = (ref:any) => {
@@ -87,11 +82,19 @@ function Scoreboard(props:any) {
                             </div>
                         </Wheel>
                         {/* Router to render admin panel on same page */}
+                        {(enabled ? 
                         <Routes>
-                            {(enabled ? <Route index element={<Rankings/>}/> : <></>)}
+                            <Route index element={<Rankings/>}/>
                             <Route path='/admin' element={<Admin/>}/> 
                             <Route path='/*' element={<Gears><h1>404 - Page Not Found</h1></Gears>}/>
                         </Routes>
+                        :
+                        <Routes>
+                            <Route index element={<Gears><p>Scoreboard not available at this time</p></Gears>}/>
+                            <Route path='/admin' element={<Admin/>}/> 
+                            <Route path='/*' element={<Gears><h1>404 - Page Not Found</h1></Gears>}/>
+                        </Routes>
+                        )}
                         
 
                 </div>
