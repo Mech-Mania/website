@@ -8,14 +8,15 @@ import type { gameCont } from "./rankings.types"
 import { Outlet } from "react-router-dom"
 
 function Rankings(props:any) {
-    
+    // This should work just make props.enabled a state. too tired to do any more
+
     const defaults = ['Overall']
     const [games, setGames] = useState(0)
     const [rankings, setRankings] = useState(null)
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{}})
-    const [filterMode, setFilterMode] = useState('Queued')
+    const [enabled, setEnabled] = useState(props.enabled)
 
     const getRaw = async () => {
         const response = await fetch('api/scoreboard.js', {
@@ -48,6 +49,10 @@ function Rankings(props:any) {
         getRaw()
     },[])
 
+    useEffect(()=>{
+        setEnabled(props.enabled)
+    },[props.enabled])
+
 
     return (
 
@@ -60,7 +65,7 @@ function Rankings(props:any) {
                     </h1>
                 </Gears>
                 :
-                (props.enabled) ?
+                (enabled) ?
 
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
@@ -78,7 +83,7 @@ function Rankings(props:any) {
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Next Game
                         </h1>
-                        <Queue gameContainer={gameContainer} game={mode} filter={filterMode}></Queue>
+                        <Queue gameContainer={gameContainer} game={mode}></Queue>
                     </div>
                 </Gears>
                 :
@@ -97,7 +102,7 @@ function Rankings(props:any) {
                     </h1>
                 </Gears>
             :
-            (props.enabled)
+            (enabled)
             ?
                 <Gears>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
