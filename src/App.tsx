@@ -34,7 +34,7 @@ function App() {
 
   useEffect(()=>{
     getPageData()
-    console.log(`App.tsx: ${pageStatus}`)
+    console.log(`App.tsx:`, pageStatus)
   },[])
 
   return (
