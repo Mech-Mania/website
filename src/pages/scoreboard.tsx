@@ -17,10 +17,11 @@ function Scoreboard(props:any) {
     const [size, setSize] = useState([0, 0])
     const [width, setWidth] = useState(0)
     const scrollRef = useRef<HTMLDivElement>(null);
-    const [enabled, setEnabled] = useState(false);
+    const [enabled, setEnabled] = useState(props.pageStatus.scoreboard);
 
     useEffect(()=>{
         setEnabled(props.pageStatus.scoreboard)
+        console.log(`scoreboard.tsx: ${props.pageStatus.scoreboard}`)
     },[props.pageStatus.scoreboard])
 
     const updateMarginTop = () => {
@@ -51,6 +52,7 @@ function Scoreboard(props:any) {
                 document.body.style.overflow = '';
             }, 1500);
         }, 1000)
+        
         setEnabled(props.pageStatus.scoreboard)
     }, []);
 

@@ -29,6 +29,7 @@ function App() {
       await setPageStatus(data) 
       // window.dispatchEvent(new Event('resize'));
       console.log(data)
+      
   }
 
   useEffect(()=>{
