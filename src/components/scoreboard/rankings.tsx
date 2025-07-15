@@ -37,6 +37,7 @@ function Rankings(props:any) {
         // i think it works it just throws a formatting error with the jsx work on this again later
         setRankings(teamPoints)
         setgameContainer(body.games)
+        console.log(body.games)
 
 
 
@@ -50,24 +51,24 @@ function Rankings(props:any) {
 
     useEffect(()=>{
         setEnabled(props.enabled)
+        console.log(props.enabled)
     },[props.enabled])
 
+    console.log('areErrorshere')
     return (
 
         <>
             
             {(loading) ? 
-            // If loading
-                <Gears> 
+                <Gears >
                     <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
                         Loading...
                     </h1>
                 </Gears>
                 :
                 (enabled) ?
-                // If enabled
-                <>
-                <Gears>
+
+                <Gears >
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex'>
                         {gameContainer['Names'].map((name,index:number)=>(
@@ -86,6 +87,24 @@ function Rankings(props:any) {
                         <Queue gameContainer={gameContainer} game={mode}></Queue>
                     </div>
                 </Gears>
+                :
+                <Gears >
+                    <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
+                        The scoreboard is not available at this time
+                    </p>
+                </Gears>
+            }
+
+            
+            {(loading) ?
+                <Gears dir>
+                    <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
+                        Loading...
+                    </h1>
+                </Gears>
+            :
+            (enabled)
+            ?
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex max-w-[96vw]'>
@@ -111,17 +130,15 @@ function Rankings(props:any) {
                         <Overalls teams={(mode=='Global') ? rankings : gameContainer.Points[mode]}/>
                     </div>
                 </Gears>
-                </>
-                :
-                // If unavailable
-                <Gears >
+            :
+                <Gears dir>
                     <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
                         The scoreboard is not available at this time
                     </p>
                 </Gears>
             }
-            
-            
+
+                
         
             <Outlet/>
             
