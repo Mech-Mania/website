@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import './rankings.css'
 import type {rankData} from './overalls.types'
-import type { gameSettings } from "./rankings.types"
 
 function Overalls(props:any) {
 

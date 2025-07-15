@@ -4,7 +4,7 @@ import Overalls from "./overalls"
 import Gears from "../gears/gears"
 import Wheel from "../gears/wheel"
 import Queue from "./queue"
-import type { gameCont, gameType } from "./rankings.types"
+import type { gameCont } from "./rankings.types"
 import { Outlet } from "react-router-dom"
 
 function Rankings() {
@@ -14,7 +14,7 @@ function Rankings() {
     const [rankings, setRankings] = useState(null)
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
-    const [gameContainer, setgameContainer] = useState<gameCont>({Data:[],Names:[]})
+    const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{}})
     const [filterMode, setFilterMode] = useState('Queued')
 
     const getRaw = async () => {
@@ -53,7 +53,35 @@ function Rankings() {
 
         <>
 
+            {(loading) ? 
+                <Gears dir>
+                    <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
+                        Loading...
+                    </h1>
+                </Gears>
+                :
 
+                <Gears dir>
+                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
+                        <div className='flex'>
+                        {gameContainer['Names'].map((name,index:number)=>(
+                            <div key={index} className="w-48">
+                                <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
+                                    <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
+                                </div>
+                            </div>
+                        ))}
+                        </div>
+
+
+                        <h1 className="gap-0">
+                            {(mode!='Global') ? mode: gameContainer['Names'][0]} Next Game
+                        </h1>
+                        <Queue gameContainer={gameContainer} game={mode} filter={filterMode}></Queue>
+                    </div>
+                </Gears>
+
+            }
 
             
             {(loading) ?
@@ -85,41 +113,13 @@ function Rankings() {
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: 'Overall'} Rankings
                         </h1>
-                        <Overalls teams={(mode=='Global') ? rankings : gameContainer.Data[gameContainer.Names.indexOf(mode)].Points}/>
+                        <Overalls teams={(mode=='Global') ? rankings : gameContainer.Points[mode]}/>
                     </div>
                 </Gears>
             }
 
                 
-            {(loading) ? 
-                <Gears dir>
-                    <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
-                        Loading...
-                    </h1>
-                </Gears>
-                :
-
-                <Gears dir>
-                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
-                        <div className='flex'>
-                        {gameContainer['Names'].map((name,index:number)=>(
-                            <div key={index} className="w-48">
-                                <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
-                                    <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
-                                </div>
-                            </div>
-                        ))}
-                        </div>
-
-
-                        <h1 className="gap-0">
-                            {(mode!='Global') ? mode: gameContainer['Names'][0]} Game Queue
-                        </h1>
-                        <Queue gameContainer={gameContainer} game={mode} filter={filterMode}></Queue>
-                    </div>
-                </Gears>
-
-            }
+        
             <Outlet/>
             
         </>
