@@ -27,13 +27,13 @@ function App() {
       }
       const data = await response.json();
       await setPageStatus(data.pageStatus) 
+      console.log('Pagestatus:', data.pageStatus)
       // window.dispatchEvent(new Event('resize'));
 
   }
 
   useEffect(()=>{
     getPageData()
-    console.log(`App.tsx:`, pageStatus)
   },[])
 
   return (
