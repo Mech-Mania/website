@@ -51,10 +51,8 @@ function Rankings(props:any) {
 
     useEffect(()=>{
         setEnabled(props.enabled)
-        console.log(props.enabled)
     },[props.enabled])
 
-    console.log('areErrorshere')
     return (
 
         <>
@@ -85,7 +83,7 @@ function Rankings(props:any) {
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Next Game
                         </h1>
                         <Queue gameContainer={gameContainer} game={mode}></Queue>
-                    </div>
+                    </div>z
                 </Gears>
                 :
                 <Gears >
