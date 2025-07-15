@@ -51,6 +51,7 @@ function Rankings(props:any) {
 
     useEffect(()=>{
         setEnabled(props.enabled)
+        console.log(props.enabled)
     },[props.enabled])
 
 
