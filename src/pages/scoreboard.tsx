@@ -53,6 +53,7 @@ function Scoreboard(props:any) {
         }, 1000)
         setEnabled(props.pageStatus.scoreboard)
         console.log(enabled)
+        console.log(props.pageStatus.scoreboard)
         setTimeout(function(){
             console.log(enabled)
         }, 1000)
@@ -87,7 +88,7 @@ function Scoreboard(props:any) {
                         </Wheel>
                         {/* Router to render admin panel on same page */}
                         <Routes>
-                            <Route index element={(enabled) ? <Rankings/> : <></>} />
+                            {(enabled ? <Route index element={<Rankings/>}/> : <></>)}
                             <Route path='/admin' element={<Admin/>}/> 
                             <Route path='/*' element={<Gears><h1>404 - Page Not Found</h1></Gears>}/>
                         </Routes>
