@@ -51,6 +51,7 @@ function Scoreboard(props:any) {
                 document.body.style.overflow = '';
             }, 1500);
         }, 1000)
+        setEnabled(props.pageStatus.scoreboard)
     }, []);
 
     const scrollClick = (ref:any) => {
@@ -82,7 +83,7 @@ function Scoreboard(props:any) {
                         </Wheel>
                         {/* Router to render admin panel on same page */}
                         <Routes>
-                            <Route index element={(!enabled) ? <Rankings/> : <></>} />
+                            <Route index element={(enabled) ? <Rankings/> : <></>} />
                             <Route path='/admin' element={<Admin/>}/> 
                             <Route path='/*' element={<Gears><h1>404 - Page Not Found</h1></Gears>}/>
                         </Routes>
