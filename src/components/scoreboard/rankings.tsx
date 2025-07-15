@@ -7,7 +7,7 @@ import Queue from "./queue"
 import type { gameCont } from "./rankings.types"
 import { Outlet } from "react-router-dom"
 
-function Rankings() {
+function Rankings(props:any) {
     
     const defaults = ['Overall']
     const [games, setGames] = useState(0)
@@ -52,7 +52,7 @@ function Rankings() {
     return (
 
         <>
-
+            
             {(loading) ? 
                 <Gears dir>
                     <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
@@ -60,6 +60,7 @@ function Rankings() {
                     </h1>
                 </Gears>
                 :
+                (props.enabled) ?
 
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
@@ -80,7 +81,12 @@ function Rankings() {
                         <Queue gameContainer={gameContainer} game={mode} filter={filterMode}></Queue>
                     </div>
                 </Gears>
-
+                :
+                <Gears dir>
+                    <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
+                        The scoreboard is not available at this time
+                    </p>
+                </Gears>
             }
 
             
@@ -91,6 +97,8 @@ function Rankings() {
                     </h1>
                 </Gears>
             :
+            (props.enabled)
+            ?
                 <Gears>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex max-w-[96vw]'>
@@ -115,6 +123,12 @@ function Rankings() {
                         </h1>
                         <Overalls teams={(mode=='Global') ? rankings : gameContainer.Points[mode]}/>
                     </div>
+                </Gears>
+            :
+                <Gears dir>
+                    <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
+                        The scoreboard is not available at this time
+                    </p>
                 </Gears>
             }
 
