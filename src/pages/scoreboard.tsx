@@ -3,7 +3,7 @@ import Load from "../components/load/load";
 import Wheel from "../components/gears/wheel";
 import Rankings from '../components/scoreboard/rankings'
 import { IconContext } from "react-icons";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaEbay } from "react-icons/fa";
 import Initial from "../components/initial";
 import { Route, Routes } from "react-router-dom";
 import Gears from "../components/gears/gears";
@@ -52,6 +52,10 @@ function Scoreboard(props:any) {
             }, 1500);
         }, 1000)
         setEnabled(props.pageStatus.scoreboard)
+        console.log(enabled)
+        setTimeout(function(){
+            console.log(enabled)
+        }, 1000)
     }, []);
 
     const scrollClick = (ref:any) => {
