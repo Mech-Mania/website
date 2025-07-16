@@ -64,7 +64,7 @@ function Load() {
         <img id="loaderImage" className="absolute brightness-0 invert-[20%] origin-right" src="/mechmania.svg"></img>
         <div className={clsx("max-h-0 max-w-0 box-border w-fit overflow-hidden flex flex-row items-start justify-start", animateClass)}>
           <div className="pt-8 pl-0 lg:pt-0 lg:pl-16 lg:w-auto flex flex-col items-start justify-center">
-            <p className="w-full text-center lg:text-left">2025/26 - More Info Coming Soon</p>
+            <p className="w-full text-center lg:text-left">2026 - May 9th - UW @ Robohub</p>
             <h1 className="w-full text-center lg:text-left">MechMania</h1>
             <h2 className="w-full text-center lg:text-left">{slogan+typer}</h2>
           </div>
