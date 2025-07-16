@@ -3,6 +3,10 @@ export type matchData = {
     A1: string[],
     A2: string[]
 }
+export type Settings = {
+    descending:boolean,
+    pointsName:string
+}
 
 export type gameCont = {
     Data: {
@@ -13,6 +17,9 @@ export type gameCont = {
         [key:string]:{
             [key:string]:number
         }
+    },
+    Settings: {
+        [key:string]: Settings
     }
 
 }

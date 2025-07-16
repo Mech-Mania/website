@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import './rankings.css'
 import type {rankData} from './overalls.types'
-
+import { Settings } from "./rankings.types"
 function Overalls(props:any) {
 
     //typescript shenanigans
     let x:rankData[] = []
     const [rankings, setRankings] = useState(x)
-
+    const [settings, setSettings] = useState<Settings>(props.settings)
 
     const createRankings = async (teams:any) => {
 
@@ -19,7 +19,9 @@ function Overalls(props:any) {
         
         
         ranktemp.sort((T1:any, T2:any) => T1.points - T2.points);
-        ranktemp.reverse()
+        if (props.settings.descending){
+            ranktemp.reverse()
+        }
 
         let curRank = 0
         for (let i = 0;i<ranktemp.length;i++){
@@ -35,13 +37,13 @@ function Overalls(props:any) {
 
 
     useEffect(()=>{
+        setSettings(props.settings)
         createRankings(props.teams)
 
-    },[])
+    },[props.teams, props.settings])
 
     useEffect(()=>{createRankings(props.teams)},[props.teams])
     
-        
     return (
 
         <>
@@ -51,7 +53,7 @@ function Overalls(props:any) {
             <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">
                 <h1 className="text-4xl " >Rank</h1>
                 <h1 className="text-4xl">Team</h1>
-                <h1 className="text-4xl">Score</h1>
+                <h1 className="text-4xl">{settings.pointsName}</h1>
             </div>
 
             {rankings.map((team:rankData,index)=>(

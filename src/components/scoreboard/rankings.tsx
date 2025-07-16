@@ -15,7 +15,7 @@ function Rankings(props:any) {
     const [rankings, setRankings] = useState(null)
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
-    const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{}})
+    const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{},Settings:{}})
     const [enabled, setEnabled] = useState(props.enabled)
 
     const getRaw = async () => {
@@ -83,7 +83,7 @@ function Rankings(props:any) {
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Next Game
                         </h1>
                         <Queue gameContainer={gameContainer} game={mode}></Queue>
-                    </div>z
+                    </div>
                 </Gears>
                 :
                 <Gears >
@@ -125,7 +125,7 @@ function Rankings(props:any) {
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: 'Overall'} Rankings
                         </h1>
-                        <Overalls teams={(mode=='Global') ? rankings : gameContainer.Points[mode]}/>
+                        <Overalls teams={(mode=='Global') ? rankings : gameContainer.Points[mode]} settings={(mode=='Global') ? {descending:false, pointsName:'Score'} : gameContainer.Settings[mode]}/>
                     </div>
                 </Gears>
             :
