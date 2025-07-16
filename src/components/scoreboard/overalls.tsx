@@ -39,7 +39,7 @@ function Overalls(props:any) {
     useEffect(()=>{
         setSettings(props.settings)
         createRankings(props.teams)
-
+        console.log(props.settings)
     },[props.teams, props.settings])
 
     useEffect(()=>{createRankings(props.teams)},[props.teams])
