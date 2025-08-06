@@ -54,7 +54,7 @@ function Rankings(props:any) {
     },[props.enabled])
 
     return (
-
+        enabled ? 
         <>
             
             {(loading) ? 
@@ -139,6 +139,17 @@ function Rankings(props:any) {
                 
         
             <Outlet/>
+            
+        </>
+    :
+    <>
+            
+                <Gears >
+                    <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
+                        The scoreboard is not available at this time
+                    </p>
+                </Gears>
+
             
         </>
     )
