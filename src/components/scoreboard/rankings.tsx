@@ -55,7 +55,7 @@ function Rankings(props:any) {
 
     return (
         loading ? 
-                <Gears >
+                <Gears key='0'>
                     <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
                         Loading...
                     </h1>
@@ -65,7 +65,7 @@ function Rankings(props:any) {
         <>
             
             
-                <Gears >
+                <Gears key='1'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex'>
                         {gameContainer['Names'].map((name,index:number)=>(
@@ -86,7 +86,7 @@ function Rankings(props:any) {
                 </Gears>
 
             
-                <Gears dir>
+                <Gears dir key='2'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex max-w-[96vw]'>
                             {/* Overall */}
@@ -120,14 +120,13 @@ function Rankings(props:any) {
     :
     <>
             
-                <Gears >
+                <Gears key='0'>
                     <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
                         The scoreboard is not available at this time
                     </p>
                 </Gears>
-
-            
-        </>
+        
+    </>
     )
 }
 
