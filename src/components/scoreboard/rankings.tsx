@@ -54,6 +54,7 @@ function Rankings(props:any) {
     },[props.enabled])
 
     return (
+        //It still fails a teensy bit on first load, with the gear animation being off, but much less than before, so I'll call it a win.
         loading ? 
                 <Gears key='0'>
                     <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
