@@ -129,7 +129,7 @@ function Rankings(props:any) {
                     </div>
                 </Gears>
             :
-                <Gears dir className='opacity-0'>
+                <Gears dir className='opacity-0 translate-x-[500vw]'>
                     <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
                         The scoreboard is not available at this time
                     </p>
