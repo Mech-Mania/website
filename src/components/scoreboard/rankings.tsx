@@ -54,18 +54,17 @@ function Rankings(props:any) {
     },[props.enabled])
 
     return (
-        enabled ? 
-        <>
-            
-            {(loading) ? 
+        loading ? 
                 <Gears >
                     <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
                         Loading...
                     </h1>
                 </Gears>
-                :
-                (enabled) ?
-
+        :
+        enabled ? 
+        <>
+            
+            
                 <Gears >
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex'>
@@ -85,24 +84,8 @@ function Rankings(props:any) {
                         <Queue gameContainer={gameContainer} game={mode}></Queue>
                     </div>
                 </Gears>
-                :
-                <Gears >
-                    <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
-                        The scoreboard is not available at this time
-                    </p>
-                </Gears>
-            }
 
             
-            {(loading) ?
-                <Gears dir>
-                    <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
-                        Loading...
-                    </h1>
-                </Gears>
-            :
-            (enabled)
-            ?
                 <Gears dir>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex max-w-[96vw]'>
@@ -128,13 +111,6 @@ function Rankings(props:any) {
                         <Overalls teams={(mode=='Global') ? rankings : gameContainer.Points[mode]} settings={(mode=='Global') ? {descending:true, pointsName:'Score'} : gameContainer.Settings[mode]}/>
                     </div>
                 </Gears>
-            :
-                <Gears dir className='opacity-0 translate-x-[500vw]'>
-                    <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
-                        The scoreboard is not available at this time
-                    </p>
-                </Gears>
-            }
 
                 
         
