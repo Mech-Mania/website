@@ -19,7 +19,7 @@ function Rankings(props:any) {
     const [enabled, setEnabled] = useState(props.enabled)
 
     const getRaw = async () => {
-        const response = await fetch('api/scoreboard.js', {
+        const response = await fetch('/api/scoreboard.js', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "text/plain",
