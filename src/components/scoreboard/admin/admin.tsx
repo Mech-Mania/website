@@ -45,11 +45,11 @@ function Admin(props:any) {
     },[])
         
     return (
-
+        (displayMode=='Locked')?
        <>
        <Gears>
             <div className="-left-[10vw] w-[120vw] flex justify-center flex-col items-center">
-                {(displayMode=='Locked')?
+                
                     <>
                         {error}
                         <div style={{ display: displayPW }} className="flex-col lg:flex-row gap-2 rounded-full p-2 overflow-hidden bg-[#aaa]">
@@ -59,11 +59,12 @@ function Admin(props:any) {
                             </button>
                         </div>
                     </>
-                :
-                <Rankings enabled={true} admin={true}/>
-                }
             </div>
         </Gears>
+       </>
+       :
+       <>
+       <Rankings enabled={true} admin={true}/>
        </>
     )
 }
