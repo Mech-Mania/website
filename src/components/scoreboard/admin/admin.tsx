@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Gears from "../../gears/gears"
-
+import Rankings from "../rankings"
 function Admin(props:any) {
 
     //typescript shenanigans
@@ -60,8 +60,7 @@ function Admin(props:any) {
                         </div>
                     </>
                 :
-                <div>
-                </div>
+                <Rankings enabled={true} admin={true}/>
                 }
             </div>
         </Gears>

@@ -83,7 +83,7 @@ function Scoreboard(props:any) {
                         </Wheel>
                         {/* Router to render admin panel on same page */}
                         <Routes>
-                            <Route index element={<Rankings enabled={enabled}/>}/>
+                            <Route index element={<Rankings enabled={enabled} admin={false}/>}/>
                             <Route path='/admin' element={<Admin/>}/> 
                             <Route path='/*' element={<Gears><h1>404 - Page Not Found</h1></Gears>}/>
                         </Routes>
