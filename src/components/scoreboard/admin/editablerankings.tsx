@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react"
-import './rankings.css'
-import Overalls from "./overalls"
-import Gears from "../gears/gears"
-import Wheel from "../gears/wheel"
-import Queue from "./queue"
-import type { gameCont } from "./rankings.types"
+import '../rankings.css'
+import EditableOveralls from "./editableoveralls"
+import Gears from "../../gears/gears"
+import Queue from "../queue"
+import type { gameCont } from "../rankings.types"
 import { Outlet } from "react-router-dom"
+import EditableInput from "./editabletext"
 
 function Rankings(props:any) {
     // This should work just make props.enabled a state. too tired to do any more
 
     const defaults = ['Overall']
     const [games, setGames] = useState(0)
-    const [rankings, setRankings] = useState(null)
+    const [rankings, setRankings] = useState<{[key:string]:number}>({})
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{},Settings:{}})
@@ -50,11 +50,104 @@ function Rankings(props:any) {
     },[])
 
     useEffect(()=>{
+        console.log(gameContainer)
+    },[gameContainer])
+    useEffect(()=>{
         setEnabled(props.enabled)
     },[props.enabled])
 
+
+
+    const onSettingsChange = (name:string, value:any) => {
+        if (mode == 'Global') {
+            // Do nothing we don't want to edit global stuff
+            // this never happens and doesnt happen while testing i already made sure of that
+        } else {
+            setgameContainer(prevState => ({
+                ...prevState,
+                Settings: {
+                    ...prevState.Settings,
+                    [mode] : {...prevState.Settings[mode],[name]:value}
+                }
+            }));
+        }
+    }
+
+    const onScoreChange = (name:string, value:any) => {
+        if (value == ''){
+            value = '0'
+        }
+        if (Number.isNaN(parseInt(value))){
+            value = '0'
+        }
+        if (mode == 'Global') {
+            setRankings(prevState => ({
+                ...prevState,
+                [name]:parseInt(value)
+            }));
+        } else {
+            setgameContainer(prevState => ({
+                ...prevState,
+                Points: {
+                    ...prevState.Points,
+                    [mode] : {
+                        ...prevState.Points[mode],
+                        [name]:parseInt(value)
+                    }
+                }
+            }));
+        }
+    }
+
+    const onGameNameChange = (name:string, value:any) => {
+        //Some error checking to stop default names from being overwritten
+        if (gameContainer.Names.includes(value) || ['','Overall','Global'].includes(value)|| name == 'Overall'){
+            return
+        }
+        // FilterObj function removes any keys at top level which match a string in exclude. Returns new object
+        const filterObj:any = (exclude:string[], origObject:any) => {
+            
+            let filteredObj = {...origObject}
+            for (const key of Object.keys(origObject)){
+                if (exclude.includes(key)){
+                    delete filteredObj[key]
+                }
+            }
+
+            return filteredObj
+        }
+
+        setgameContainer(prevState => ({
+            ...prevState,
+            Names: [...prevState.Names.filter((TestName)=>TestName != name),value],
+            // Making heavy use of filterobj here
+            // See types in rankings.types.ts 
+            Points: {
+                ...filterObj([name],prevState.Points),
+                [value] : {
+                    ...prevState.Points[name],
+                }
+            },
+            Settings: {
+                ...filterObj([name],prevState.Points),
+                [value] : {
+                    ...prevState.Points[name],
+                }
+            },
+            Data: {
+                ...filterObj([name],prevState.Points),
+                [value] : {
+                    ...prevState.Points[name],
+                }
+            }
+        }));
+        setMode(value)
+    }
+
+
+
     return (
-        //It still fails a teensy bit on first load, with the gear animation being off, but much less than before, so I'll call it a win.
+        // use callback functions in the editableprops areas to send things back upstream.
         loading ? 
                 <Gears key='0'>
                     <h1 className="-left-[10vw] w-[120vw] flex justify-center items-center">
@@ -107,9 +200,9 @@ function Rankings(props:any) {
                             ))}
                         </div>
                         <h1 className="gap-0">
-                            {(mode!='Global') ? mode: 'Overall'} Rankings
+                            <EditableInput value={(mode!='Global') ? mode: 'Overall'} commitFunc={onGameNameChange} boxName={(mode!='Global') ? mode: 'Overall'}/> Rankings
                         </h1>
-                        <Overalls teams={(mode=='Global') ? rankings : gameContainer.Points[mode]} settings={(mode=='Global') ? {descending:true, pointsName:'Score'} : gameContainer.Settings[mode]}/>
+                        <EditableOveralls onSettingsChange={onSettingsChange} onScoreChange={onScoreChange} teams={(mode=='Global') ? rankings : gameContainer.Points[mode]} settings={(mode=='Global') ? {descending:true, pointsName:'Score'} : gameContainer.Settings[mode]}/>
                     </div>
                 </Gears>
 
