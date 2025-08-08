@@ -75,6 +75,12 @@ function Rankings(props:any) {
                 return
             }
         }
+        if (value == ''){
+            value = '0'
+        }
+        if (Number.isNaN(parseInt(value))){
+            return
+        }
         if (mode == 'Global') {
             setRankings(prevState => ({
                 ...prevState,
