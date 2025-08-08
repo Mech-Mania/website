@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Gears from "../../gears/gears"
-import Rankings from "../rankings"
+import Rankings from "./editablerankings"
 function Admin(props:any) {
 
     //typescript shenanigans
