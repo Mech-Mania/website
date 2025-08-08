@@ -11,7 +11,7 @@ function Rankings(props:any) {
 
     const defaults = ['Overall']
     const [games, setGames] = useState(0)
-    const [rankings, setRankings] = useState(null)
+    const [rankings, setRankings] = useState<{[key:string]:number}>({})
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{},Settings:{}})
@@ -70,7 +70,26 @@ function Rankings(props:any) {
     }
 
     const onScoreChange = (name:string, value:any) => {
-
+        if (typeof value !== 'number') {
+            return
+        }
+        if (mode == 'Global') {
+            setRankings(prevState => ({
+                ...prevState,
+                [name]:value
+            }));
+        } else {
+            setgameContainer(prevState => ({
+                ...prevState,
+                Points: {
+                    ...prevState.Points,
+                    [mode] : {
+                        ...prevState.Points[mode],
+                        [name]:value
+                    }
+                }
+            }));
+        }
     }
 
 
