@@ -156,6 +156,39 @@ function Rankings(props:any) {
         }));
     }
 
+    const onGamesChange = (name:string, value:string) => {
+         value.replace('\n',' ')
+        value.replace('\t',' ')
+        
+        const filterGameNames:any = (OrigObj:any, names:string[], defaults:any) => {
+            let filtered = {...OrigObj}
+            for (const mode of Object.keys(OrigObj)) {
+                if (!names.includes(mode)) {
+                    delete filtered[mode]
+                }
+            }
+            for (const name of names){
+                if (!Object.keys(OrigObj).includes(name)){
+                    filtered[name] = defaults
+                }
+            }
+            return filtered
+        }
+
+        const gameNames = value.split(' ')
+        setgameContainer(prevState => ({
+            ...prevState,
+            Names: gameNames,
+ 
+            Points: filterGameNames(prevState.Points, gameNames, gameNames.reduce((acc:any,item:any)=>{
+                acc[item] = 0
+                return acc
+            })),
+            Data: filterGameNames(prevState.Data, gameNames, {A1:'',A2:''}),
+            Settings: filterGameNames(prevState.Settings, gameNames, {descending:false, pointsName:'Points'})
+        }));
+    }
+
     const onTeamsChange = (name:string, value:string) => {
         value.replace('\n',' ')
         value.replace('\t',' ')
@@ -237,9 +270,17 @@ function Rankings(props:any) {
                         <Queue gameContainer={gameContainer} game={(mode == 'Global') ? gameContainer['Names'][0]: mode} onQueueChange={onQueueChange}></Queue>
                     </div>
                 </Gears>
-
-                {/* Teams */}
+                
+                {/* Games */}
                 <Gears dir key='2'>
+                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
+                        <h1>Enter game names</h1>
+                        <EditableTextarea value={Object.keys(gameContainer.Names).join(' ')} boxName='Games' commitFunc={onGamesChange}/>
+                    </div>
+                </Gears>
+                
+                {/* Teams */}
+                <Gears dir key='3'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <h1>Enter team names</h1>
                         <EditableTextarea value={Object.keys(rankings).join(' ')} boxName='Names' commitFunc={onTeamsChange}/>
@@ -248,7 +289,7 @@ function Rankings(props:any) {
 
 
                 {/* Rankings */}
-                <Gears key='3'>
+                <Gears key='4'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex max-w-[96vw]'>
                             {/* Overall */}
