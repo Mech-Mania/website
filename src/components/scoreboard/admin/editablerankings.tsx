@@ -70,16 +70,11 @@ function Rankings(props:any) {
     }
 
     const onScoreChange = (name:string, value:any) => {
-        for (const char of value){
-            if (!['1','2','3','4','5','6','7','8','9','0','-'].includes(char)){
-                return
-            }
-        }
         if (value == ''){
             value = '0'
         }
         if (Number.isNaN(parseInt(value))){
-            return
+            value = '0'
         }
         if (mode == 'Global') {
             setRankings(prevState => ({
