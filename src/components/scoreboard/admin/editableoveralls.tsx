@@ -55,14 +55,16 @@ function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{on
         <>
 
 
-
+            <div className='items-center justify-start w-full gap-x-16 text-center'>
+                <p className="text-2xl">Descending Order</p> 
+                <input type='checkbox' checked={settings.descending} name='descending' onChange={handleSettingsChange}/>
+            </div>
             <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">
                 <h1 className="text-4xl " >Rank</h1>
                 
                 <h1 className="text-4xl">Team</h1>
                 <input type="text" className='text-4xl text-black' value={settings.pointsName} name={'pointsName'} onChange={handleSettingsChange}/>
             </div>
-
             {rankings.map((team:rankData,index)=>(
             <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
                 <p className="text-2xl">{team.rank}</p>
