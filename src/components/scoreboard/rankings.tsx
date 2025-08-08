@@ -40,6 +40,7 @@ function Rankings(props:any) {
 
 
 
+
         setStatus(false)
         return null
     }
