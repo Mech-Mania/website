@@ -70,7 +70,7 @@ function Rankings(props:any) {
             console.log(gameContainer, name, value)
             if (OvKey){
                 setOvKey(false)
-            } else{
+            } else{ 
                 setOvKey(true)
             }
         }

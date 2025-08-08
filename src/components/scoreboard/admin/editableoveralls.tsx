@@ -54,7 +54,7 @@ function EditableOveralls(props:any) {
     },[props.teams, props.settings])
     useEffect(()=>{
         console.log('initiate editable')
-        console.log(this.onSettingsChange)
+        console.log(props.onSettingsChange)
     })
     useEffect(()=>{createRankings(props.teams)},[props.teams])
     
