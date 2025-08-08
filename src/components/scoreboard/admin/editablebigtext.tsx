@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import '../rankings.css'
 
-function EditableInput({ value, commitFunc, boxName }:{value:any,commitFunc:any, boxName:string}) {
+function EditableTextarea({ value, commitFunc, boxName }:{value:any,commitFunc:any, boxName:string}) {
     const [inputValue, setInputValue] = useState(value);
     let delayPeriod = false
     // update local when outside value changes
@@ -30,18 +30,19 @@ function EditableInput({ value, commitFunc, boxName }:{value:any,commitFunc:any,
             e.target.blur(); // triggers onBlur
         }
     };
-
     return (
-        <input
-            key={boxName}
-            className='text-2xl text-black'
-            type="text"
-            value={inputValue}
-            name={boxName}
+
+        <textarea 
+            key={boxName} 
+            className='text-2xl text-black' 
+            name={boxName} 
             onChange={(e) => setInputValue(e.target.value)}
             onBlur={pushChanges}
             onKeyDown={handleKeyDown}
-        />
+        >
+
+            {inputValue}
+        </textarea>
     );
 }
-export default EditableInput
+export default EditableTextarea

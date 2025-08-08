@@ -28,7 +28,6 @@ function Admin(props:any) {
             setDisplayMode('Open')
             setError(<></>)
         }
-        console.log(response.status, data.message)
 
     }
     const handleKeyPress = (event:any) => {
@@ -43,6 +42,20 @@ function Admin(props:any) {
     useEffect(()=>{
 
     },[])
+
+    const onSave = async (teams:any, gameContainer:any) => {
+        const response = await fetch('/api/scoreboard/save.js', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                teams: teams,
+                games: gameContainer,
+                pw: pw
+            }),
+        });
+    }
         
     return (
         (displayMode=='Locked')?
@@ -64,7 +77,7 @@ function Admin(props:any) {
        </>
        :
        <>
-       <Rankings enabled={true} admin={true}/>
+       <Rankings enabled={true} onSave={onSave}/>
        </>
     )
 }
