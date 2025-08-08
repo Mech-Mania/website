@@ -184,7 +184,7 @@ function Rankings(props:any) {
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Next Game
                         </h1>
-                        <Queue gameContainer={gameContainer} game={mode} onQueueChange={onQueueChange}></Queue>
+                        <Queue gameContainer={gameContainer} game={(mode == 'Global') ? gameContainer['Names'][0]: mode} onQueueChange={onQueueChange}></Queue>
                     </div>
                 </Gears>
 

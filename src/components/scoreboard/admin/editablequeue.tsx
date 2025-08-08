@@ -4,17 +4,6 @@ import { gameCont} from "../rankings.types"
 import EditableInput from "./editabletext"
 function Queue({game, gameContainer, onQueueChange}:{game:string, gameContainer:gameCont, onQueueChange:any}) {
 
-    const [curGame, setCurGame] = useState((game == 'Global') ? gameContainer['Names'][0]: game)
-    
-
-    useEffect(()=>{
-        if (game == 'Global') {
-            setCurGame(gameContainer['Names'][0])
-        } else {
-            setCurGame(game)
-        }
-    },[game])
-
 
     return (
         
@@ -27,8 +16,8 @@ function Queue({game, gameContainer, onQueueChange}:{game:string, gameContainer:
             
             {/* Iterator */}
             <div className="grid grid-cols-2 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
-                <EditableInput value={gameContainer.Data[curGame].A1} boxName={'A1'} commitFunc={onQueueChange}/>
-                <EditableInput value={gameContainer.Data[curGame].A2} boxName={'A2'} commitFunc={onQueueChange}/>
+                <EditableInput value={gameContainer.Data[game].A1} boxName={'A1'} commitFunc={onQueueChange}/>
+                <EditableInput value={gameContainer.Data[game].A2} boxName={'A2'} commitFunc={onQueueChange}/>
             </div>
         </>
     )
