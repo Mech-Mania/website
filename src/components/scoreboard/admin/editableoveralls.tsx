@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import '../rankings.css'
 import type {rankData} from '../overalls.types'
-import { Settings } from "../rankings.types"
+import EditableInput from "./editabletext"
 function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{onSettingsChange:any,onScoreChange:any, teams:any, settings:any}) {
     //typescript shenanigans
     let x:rankData[] = []
@@ -77,7 +77,7 @@ function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{on
             <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
                 <p className="text-2xl">{team.rank}</p>
                 <p className="text-2xl">{team.name}</p>
-                <input type="text" className='text-2xl text-black' value={team.points} name={team.name}  onChange={handleScoreChange}/>
+                <EditableInput value={team.points} boxName={team.name} commitFunc={handleScoreChange}/>
             </div>
             ))}
 
