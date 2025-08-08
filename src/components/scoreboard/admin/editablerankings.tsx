@@ -177,7 +177,7 @@ function Rankings(props:any) {
 
         const gameNames = value.split(' ')
         let pointsDefault:any = {}
-        for (const item of gameNames) {
+        for (const item of Object.keys(rankings)) {
             pointsDefault[item] = 0
         }
         setgameContainer(prevState => ({
