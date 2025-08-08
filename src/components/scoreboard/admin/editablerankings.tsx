@@ -106,14 +106,14 @@ function Rankings(props:any) {
         }
         // FilterObj function removes any keys at top level which match a string in exclude. Returns new object
         const filterObj:any = (exclude:string[], origObject:any) => {
-            const filteredObject = Object.keys(origObject).reduce((result:any, key:any) => {
-            if (!exclude.includes(key)) {
-                result[key] = origObject[key];
+            
+            for (const key of Object.keys(origObject)){
+                if (exclude.includes(key)){
+                    delete origObject[key]
+                }
             }
-            return result;
-            });
-            console.log(filteredObject)
-            return filteredObject
+
+            return origObject
         }
         // Yall I dont think this works
         // My issue is with filterobj
