@@ -112,10 +112,11 @@ function Rankings(props:any) {
             }
             return result;
             });
+            console.log(filteredObject)
             return filteredObject
         }
         // Yall I dont think this works
-
+        // My issue is with filterobj
         setgameContainer(prevState => ({
             ...prevState,
             Names: [...prevState.Names.filter((TestName)=>TestName != name),value],
