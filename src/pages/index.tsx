@@ -3,10 +3,11 @@ import Gears from "../components/gears/gears";
 import Wheel from "../components/gears/wheel";
 import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
-import Carousel from "../components/carousel/carousel";
+import Carousel from "../components/index/carousel/carousel";
 import Load from "../components/load/load";
-import Team from "../components/team/team";
-import Stats from "../components/stats/stats";
+import Team from "../components/index/team/team";
+import Stats from "../components/index/stats/stats";
+import Initial from "../components/initial";
 
 function Home() {
     const [marginTop, setMarginTop] = useState(0);
@@ -40,77 +41,6 @@ function Home() {
         setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
         window.addEventListener("resize", function(){
             updateMarginTop();
-            if (window.innerWidth>=1024){
-                setTeam(
-                    <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel>
-                                <Team name="Loukas Juritsch" src="/loukas.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="My Lan Tight" src="/mylan.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="Amit Weis" src="/amit.png"/>
-                            </Wheel>
-                        </div>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel dir>
-                                <Team name="Taran Flora" src="/taran.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="William Babapulle" src="/william.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="Daniel Li" src="/daniel.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="Derek Gou" src="/derek.png"/>
-                            </Wheel>
-                        </div>
-                    </div>
-                )
-            } else {
-                setTeam(
-                    <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel>
-                                <Team name="Loukas Juritsch" src="/loukas.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
-                            </Wheel>
-                        </div>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel dir>
-                                <Team name="My Lan Tight" src="/mylan.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="Amit Weis" src="/amit.png"/>
-                            </Wheel>
-                        </div>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel>
-                                <Team name="Taran Flora" src="/taran.png"/>
-                            </Wheel>
-                            <Wheel dir>
-                                <Team name="William Babapulle" src="/william.png"/>
-                            </Wheel>
-                        </div>
-                        <div className="items-center justify-center flex flex-row gap-16">
-                            <Wheel dir>
-                                <Team name="Daniel Li" src="/daniel.png"/>
-                            </Wheel>
-                            <Wheel>
-                                <Team name="Derek Gou" src="/derek.png"/>
-                            </Wheel>
-                        </div>
-                    </div>
-                )
-            }
             setSize([window.innerWidth, window.innerHeight])
             setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
         });
@@ -178,92 +108,13 @@ function Home() {
         }
     }
 
-    const [team, setTeam] = useState(
-        window.innerWidth>=1024 ? 
-        <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel>
-                    <Team name="Loukas Juritsch" src="/loukas.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="My Lan Tight" src="/mylan.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="Amit Weis" src="/amit.png"/>
-                </Wheel>
-            </div>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel dir>
-                    <Team name="Taran Flora" src="/taran.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="William Babapulle" src="/william.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="Daniel Li" src="/daniel.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="Derek Gou" src="/derek.png"/>
-                </Wheel>
-            </div>
-        </div>
-        :
-        <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel>
-                    <Team name="Loukas Juritsch" src="/loukas.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="Gavin William Lyle Heatherington" src="/gavin.png"/>
-                </Wheel>
-            </div>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel dir>
-                    <Team name="My Lan Tight" src="/mylan.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="Amit Weis" src="/amit.png"/>
-                </Wheel>
-            </div>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel>
-                    <Team name="Taran Flora" src="/taran.png"/>
-                </Wheel>
-                <Wheel dir>
-                    <Team name="William Babapulle" src="/william.png"/>
-                </Wheel>
-            </div>
-            <div className="items-center justify-center flex flex-row gap-16">
-                <Wheel dir>
-                    <Team name="Daniel Li" src="/daniel.png"/>
-                </Wheel>
-                <Wheel>
-                    <Team name="Derek Gou" src="/derek.png"/>
-                </Wheel>
-            </div>
-        </div>
-    )
 
     return (
         <>
             <div className="w-screen h-screen fixed top-0 left-0 loaded z-[100] animate-loaded pointer-events-none"><Load/></div>
             <div style={{ width: width+'px' }} className="gap-16 flex flex-col items-center justify-center bg-black">
                 <div ref={divRef} style={{ marginTop: `${marginTop}px` }}>
-                    <Gears>
-                        <div className="w-full cont h-full flex flex-col lg:flex-row items-center justify-center">
-                            <img id="loaderShadow" className="" src="mechmania.svg"></img>
-                            <div className={"box-border w-fit overflow-hidden flex flex-row items-start justify-start"}>
-                                <div className="pt-8 pl-0 lg:pt-0 lg:pl-16 lg:w-auto flex flex-col items-start justify-center">
-                                    <p className="w-full text-center lg:text-left">May 12 - E5/E7 @UW</p>
-                                    <h1 className="w-full text-center lg:text-left">MechMania</h1>
-                                    <h2 className="w-full text-center lg:text-left">Where Metal Meets Mind </h2>
-                                </div>
-                            </div>
-                        </div>
-                    </Gears>
+                    <Initial/>
                 </div>
                 <div ref={scrollRef} className="gap-16 flex flex-col items-center justify-start w-full bg-black lg:px-32 box-border">
                     <Wheel dir>
@@ -343,11 +194,11 @@ function Home() {
                                     <br/>
                                     <h3>Must I bring my own parts?</h3>
                                     <hr className="my-2"/>
-                                    <p>Nope! Mechmania provides parts and access to 3d printers, so all teams start on a level playing field.</p>
+                                    <p>Nope! Mechmania provides parts and some access to 3d printers, so all teams start on a level playing field. However, teams are encouraged to use all the tools they have at their disposal to engineer amazing robots.</p>
                                     <br/>
                                     <h3>Is there a cost to attend?</h3>
                                     <hr className="my-2"/>
-                                    <p>While robotics competitions, are expensive, we're committed to delivering an affordable experience. Last year, we we're able to make MechMania free; this year, we're looking to do the same.</p>
+                                    <p>While robotics competitions are expensive, we're committed to delivering an affordable experience. Last year, we we're able to make MechMania free; this year, we are looking to do the same.</p>
                                     <br/>
                                     <h3>Is there a school or team member limit?</h3>
                                     <hr className="my-2"/>
@@ -370,15 +221,19 @@ function Home() {
                                     <h2>Meet our team!</h2>
                                     <br/>
                                     <div className="h-16"/>
-                                    {team}
+                                        <Team/>
                                     <div className="h-16"/>
                                 </div>
                             </div>
                         </Gears>
                     </div>
                 </div>
-                <div className="my-20">
-                    <p>Made by <a href="https://derekgou.com" target="_blank">Derek Gou</a></p>
+                
+                {/* To all future website people: Add your name to this 'by' section. Keep making it better as you go */}
+                <div className="my-20 flex gap-8 justify-center items-center">
+
+                    <p className="text-center text-2xl text-zinc-600">By</p>
+                    <p className="text-center text-zinc-700"> <b>Derek Gou,</b> <br/> <b>Alexander Edwards</b></p>
                 </div>
             </div>
         </>

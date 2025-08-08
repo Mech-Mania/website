@@ -45,6 +45,7 @@ function Dash() {
 
     return (
         <>
+         {/* Password */}
             <div className="min-h-screen w-screen flex flex-col gap-8 items-center justify-center p-16 items-start justify-center">
                 <div style={{ display: displayPW }} className="flex-col lg:flex-row gap-2 rounded-full p-2 overflow-hidden bg-[#aaa]">
                     <input onKeyDown={(e)=>{handleKeyPress(e)}} type="password" value={pw} onChange={(e)=>{setPW(e.target.value)}} placeholder="Passkey" className="text-center lg:text-left outline-none focus:ring focus:ring-black text-black p-4 rounded-t-full lg:rounded-l-full lg:rounded-r-none grow"></input>
@@ -52,6 +53,8 @@ function Dash() {
                         Submit
                     </button>
                 </div>
+
+            {/* Emails */}
                 <div className="flex w-full flex-col gap-8 items-center justify-center grow gap-4 p-8">
                     <div className="flex w-full flex-col border-8 border-solid border-[#444]">
                         <div className="w-full p-4 gap-8 flex flex-row items-center justify-center">
@@ -63,15 +66,9 @@ function Dash() {
                             </div>
                         </div>
                         <hr/>
-                        {emails.map((email, index) => (
-                            <div
-                                key={index}
-                                className="h-full p-4 gap-8 flex flex-row items-center justify-center"
-                            >
-                                <p>{email}</p>
-                            </div>
-                        ))}
                     </div>
+
+            {/*  */}
                     <div className="grow w-full border-8 border-solid border-[#444] p-8 gap-4 flex flex-col">
                         <h3>{"Visits: "+Object.values(visits as Record<string, number>).reduce((partialSum, a) => partialSum + a,0)}</h3>
                         <hr/>
