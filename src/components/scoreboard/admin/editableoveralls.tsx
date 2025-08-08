@@ -17,6 +17,7 @@ function EditableOveralls(props:any) {
     };
     const handleSettingsChange = (e:any) => {
         const { name, value } = e.target;
+        console.log('Stage 1', name, value)
         props.onScoreChange(name, value); // Pass the field name and new value to the parent
     };
 
@@ -73,7 +74,7 @@ function EditableOveralls(props:any) {
             <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
                 <p className="text-2xl">{team.rank}</p>
                 <p className="text-2xl">{team.name}</p>
-                <input type="text" className='text-2xl text-black' value={team.points} name={team.name} onChange={handleScoreChange}/>
+                <input type="text" className='text-2xl text-black' value={team.points} name={team.name}  onChange={handleScoreChange}/>
             </div>
             ))}
 
