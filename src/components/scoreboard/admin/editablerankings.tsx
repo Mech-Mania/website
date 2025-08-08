@@ -176,14 +176,15 @@ function Rankings(props:any) {
         }
 
         const gameNames = value.split(' ')
+        let pointsDefault:any = {}
+        for (const item of gameNames) {
+            pointsDefault[item] = 0
+        }
         setgameContainer(prevState => ({
             ...prevState,
             Names: gameNames,
  
-            Points: filterGameNames(prevState.Points, gameNames, gameNames.reduce((acc:any,item:any)=>{
-                acc[item] = 0
-                return acc
-            })),
+            Points: filterGameNames(prevState.Points, gameNames, {...pointsDefault}),
             Data: filterGameNames(prevState.Data, gameNames, {A1:'',A2:''}),
             Settings: filterGameNames(prevState.Settings, gameNames, {descending:false, pointsName:'Points'})
         }));
