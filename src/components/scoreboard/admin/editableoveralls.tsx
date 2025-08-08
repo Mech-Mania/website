@@ -15,6 +15,7 @@ function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{on
     };
     const handleSettingsChange = (e:any) => {
         const { name, value } = e.target;
+        console.log(value)
         onSettingsChange(name, value); // Pass the field name and new value to the parent
     };
 
@@ -48,6 +49,9 @@ function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{on
     useEffect(()=>{
         createRankings(teams)
     },[teams])
+    useEffect(()=>{
+        console.log(settings.descending)
+    })
     useEffect(()=>{createRankings(teams)},[teams])
     
     return (
