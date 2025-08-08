@@ -7,6 +7,7 @@ import type { gameCont } from "../rankings.types"
 import { Outlet } from "react-router-dom"
 import EditableInput from "./editabletext"
 import EditableTextarea from "./editablebigtext"
+import { rankData } from "../overalls.types"
 
 function Rankings(props:any) {
     // This should work just make props.enabled a state. too tired to do any more
@@ -158,18 +159,8 @@ function Rankings(props:any) {
     const onTeamsChange = (name:string, value:string) => {
         value.replace('\n',' ')
         value.replace('\t',' ')
-        const filterObj:any = (exclude:string[], origObject:any) => {
-            
-            let filteredObj = {...origObject}
-            for (const key of Object.keys(origObject)){
-                if (exclude.includes(key)){
-                    delete filteredObj[key]
-                }
-            }
-
-            return filteredObj
-        }
-        const filterNames:any = (Points:gameCont['Points'], names:string[]) => {
+        
+        const filterPointSection:any = (Points:gameCont['Points'], names:string[]) => {
             let filteredPoints = {...Points}
             for (const mode of Object.keys(Points)){
                 const keyNames = Object.keys(Points[mode])
@@ -188,13 +179,30 @@ function Rankings(props:any) {
             return filteredPoints
         }
 
+        const filterOveralls:any = (ladder:{[key:string]:number},names:string[]) => {
+            let filteredLadder = {...ladder}
+            const keyNames = Object.keys(ladder)
+            for (const name of keyNames){
+                if (!names.includes(name)){
+                    // If names is not in the current filter
+                    delete filteredLadder[name]
+                }
+            }
+            for (const name of names){
+                if (!keyNames.includes(name)){
+                    filteredLadder[name] = 0
+                }
+            }
+            return filteredLadder
+        }
+
         const teamNames = value.split(' ')
         setgameContainer(prevState => ({
             ...prevState,
-            Names: [...teamNames],
             // See types in rankings.types.ts 
-            Points: filterNames(prevState.Points, teamNames),
+            Points: filterPointSection(prevState.Points, teamNames),
         }));
+        setRankings(prevState => (filterOveralls(prevState,teamNames)))
     }
 
 
@@ -235,7 +243,7 @@ function Rankings(props:any) {
                 <Gears dir key='2'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <h1>Enter team names</h1>
-                        <EditableTextarea value={gameContainer.Names.join(' ')} boxName='Names' commitFunc={onTeamsChange}/>
+                        <EditableTextarea value={Object.keys(rankings).join(' ')} boxName='Names' commitFunc={onTeamsChange}/>
                     </div>
                 </Gears>
 
