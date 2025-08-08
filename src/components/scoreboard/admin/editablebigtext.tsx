@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import '../rankings.css'
 
-function EditableTextarea({ value, commitFunc, boxName }:{value:any,commitFunc:any, boxName:string}) {
+function EditableTextarea({ value, commitFunc, boxName,kr }:{value:any,commitFunc:any, boxName:string,kr:any}) {
     const [inputValue, setInputValue] = useState(value);
     let delayPeriod = false
     // update local when outside value changes

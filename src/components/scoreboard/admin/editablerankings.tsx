@@ -271,7 +271,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
                 <Gears key='1'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <h1>Enter game names</h1>
-                        <EditableTextarea value={gameContainer.Names.join(' ')} boxName='Games' commitFunc={onGamesChange}/>
+                        <EditableTextarea kr={gameContainer} value={gameContainer.Names.join(' ')} boxName='Games' commitFunc={onGamesChange}/>
                     </div>
                 </Gears>
                 
@@ -279,7 +279,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
                 <Gears dir key='2'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <h1>Enter team names</h1>
-                        <EditableTextarea value={Object.keys(rankings).join(' ')} boxName='Names' commitFunc={onTeamsChange}/>
+                        <EditableTextarea kr={gameContainer} value={Object.keys(rankings).join(' ')} boxName='Names' commitFunc={onTeamsChange}/>
                     </div>
                 </Gears>
 
