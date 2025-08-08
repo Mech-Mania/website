@@ -51,7 +51,9 @@ function EditableOveralls(props:any) {
         setSettings(props.settings)
         createRankings(props.teams)
     },[props.teams, props.settings])
-
+    useEffect(()=>{
+        console.log('initiate editable',[])
+    })
     useEffect(()=>{createRankings(props.teams)},[props.teams])
     
     return (
@@ -64,7 +66,6 @@ function EditableOveralls(props:any) {
                 <h1 className="text-4xl " >Rank</h1>
                 
                 <h1 className="text-4xl">Team</h1>
-                <h1 className="text-4xl">{settings.pointsName}</h1>
                 <input type="text" className='text-4xl' value={settings.pointsName} name={'pointsName'} onChange={handleSettingsChange}/>
             </div>
 
