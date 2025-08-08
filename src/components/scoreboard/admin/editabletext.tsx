@@ -30,6 +30,7 @@ function EditableInput({ value, commitFunc, boxName }:{value:any,commitFunc:any,
             e.target.blur(); // triggers onBlur
         }
     };
+
     return (
         <input
             key={boxName}
