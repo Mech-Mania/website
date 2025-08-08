@@ -65,14 +65,14 @@ function Overalls(props:any) {
                 
                 <h1 className="text-4xl">Team</h1>
                 <h1 className="text-4xl">{settings.pointsName}</h1>
-                <p className="text-2xl"><input type="text" value={settings.pointsName} name={'pointsName'} onChange={handleSettingsChange}/></p>
+                <input type="text" className='text-4xl' value={settings.pointsName} name={'pointsName'} onChange={handleSettingsChange}/>
             </div>
 
             {rankings.map((team:rankData,index)=>(
             <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
                 <p className="text-2xl">{team.rank}</p>
                 <p className="text-2xl">{team.name}</p>
-                <p className="text-2xl"><input type="text" value={team.points} name={team.name} onChange={handleScoreChange}/></p>
+                <input type="text" className='text-2xl' value={team.points} name={team.name} onChange={handleScoreChange}/>
             </div>
             ))}
 
