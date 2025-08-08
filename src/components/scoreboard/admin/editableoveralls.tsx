@@ -2,23 +2,21 @@ import { useEffect, useState } from "react"
 import '../rankings.css'
 import type {rankData} from '../overalls.types'
 import { Settings } from "../rankings.types"
-function EditableOveralls(props:any) {
-
+function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{onSettingsChange:any,onScoreChange:any, teams:any, settings:any}) {
     //typescript shenanigans
     let x:rankData[] = []
     const [rankings, setRankings] = useState(x)
-    const [settings, setSettings] = useState<Settings>(props.settings)
 
 
     const handleScoreChange = (e:any) => {
         const { name, value } = e.target;
 
-        props.onSettingsChange(name, value); // Pass the field name and new value to the parent
+        onSettingsChange(name, value); // Pass the field name and new value to the parent
     };
     const handleSettingsChange = (e:any) => {
         const { name, value } = e.target;
         console.log('Stage 1', name, value)
-        props.onScoreChange(name, value); // Pass the field name and new value to the parent
+        onScoreChange(name, value); // Pass the field name and new value to the parent
     };
 
     const createRankings = async (teams:any) => {
@@ -31,7 +29,7 @@ function EditableOveralls(props:any) {
         
         
         ranktemp.sort((T1:any, T2:any) => T1.points - T2.points);
-        if (props.settings.descending){
+        if (settings.descending){
             ranktemp.reverse()
         }
 
@@ -49,14 +47,13 @@ function EditableOveralls(props:any) {
 
 
     useEffect(()=>{
-        setSettings(props.settings)
-        createRankings(props.teams)
-    },[props.teams, props.settings])
+        createRankings(teams)
+    },[teams])
     useEffect(()=>{
         console.log('initiate editable')
-        console.log(props.onSettingsChange)
+        console.log(onSettingsChange)
     })
-    useEffect(()=>{createRankings(props.teams)},[props.teams])
+    useEffect(()=>{createRankings(teams)},[teams])
     
     return (
 
@@ -68,7 +65,7 @@ function EditableOveralls(props:any) {
                 <h1 className="text-4xl " >Rank</h1>
                 
                 <h1 className="text-4xl">Team</h1>
-                <input type="text" className='text-4xl text-black' value={props.settings.pointsName} name={'pointsName'} onChange={handleSettingsChange}/>
+                <input type="text" className='text-4xl text-black' value={settings.pointsName} name={'pointsName'} onChange={handleSettingsChange}/>
             </div>
 
             {rankings.map((team:rankData,index)=>(
