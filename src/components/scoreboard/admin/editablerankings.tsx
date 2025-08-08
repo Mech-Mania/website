@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import './rankings.css'
-import Overalls from "./editableoveralls"
+import EditableOveralls from "./editableoveralls"
 import Gears from "../../gears/gears"
 import Queue from "../queue"
 import type { gameCont } from "../rankings.types"
@@ -131,7 +131,7 @@ function Rankings(props:any) {
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: 'Overall'} Rankings
                         </h1>
-                        <Overalls onSettingsChange={onSettingsChange} onScoreChange={onScoreChange} teams={(mode=='Global') ? rankings : gameContainer.Points[mode]} settings={(mode=='Global') ? {descending:true, pointsName:'Score'} : gameContainer.Settings[mode]}/>
+                        <EditableOveralls onSettingsChange={onSettingsChange} onScoreChange={onScoreChange} teams={(mode=='Global') ? rankings : gameContainer.Points[mode]} settings={(mode=='Global') ? {descending:true, pointsName:'Score'} : gameContainer.Settings[mode]}/>
                     </div>
                 </Gears>
 

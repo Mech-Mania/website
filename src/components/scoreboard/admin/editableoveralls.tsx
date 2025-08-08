@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import './rankings.css'
 import type {rankData} from '../overalls.types'
 import { Settings } from "../rankings.types"
-function Overalls(props:any) {
+function EditableOveralls(props:any) {
 
     //typescript shenanigans
     let x:rankData[] = []
@@ -82,4 +82,4 @@ function Overalls(props:any) {
     )
 }
 
-export default Overalls
+export default EditableOveralls
