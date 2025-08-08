@@ -27,10 +27,8 @@ function Queue({game, gameContainer, onQueueChange}:{game:string, gameContainer:
             
             {/* Iterator */}
             <div className="grid grid-cols-2 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
-                <p className="text-2xl">{gameContainer.Data[curGame].A1}</p>
-                <p className="text-2xl">{gameContainer.Data[curGame].A2}</p> 
                 <EditableInput value={gameContainer.Data[curGame].A1} boxName={'A1'} commitFunc={onQueueChange}/>
-                <EditableInput value={gameContainer.Data[curGame].A1} boxName={'A2'} commitFunc={onQueueChange}/>
+                <EditableInput value={gameContainer.Data[curGame].A2} boxName={'A2'} commitFunc={onQueueChange}/>
             </div>
         </>
     )
