@@ -193,7 +193,7 @@ function Rankings(props:any) {
             ...prevState,
             Names: [...teamNames],
             // See types in rankings.types.ts 
-            Points: filterNames(prevState.Points),
+            Points: filterNames(prevState.Points, teamNames),
         }));
     }
 
