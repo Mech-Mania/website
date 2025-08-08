@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import '../rankings.css'
 import EditableOveralls from "./editableoveralls"
 import Gears from "../../gears/gears"
-import Queue from "../queue"
+import Queue from "./editablequeue"
 import type { gameCont } from "../rankings.types"
 import { Outlet } from "react-router-dom"
 import EditableInput from "./editabletext"
@@ -144,6 +144,15 @@ function Rankings(props:any) {
         setMode(value)
     }
 
+    const onQueueChange = (name:string, value:any) => {
+        setgameContainer(prevState => ({
+            ...prevState,
+            Data: {
+                ...prevState.Data,
+                [mode] : {...prevState.Data[mode],[name]:value}
+            }
+        }));
+    }
 
 
     return (
@@ -175,7 +184,7 @@ function Rankings(props:any) {
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Next Game
                         </h1>
-                        <Queue gameContainer={gameContainer} game={mode}></Queue>
+                        <Queue gameContainer={gameContainer} game={mode} onQueueChange={onQueueChange}></Queue>
                     </div>
                 </Gears>
 
