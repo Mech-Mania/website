@@ -68,7 +68,7 @@ function EditableOveralls(props:any) {
                 <h1 className="text-4xl " >Rank</h1>
                 
                 <h1 className="text-4xl">Team</h1>
-                <input type="text" className='text-4xl text-black' value={settings.pointsName} name={'pointsName'} onChange={handleSettingsChange}/>
+                <input type="text" className='text-4xl text-black' value={props.settings.pointsName} name={'pointsName'} onChange={handleSettingsChange}/>
             </div>
 
             {rankings.map((team:rankData,index)=>(

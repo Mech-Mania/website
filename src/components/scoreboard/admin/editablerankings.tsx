@@ -16,6 +16,7 @@ function Rankings(props:any) {
     const [mode, setMode] = useState('Global')
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{},Settings:{}})
     const [enabled, setEnabled] = useState(props.enabled)
+    const [OvKey, setOvKey] = useState(true)
 
     const getRaw = async () => {
         const response = await fetch('/api/scoreboard.js', {
@@ -57,6 +58,7 @@ function Rankings(props:any) {
     const onSettingsChange = (name:string, value:any) => {
         if (mode == 'Global') {
             // Do nothing we don't want to edit global stuff
+            // this never happens and doesnt happen while testing i already made sure of that
         } else {
             setgameContainer(prevState => ({
                 ...prevState,
@@ -66,6 +68,11 @@ function Rankings(props:any) {
                 }
             }));
             console.log(gameContainer, name, value)
+            if (OvKey){
+                setOvKey(false)
+            } else{
+                setOvKey(true)
+            }
         }
     }
 
@@ -132,7 +139,7 @@ function Rankings(props:any) {
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: 'Overall'} Rankings
                         </h1>
-                        <EditableOveralls onSettingsChange={onSettingsChange} onScoreChange={onScoreChange} teams={(mode=='Global') ? rankings : gameContainer.Points[mode]} settings={(mode=='Global') ? {descending:true, pointsName:'Score'} : gameContainer.Settings[mode]}/>
+                        <EditableOveralls updaterkey={OvKey} onSettingsChange={onSettingsChange} onScoreChange={onScoreChange} teams={(mode=='Global') ? rankings : gameContainer.Points[mode]} settings={(mode=='Global') ? {descending:true, pointsName:'Score'} : gameContainer.Settings[mode]}/>
                     </div>
                 </Gears>
 
