@@ -199,7 +199,6 @@ function Rankings(props:any) {
         const teamNames = value.split(' ')
         setgameContainer(prevState => ({
             ...prevState,
-            // See types in rankings.types.ts 
             Points: filterPointSection(prevState.Points, teamNames),
         }));
         setRankings(prevState => (filterOveralls(prevState,teamNames)))
@@ -254,16 +253,16 @@ function Rankings(props:any) {
                         <div className='flex max-w-[96vw]'>
                             {/* Overall */}
                             <div key={0} className="w-48">
-                                    <div onClick={()=>{setMode('Global')}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
-                                        <h2 style={{ color:  ('Global'==mode) ? 'white' : '#aaa' }} className="transition-all text-right">Overall</h2>
+                                    <div onClick={()=>{setMode('Global')}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer overflow-visible">
+                                        <h2 style={{ color:  ('Global'==mode) ? 'white' : '#aaa' }} className="transition-all text-right text-nowrap">Overall</h2>
                                     </div>
                                 </div>
 
                             {/* Dynamic by game */}
                             {gameContainer['Names'].map((name,index:number)=>(
                                 <div key={index+1} className="w-48">
-                                    <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
-                                        <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right">{name}</h2>
+                                    <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer overflow-visible">
+                                        <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right text-nowrap">{name}</h2>
                                     </div>
                                 </div>
                             ))}
