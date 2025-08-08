@@ -39,7 +39,7 @@ function EditableInput({ value, commitFunc, boxName }:{value:any,commitFunc:any,
             value={inputValue}
             name={boxName}
             onChange={(e) => setInputValue(e.target.value)}
-            onBlur={()=>{setTimeout(()=>{pushChanges()},50)}}
+            onBlur={pushChanges}
             onKeyDown={handleKeyDown}
         />
     );
