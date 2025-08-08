@@ -54,7 +54,7 @@ function Rankings(props:any) {
 
 
 
-    const onSettingsChange = async (name:string, value:any) => {
+    const onSettingsChange = (name:string, value:any) => {
         if (mode == 'Global') {
             // Do nothing we don't want to edit global stuff
         } else {
@@ -68,7 +68,7 @@ function Rankings(props:any) {
         }
     }
 
-    const onScoreChange = async (name:string, value:any) => {
+    const onScoreChange = (name:string, value:any) => {
 
     }
 
