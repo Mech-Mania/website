@@ -129,15 +129,15 @@ function Rankings(props:any) {
                 }
             },
             Settings: {
-                ...filterObj([name],prevState.Points),
+                ...filterObj([name],prevState.Settings),
                 [value] : {
-                    ...prevState.Points[name],
+                    ...prevState.Settings[name],
                 }
             },
             Data: {
-                ...filterObj([name],prevState.Points),
+                ...filterObj([name],prevState.Data),
                 [value] : {
-                    ...prevState.Points[name],
+                    ...prevState.Data[name],
                 }
             }
         }));
