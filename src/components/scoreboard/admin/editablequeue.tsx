@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import './rankings.css'
+import '../rankings.css'
 import { gameCont} from "../rankings.types"
 import EditableInput from "./editabletext"
 function Queue({game, gameContainer, onQueueChange}:{game:string, gameContainer:gameCont, onQueueChange:any}) {
