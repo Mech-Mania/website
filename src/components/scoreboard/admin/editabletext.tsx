@@ -2,37 +2,45 @@ import { useEffect, useState } from "react"
 import '../rankings.css'
 
 function EditableInput({ value, commitFunc, boxName }:{value:any,commitFunc:any, boxName:string}) {
-  const [inputValue, setInputValue] = useState(value);
+    const [inputValue, setInputValue] = useState(value);
+    let delayPeriod = false
+    // update local when outside value changes
+    useEffect(() => {
+        setInputValue(value);
+    }, [value]);
 
-  // update local when outside value changes
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
+    // send finished changes to parant state
+    const pushChanges = () => {
+        if (delayPeriod) { // This is to fix a bug where upon pressing enter the function would trigger twice and duplicate
+            return
+        }
+        
+        delayPeriod = true
+        if (inputValue !== value) {
+            commitFunc(boxName, inputValue);
+        }
+        setTimeout(()=>{
+            delayPeriod = false
+        },100)
+    };
 
-  // send finished changes to parant state
-  const pushChanges = () => {
-    if (inputValue !== value) {
-      commitFunc(boxName, inputValue);
-    }
-  };
+    const handleKeyDown = (e:any) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            e.target.blur(); // triggers onBlur
+        }
+    };
 
-  const handleKeyDown = (e:any) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      e.target.blur(); // triggers onBlur
-    }
-  };
-
-  return (
-    <input
-      className='text-2xl text-black'
-      type="text"
-      value={inputValue}
-      name={boxName}
-      onChange={(e) => setInputValue(e.target.value)}
-      onBlur={pushChanges}
-      onKeyDown={handleKeyDown}
-    />
-  );
+    return (
+        <input
+            className='text-2xl text-black'
+            type="text"
+            value={inputValue}
+            name={boxName}
+            onChange={(e) => setInputValue(e.target.value)}
+            onBlur={pushChanges}
+            onKeyDown={handleKeyDown}
+        />
+    );
 }
 export default EditableInput
