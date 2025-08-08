@@ -187,6 +187,7 @@ function Rankings(props:any) {
             Data: filterGameNames(prevState.Data, gameNames, {A1:'',A2:''}),
             Settings: filterGameNames(prevState.Settings, gameNames, {descending:false, pointsName:'Points'})
         }));
+        setMode('Global')
     }
 
     const onTeamsChange = (name:string, value:string) => {
@@ -275,7 +276,7 @@ function Rankings(props:any) {
                 <Gears dir key='2'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <h1>Enter game names</h1>
-                        <EditableTextarea value={Object.keys(gameContainer.Names).join(' ')} boxName='Games' commitFunc={onGamesChange}/>
+                        <EditableTextarea value={gameContainer.Names.join(' ')} boxName='Games' commitFunc={onGamesChange}/>
                     </div>
                 </Gears>
                 
