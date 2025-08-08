@@ -50,6 +50,9 @@ function Rankings(props:any) {
     },[])
 
     useEffect(()=>{
+        console.log(gameContainer)
+    },[gameContainer])
+    useEffect(()=>{
         setEnabled(props.enabled)
     },[props.enabled])
 
@@ -111,6 +114,7 @@ function Rankings(props:any) {
             });
             return filteredObject
         }
+        // Yall I dont think this works
 
         setgameContainer(prevState => ({
             ...prevState,
