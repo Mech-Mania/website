@@ -11,12 +11,12 @@ function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{on
     const handleScoreChange = (e:any) => {
         const { name, value } = e.target;
 
-        onSettingsChange(name, value); // Pass the field name and new value to the parent
+        onScoreChange(name, value); // Pass the field name and new value to the parent
     };
     const handleSettingsChange = (e:any) => {
         const { name, value } = e.target;
         console.log('Stage 1', name, value)
-        onScoreChange(name, value); // Pass the field name and new value to the parent
+        onSettingsChange(name, value); // Pass the field name and new value to the parent
     };
 
     const createRankings = async (teams:any) => {
