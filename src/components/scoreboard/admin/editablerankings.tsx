@@ -5,6 +5,7 @@ import Gears from "../../gears/gears"
 import Queue from "../queue"
 import type { gameCont } from "../rankings.types"
 import { Outlet } from "react-router-dom"
+import EditableInput from "./editabletext"
 
 function Rankings(props:any) {
     // This should work just make props.enabled a state. too tired to do any more
@@ -95,6 +96,48 @@ function Rankings(props:any) {
         }
     }
 
+    const onGameNameChange = (name:string, value:any) => {
+        //Some error checking to stop default names from being overwritten
+        if (gameContainer.Names.includes(value) || ['','Overall','Global'].includes(value)|| name == 'Overall'){
+            return
+        }
+        // FilterObj function removes any keys at top level which match a string in exclude. Returns new object
+        const filterObj:any = (exclude:string[], origObject:any) => {
+            const filteredObject = Object.keys(origObject).reduce((result:any, key:any) => {
+            if (!exclude.includes(key)) {
+                result[key] = origObject[key];
+            }
+            return result;
+            });
+            return filteredObject
+        }
+
+        setgameContainer(prevState => ({
+            ...prevState,
+            Names: [...prevState.Names.filter((TestName)=>TestName != name),value],
+            // Making heavy use of filterobj here
+            // See types in rankings.types.ts 
+            Points: {
+                ...filterObj([name],prevState.Points),
+                [value] : {
+                    ...prevState.Points[name],
+                }
+            },
+            Settings: {
+                ...filterObj([name],prevState.Points),
+                [value] : {
+                    ...prevState.Points[name],
+                }
+            },
+            Data: {
+                ...filterObj([name],prevState.Points),
+                [value] : {
+                    ...prevState.Points[name],
+                }
+            }
+        }));
+        setMode(value)
+    }
 
 
 
@@ -152,7 +195,7 @@ function Rankings(props:any) {
                             ))}
                         </div>
                         <h1 className="gap-0">
-                            {(mode!='Global') ? mode: 'Overall'} Rankings
+                            <EditableInput value={(mode!='Global') ? mode: 'Overall'} commitFunc={onGameNameChange} boxName={(mode!='Global') ? mode: 'Overall'}/> Rankings
                         </h1>
                         <EditableOveralls onSettingsChange={onSettingsChange} onScoreChange={onScoreChange} teams={(mode=='Global') ? rankings : gameContainer.Points[mode]} settings={(mode=='Global') ? {descending:true, pointsName:'Score'} : gameContainer.Settings[mode]}/>
                     </div>
