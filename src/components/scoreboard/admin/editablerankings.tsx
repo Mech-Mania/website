@@ -65,6 +65,7 @@ function Rankings(props:any) {
                     [mode] : {...prevState.Settings[mode],[name]:value}
                 }
             }));
+            console.log(gameContainer, name, value)
         }
     }
 
