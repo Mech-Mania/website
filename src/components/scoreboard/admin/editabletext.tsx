@@ -12,7 +12,7 @@ function EditableInput({ value, commitFunc, boxName }:{value:any,commitFunc:any,
   // send finished changes to parant state
   const pushChanges = () => {
     if (inputValue !== value) {
-      commitFunc(inputValue);
+      commitFunc(boxName, inputValue);
     }
   };
 

@@ -8,11 +8,6 @@ function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{on
     const [rankings, setRankings] = useState(x)
 
 
-    const handleScoreChange = (e:any) => {
-        const { name, value } = e.target;
-
-        onScoreChange(name, value); // Pass the field name and new value to the parent
-    };
     const handleSettingsChange = (e:any) => {
         const { name, value } = e.target;
         if (name == 'descending') {
@@ -77,7 +72,7 @@ function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{on
             <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
                 <p className="text-2xl">{team.rank}</p>
                 <p className="text-2xl">{team.name}</p>
-                <EditableInput value={team.points} boxName={team.name} commitFunc={handleScoreChange}/>
+                <EditableInput value={team.points} boxName={team.name} commitFunc={onScoreChange}/>
             </div>
             ))}
 
