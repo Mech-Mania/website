@@ -183,7 +183,6 @@ function Rankings(props:any) {
         setgameContainer(prevState => ({
             ...prevState,
             Names: gameNames,
- 
             Points: filterGameNames(prevState.Points, gameNames, {...pointsDefault}),
             Data: filterGameNames(prevState.Data, gameNames, {A1:'',A2:''}),
             Settings: filterGameNames(prevState.Settings, gameNames, {descending:false, pointsName:'Points'})
