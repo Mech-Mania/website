@@ -15,8 +15,12 @@ function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{on
     };
     const handleSettingsChange = (e:any) => {
         const { name, value } = e.target;
-        console.log(value)
-        onSettingsChange(name, value); // Pass the field name and new value to the parent
+        if (name == 'descending') {
+            onSettingsChange(name, (settings.descending==true) ? false : true);
+        } else {
+            onSettingsChange(name, value); // Pass the field name and value to parent
+        }
+        
     };
 
     const createRankings = async (teams:any) => {
