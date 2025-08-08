@@ -30,9 +30,10 @@ function EditableInput({ value, commitFunc, boxName }:{value:any,commitFunc:any,
             e.target.blur(); // triggers onBlur
         }
     };
-
+    //Onblur doesnt seem to trigger when clicking another textbox
     return (
         <input
+            key={boxName}
             className='text-2xl text-black'
             type="text"
             value={inputValue}
