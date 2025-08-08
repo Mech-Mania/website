@@ -9,7 +9,7 @@ import EditableInput from "./editabletext"
 import EditableTextarea from "./editablebigtext"
 import { rankData } from "../overalls.types"
 
-function Rankings(props:any) {
+function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
     // This should work just make props.enabled a state. too tired to do any more
 
     const defaults = ['Overall']
@@ -18,7 +18,6 @@ function Rankings(props:any) {
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{},Settings:{}})
-    const [enabled, setEnabled] = useState(props.enabled)
 
     const getRaw = async () => {
         const response = await fetch('/api/scoreboard.js', {
@@ -54,9 +53,6 @@ function Rankings(props:any) {
     useEffect(()=>{
         console.log(gameContainer)
     },[gameContainer])
-    useEffect(()=>{
-        setEnabled(props.enabled)
-    },[props.enabled])
 
 
 
@@ -238,7 +234,6 @@ function Rankings(props:any) {
         setRankings(prevState => (filterOveralls(prevState,teamNames)))
     }
 
-
     return (
         // use callback functions in the editableprops areas to send things back upstream.
         loading ? 
@@ -250,9 +245,16 @@ function Rankings(props:any) {
         :
         enabled ? 
         <>
-            
+                <Gears key='0'>
+                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center w-[20vw]">
+                        <div onClick={()=>{onSave(rankings,gameContainer)}} className="hover:brightness-110 transition-all rounded-sm w-full pentagon-left p-4 cursor-pointer bg-white">
+                            <h2 style={{ color: 'black'}} className="transition-all text-right">Save</h2>
+                        </div>
+                    </div>
+                </Gears>
+
                 {/* Next Games */}
-                <Gears key='1'>
+                <Gears dir key='1'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex'>
                         {gameContainer['Names'].map((name,index:number)=>(
@@ -273,7 +275,7 @@ function Rankings(props:any) {
                 </Gears>
                 
                 {/* Games */}
-                <Gears dir key='2'>
+                <Gears key='1'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <h1>Enter game names</h1>
                         <EditableTextarea value={gameContainer.Names.join(' ')} boxName='Games' commitFunc={onGamesChange}/>
@@ -281,7 +283,7 @@ function Rankings(props:any) {
                 </Gears>
                 
                 {/* Teams */}
-                <Gears dir key='3'>
+                <Gears dir key='2'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <h1>Enter team names</h1>
                         <EditableTextarea value={Object.keys(rankings).join(' ')} boxName='Names' commitFunc={onTeamsChange}/>
