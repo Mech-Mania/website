@@ -70,13 +70,15 @@ function Rankings(props:any) {
     }
 
     const onScoreChange = (name:string, value:any) => {
-        if (typeof value !== 'number') {
-            return
+        for (const char of value){
+            if (!['1','2','3','4','5','6','7','8','9','0','-'].includes(char)){
+                return
+            }
         }
         if (mode == 'Global') {
             setRankings(prevState => ({
                 ...prevState,
-                [name]:value
+                [name]:parseInt(value)
             }));
         } else {
             setgameContainer(prevState => ({
@@ -85,7 +87,7 @@ function Rankings(props:any) {
                     ...prevState.Points,
                     [mode] : {
                         ...prevState.Points[mode],
-                        [name]:value
+                        [name]:parseInt(value)
                     }
                 }
             }));
