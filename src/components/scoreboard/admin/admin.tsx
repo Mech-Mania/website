@@ -48,7 +48,7 @@ function Admin(props:any) {
         const response = await fetch('/api/scoreboard/save.js', {
             method: 'POST',
             headers: {
-                "Content-Type": "json/application",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 teams: teams,
