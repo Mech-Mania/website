@@ -56,6 +56,7 @@ function Rankings(props:any) {
 
 
     const onSettingsChange = (name:string, value:any) => {
+        console.log(mode)
         if (mode == 'Global') {
             // Do nothing we don't want to edit global stuff
             // this never happens and doesnt happen while testing i already made sure of that
