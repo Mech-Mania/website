@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import './rankings.css'
+import '../rankings.css'
 import type {rankData} from '../overalls.types'
 import { Settings } from "../rankings.types"
 function EditableOveralls(props:any) {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import './rankings.css'
+import '../rankings.css'
 import EditableOveralls from "./editableoveralls"
 import Gears from "../../gears/gears"
 import Queue from "../queue"
