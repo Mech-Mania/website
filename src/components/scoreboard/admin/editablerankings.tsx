@@ -38,7 +38,6 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
         // i think it works it just throws a formatting error with the jsx work on this again later
         setRankings(teamPoints)
         setgameContainer(body.games)
-        console.log(body)
 
 
 
@@ -49,12 +48,6 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
     useEffect(()=>{
         getRaw()
     },[])
-
-    useEffect(()=>{
-        console.log(gameContainer)
-    },[gameContainer])
-
-
 
     const onSettingsChange = (name:string, value:any) => {
         if (mode == 'Global') {

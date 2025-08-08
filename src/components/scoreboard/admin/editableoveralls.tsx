@@ -48,9 +48,6 @@ function EditableOveralls({onSettingsChange, onScoreChange, teams, settings}:{on
     useEffect(()=>{
         createRankings(teams)
     },[teams])
-    useEffect(()=>{
-        console.log(settings.descending)
-    })
     useEffect(()=>{createRankings(teams)},[teams])
     
     return (

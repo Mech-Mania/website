@@ -28,7 +28,6 @@ function Admin(props:any) {
             setDisplayMode('Open')
             setError(<></>)
         }
-        console.log(response.status, data.message)
 
     }
     const handleKeyPress = (event:any) => {
