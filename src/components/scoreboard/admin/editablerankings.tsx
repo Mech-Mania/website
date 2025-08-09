@@ -241,8 +241,8 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
         enabled ? 
         <>
                 <Gears key='0'>
-                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-row text-center w-[20vw]">
-                        <div onClick={()=>{onSave(rankings,gameContainer,enabled)}} className="hover:brightness-110 transition-all rounded-sm w-full pentagon-left p-4 cursor-pointer bg-white">
+                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center w-[20vw]">
+                        <div onClick={()=>{onSave(rankings,gameContainer,publicStatus)}} className="hover:brightness-110 transition-all rounded-sm w-full pentagon-left p-4 cursor-pointer bg-white">
                             <h2 style={{ color: 'black'}} className="transition-all text-right">Save</h2>
                         </div>
                         <h2>Enable public scoreboard:</h2>
