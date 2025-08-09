@@ -39,7 +39,7 @@ function Rankings(props:any) {
         setgameContainer(body.games)
 
 
-
+        setStatus(false)
         return null
     }
 

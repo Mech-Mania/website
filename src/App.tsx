@@ -33,7 +33,12 @@ function App() {
 
   useEffect(()=>{
     getPageData()
-    
+    const intervalId = setInterval(getPageData,5000)
+    return () => {
+        // Clear interval using intervalId
+        // This function run when component unmount
+    clearInterval(intervalId)
+    }
   },[])
 
   return (
