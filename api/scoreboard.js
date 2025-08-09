@@ -14,7 +14,7 @@ const app = initializeApp({
 });
 
 const db = getFirestore(app);
-
+ 
 export default async function handler(req, res) {
 
     if (req.method !== 'POST') {
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       await db.runTransaction(async (transaction) => {
         const doc1 = await transaction.get(docRef1);
         if (doc1.exists){
-          teams = doc1.get('Points') || {};
+          teams = doc1.data() || {};
         }
     });
 
@@ -38,14 +38,23 @@ export default async function handler(req, res) {
       await db.runTransaction(async (transaction) => {
         const doc2 = await transaction.get(docRef2);
         if (doc2.exists){
-          games = doc2.get('Games') || {};
+          games = doc2.data() || {};
+        }
+    });
+
+    let enabled = false
+    const docRef3 = db.collection('page').doc('status');
+      await db.runTransaction(async (transaction) => {
+        const doc3 = await transaction.get(docRef3);
+        if (doc3.exists){
+          enabled = doc3.get('scoreboard') || false;
         }
     });
 
 
 
 
-    return res.status(200).json({ message: "Success", teams:teams, games:games});
+    return res.status(200).json({ message: "Success", teams:teams, games:games, enabled:enabled});
 
 
 

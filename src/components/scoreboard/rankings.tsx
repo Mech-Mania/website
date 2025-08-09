@@ -39,14 +39,18 @@ function Rankings(props:any) {
         setgameContainer(body.games)
 
 
-
-
         setStatus(false)
         return null
     }
 
     useEffect(()=>{
         getRaw()
+        const intervalId = setInterval(getRaw,10000)
+        return () => {
+            // Clear interval using intervalId
+            // This function run when component unmount
+        clearInterval(intervalId)
+        }
     },[])
 
     useEffect(()=>{

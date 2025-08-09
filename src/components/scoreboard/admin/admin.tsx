@@ -43,7 +43,7 @@ function Admin(props:any) {
 
     },[])
 
-    const onSave = async (teams:any, gameContainer:any) => {
+    const onSave = async (teams:any, gameContainer:any,enabled:boolean) => {
         const response = await fetch('/api/scoreboard/save.js', {
             method: 'POST',
             headers: {
@@ -52,6 +52,7 @@ function Admin(props:any) {
             body: JSON.stringify({
                 teams: teams,
                 games: gameContainer,
+                enabled:enabled,
                 pw: pw
             }),
         });

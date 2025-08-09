@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import '../rankings.css'
 import EditableOveralls from "./editableoveralls"
 import Gears from "../../gears/gears"
-
 import Queue from "./editablequeue"
 import type { gameCont } from "../rankings.types"
 import { Outlet } from "react-router-dom"
@@ -19,8 +18,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{},Settings:{}})
-
-
+    const [publicStatus, setPublicStatus] = useState<boolean>(false)
     const getRaw = async () => {
         const response = await fetch('/api/scoreboard.js', {
                 method: 'POST',
@@ -37,10 +35,10 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
 
         const body = await response.json()
         const teamPoints = body.teams
+        setPublicStatus(body.enabled)
         // i think it works it just throws a formatting error with the jsx work on this again later
         setRankings(teamPoints)
         setgameContainer(body.games)
-
 
 
 
@@ -51,7 +49,6 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
     useEffect(()=>{
         getRaw()
     },[])
-
 
     const onSettingsChange = (name:string, value:any) => {
         if (mode == 'Global') {
@@ -231,7 +228,6 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
         setRankings(prevState => (filterOveralls(prevState,teamNames)))
     }
 
-
     return (
         // use callback functions in the editableprops areas to send things back upstream.
         loading ? 
@@ -243,18 +239,18 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
         :
         enabled ? 
         <>
-
                 <Gears key='0'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center w-[20vw]">
-                        <div onClick={()=>{onSave(rankings,gameContainer)}} className="hover:brightness-110 transition-all rounded-sm w-full pentagon-left p-4 cursor-pointer bg-white">
+                        <div onClick={()=>{onSave(rankings,gameContainer,publicStatus)}} className="hover:brightness-110 transition-all rounded-sm w-full pentagon-left p-4 cursor-pointer bg-white">
                             <h2 style={{ color: 'black'}} className="transition-all text-right">Save</h2>
                         </div>
+                        <h2>Enable public scoreboard:</h2>
+                        <input type='checkbox' checked={publicStatus} name={'descending'} onChange={()=>{setPublicStatus((publicStatus == true) ? false:true)}}/>
                     </div>
                 </Gears>
 
                 {/* Next Games */}
                 <Gears dir key='1'>
-
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex'>
                         {gameContainer['Names'].map((name,index:number)=>(
@@ -270,7 +266,6 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
                         <h1 className="gap-0">
                             {(mode!='Global') ? mode: gameContainer['Names'][0]} Next Game
                         </h1>
-
                         <Queue gameContainer={gameContainer} game={(mode == 'Global') ? gameContainer['Names'][0]: mode} onQueueChange={onQueueChange}></Queue>
                     </div>
                 </Gears>
@@ -294,14 +289,12 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
 
                 {/* Rankings */}
                 <Gears key='4'>
-
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center -left-[10vw] w-[120vw]">
                         <div className='flex max-w-[96vw]'>
                             {/* Overall */}
                             <div key={0} className="w-48">
                                     <div onClick={()=>{setMode('Global')}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer overflow-visible">
                                         <h2 style={{ color:  ('Global'==mode) ? 'white' : '#aaa' }} className="transition-all text-right text-nowrap">Overall</h2>
-
                                     </div>
                                 </div>
 
@@ -310,7 +303,6 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
                                 <div key={index+1} className="w-48">
                                     <div onClick={()=>{setMode(name)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer overflow-visible">
                                         <h2 style={{ color:  (name==mode) ? 'white' : '#aaa' }} className="transition-all text-right text-nowrap">{name}</h2>
-
                                     </div>
                                 </div>
                             ))}
