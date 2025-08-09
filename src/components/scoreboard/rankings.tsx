@@ -45,7 +45,7 @@ function Rankings(props:any) {
 
     useEffect(()=>{
         getRaw()
-        const intervalId = setInterval(getRaw,15000)
+        const intervalId = setInterval(getRaw,10000)
         return () => {
             // Clear interval using intervalId
             // This function run when component unmount
