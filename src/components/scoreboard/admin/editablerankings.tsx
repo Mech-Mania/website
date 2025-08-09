@@ -23,7 +23,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
         const response = await fetch('/api/scoreboard.js', {
                 method: 'POST',
                 headers: {
-                    "Content-Type": "text/plain",
+                    "Content-Type": "application/json",
                 },
         });
 
@@ -35,6 +35,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
 
         const body = await response.json()
         const teamPoints = body.teams
+        console.log(teamPoints, body.games)
         // i think it works it just throws a formatting error with the jsx work on this again later
         setRankings(teamPoints)
         setgameContainer(body.games)
