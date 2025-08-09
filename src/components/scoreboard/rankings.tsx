@@ -47,7 +47,7 @@ function Rankings(props:any) {
 
     useEffect(()=>{
         getRaw()
-        setInterval(()=>{getRaw()},15000)
+        setInterval(()=>{getRaw()},1000)
     },[])
 
     useEffect(()=>{
