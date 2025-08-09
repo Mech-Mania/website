@@ -18,6 +18,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
     const [loading, setStatus] = useState(true)
     const [mode, setMode] = useState('Global')
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{},Settings:{}})
+    const [publicStatus, setPublicStatus] = useState<boolean>(false)
 
     const getRaw = async () => {
         const response = await fetch('/api/scoreboard.js', {
@@ -35,6 +36,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
 
         const body = await response.json()
         const teamPoints = body.teams
+        setPublicStatus(body.enabled)
         // i think it works it just throws a formatting error with the jsx work on this again later
         setRankings(teamPoints)
         setgameContainer(body.games)
@@ -239,10 +241,12 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
         enabled ? 
         <>
                 <Gears key='0'>
-                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center w-[20vw]">
-                        <div onClick={()=>{onSave(rankings,gameContainer)}} className="hover:brightness-110 transition-all rounded-sm w-full pentagon-left p-4 cursor-pointer bg-white">
+                    <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-row text-center w-[20vw]">
+                        <div onClick={()=>{onSave(rankings,gameContainer,enabled)}} className="hover:brightness-110 transition-all rounded-sm w-full pentagon-left p-4 cursor-pointer bg-white">
                             <h2 style={{ color: 'black'}} className="transition-all text-right">Save</h2>
                         </div>
+                        <h2>Enable public scoreboard:</h2>
+                        <input type='checkbox' checked={publicStatus} name={'descending'} onChange={()=>{setPublicStatus((publicStatus == true) ? false:true)}}/>
                     </div>
                 </Gears>
 

@@ -42,10 +42,19 @@ export default async function handler(req, res) {
         }
     });
 
+    let enabled = false
+    const docRef3 = db.collection('page').doc('status');
+      await db.runTransaction(async (transaction) => {
+        const doc3 = await transaction.get(docRef3);
+        if (doc3.exists){
+          enabled = doc3.get('scoreboard') || false;
+        }
+    });
 
 
 
-    return res.status(200).json({ message: "Success", teams:teams, games:games});
+
+    return res.status(200).json({ message: "Success", teams:teams, games:games, enabled:enabled});
 
 
 

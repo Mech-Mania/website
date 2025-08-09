@@ -36,6 +36,11 @@ export default async function handler(req, res) {
         transaction.set(docRef2,body.games)
     });
 
+    const docRef3 = db.collection('page').doc('status');
+    await db.runTransaction(async (transaction) => {
+        transaction.update(docRef3,{scoreboard:body.enabled})
+    });
+
 
 
 
