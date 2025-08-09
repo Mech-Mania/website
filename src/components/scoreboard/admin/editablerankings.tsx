@@ -19,7 +19,6 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
     const [mode, setMode] = useState('Global')
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{},Settings:{}})
     const [publicStatus, setPublicStatus] = useState<boolean>(false)
-
     const getRaw = async () => {
         const response = await fetch('/api/scoreboard.js', {
                 method: 'POST',
