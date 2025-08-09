@@ -14,7 +14,7 @@ const app = initializeApp({
 });
 
 const db = getFirestore(app);
-
+ 
 export default async function handler(req, res) {
 
     if (req.method !== 'POST') {
@@ -30,6 +30,7 @@ export default async function handler(req, res) {
         const doc1 = await transaction.get(docRef1);
         if (doc1.exists){
           teams = doc1.get('Points') || {};
+          console.log(doc1.get('Points'))
         }
     });
 
