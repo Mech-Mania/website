@@ -23,7 +23,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
         const response = await fetch('/api/scoreboard.js', {
                 method: 'POST',
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "text/plain",
                 },
         });
 
