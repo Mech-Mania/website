@@ -15,8 +15,8 @@ function App() {
   })
 
   const getPageData = async () => {
-    const response = await fetch('/api/status.js', {
-          method: 'GET',
+    const response = await fetch('/api/status', {
+          method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },
@@ -26,8 +26,7 @@ function App() {
           throw new Error('Failed to get pageData');
       }
       const data = await response.json();
-      await setPageStatus(data.pageStatus) 
-      // window.dispatchEvent(new Event('resize'));
+      await setPageStatus(data) 
 
   }
 

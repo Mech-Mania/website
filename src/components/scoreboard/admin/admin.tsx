@@ -10,19 +10,19 @@ function Admin(props:any) {
     const [displayMode, setDisplayMode] = useState('Locked')
 
     const submit = async (str:string) => {
-        const response = await fetch('/api/scoreboard/pw.js', {
+        const response = await fetch('/api/password', {
             method: 'POST',
             headers: {
-                "Content-Type": "text/plain",
+                "Content-Type": "application/json",
             },
-            body: str,
+            body: JSON.stringify({'password':str}),
         });
 
         if (!response.ok) {
             throw new Error('Failed to login');
         }
         const data = await response.json()
-        if (data.message != 'Success'){
+        if (data.result != true){
             setError(<p className="text-red-600">Wrong password - Please try again</p>)
         } else {
             setDisplayMode('Open')
@@ -44,7 +44,7 @@ function Admin(props:any) {
     },[])
 
     const onSave = async (teams:any, gameContainer:any,enabled:boolean) => {
-        const response = await fetch('/api/scoreboard/save.js', {
+        const response = await fetch('/api/scoreboard', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function Admin(props:any) {
                 teams: teams,
                 games: gameContainer,
                 enabled:enabled,
-                pw: pw
+                password: pw
             }),
         });
     }
