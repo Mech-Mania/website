@@ -10,12 +10,13 @@ import Dash from "./pages/dash";
 import Scoreboard from "./pages/scoreboard"
 
 function App() {
+  
   const [pageStatus, setPageStatus] = useState({
     scoreboard:false
   })
 
   const getPageData = async () => {
-    const response = await fetch('/api/status', {
+    const response = await fetch(`${__SiteBase__}/status`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

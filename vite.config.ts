@@ -15,13 +15,8 @@ export default defineConfig({
       input: 'index.html',
     },
   },
-  server: {
-    proxy: {
-      '/api': {
-        target: API_URI,
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
+
+  define: {
+        __SiteBase__: JSON.stringify(API_URI),
+  }
 })

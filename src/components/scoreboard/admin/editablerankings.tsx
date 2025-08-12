@@ -20,7 +20,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
     const [gameContainer, setgameContainer] = useState<gameCont>({Data:{},Names:[],Points:{},Settings:{}})
     const [publicStatus, setPublicStatus] = useState<boolean>(false)
     const getRaw = async () => {
-        const response = await fetch('/api/scoreboard', {
+        const response = await fetch(`${__SiteBase__}/scoreboard`, {
                 method: 'PUT',
         });
 

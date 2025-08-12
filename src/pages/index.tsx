@@ -64,8 +64,8 @@ function Home() {
     };
 
     const newVisit = async() => {
-        const response = await fetch('api/visits.js', {
-            method: 'POST',
+        const response = await fetch(`${__SiteBase__}/visits`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -74,27 +74,25 @@ function Home() {
         if (!response.ok) {
             throw new Error('Failed to increment visits');
         }
-        const data = await response.json();
     }
 
     const submit = async (str: string) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (emailRegex.test(str)){
-            const response = await fetch('api/emails.js', {
+            const response = await fetch(`${__SiteBase__}/emails/submit`, {
                 method: 'POST',
                 headers: {
-                    "Content-Type": "text/plain",
+                    "Content-Type": "application/json",
                 },
-                body: str,
+                body: JSON.stringify({content: str}),
             });
 
         
             if (!response.ok) {
                 throw new Error('Failed to record email');
             }
-            const data = await response.json();
             setEmail('')
-            setError(<p className="text-lime-400">Success!</p>)
+            setError(<p className="text-lime-400">Success! Please check your email to confirm.</p>)
             setTimeout(function(){setError(<></>)}, 5000)
         } else {
             setError(<p className="text-red-600">An error occured - please try again</p>)

@@ -10,7 +10,7 @@ function Admin(props:any) {
     const [displayMode, setDisplayMode] = useState('Locked')
 
     const submit = async (str:string) => {
-        const response = await fetch('/api/password', {
+        const response = await fetch(`${__SiteBase__}/password`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -44,7 +44,7 @@ function Admin(props:any) {
     },[])
 
     const onSave = async (teams:any, gameContainer:any,enabled:boolean) => {
-        const response = await fetch('/api/scoreboard', {
+        const response = await fetch(`${__SiteBase__}/scoreboard`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

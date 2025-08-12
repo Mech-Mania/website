@@ -19,7 +19,7 @@ function Rankings(props:any) {
     const [enabled, setEnabled] = useState(props.enabled)
 
     const getRaw = async () => {
-        const response = await fetch('/api/scoreboard', {
+        const response = await fetch(`${__SiteBase__}/scoreboard`, {
                 method: 'PUT',
         });
 

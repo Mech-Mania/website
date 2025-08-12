@@ -10,7 +10,7 @@ function Dash() {
     const [displayPW, setDisplayPW] = useState('flex')
 
     const submit = async (str:string) => {
-        const emailData = await fetch('api/emails', {
+        const emailData = await fetch(`${__SiteBase__}/emails`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -26,7 +26,7 @@ function Dash() {
 
 
 
-        const visitData = await fetch('api/visits',{
+        const visitData = await fetch(`${__SiteBase__}/visits`,{
             method:'POST',
             headers:{
                 "Content-Type":"application/json",
