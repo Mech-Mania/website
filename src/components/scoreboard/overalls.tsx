@@ -56,7 +56,7 @@ function Overalls(props:any) {
             </div>
 
             {rankings.map((team:rankData,index)=>(
-            <div className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
+            <div key={team.name} className="grid grid-cols-3 grid-flow-row items-center justify-start w-full gap-x-16 text-center">    
                 <p className="text-2xl">{team.rank}</p>
                 <p className="text-2xl">{team.name}</p>
                 <p className="text-2xl">{team.points}</p>

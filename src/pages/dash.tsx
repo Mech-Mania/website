@@ -10,24 +10,45 @@ function Dash() {
     const [displayPW, setDisplayPW] = useState('flex')
 
     const submit = async (str:string) => {
-        const response = await fetch('api/pw.js', {
+        const emailData = await fetch(`${__SiteBase__}/emails`, {
             method: 'POST',
             headers: {
-                "Content-Type": "text/plain",
+                "Content-Type": "application/json",
             },
-            body: str,
+            body: JSON.stringify({password:str}),
         });
 
     
-        if (!response.ok) {
+        if (!emailData.ok) {
             throw new Error('Failed to login');
         }
-        const data = await response.json();
-        if (data.message=="Success"){
-            setEmails(data.emails)
-            setVisits(data.visits)
-            setDisplayPW('none')
+        const emails = (await emailData.json()).emails;
+
+
+
+        const visitData = await fetch(`${__SiteBase__}/visits`,{
+            method:'POST',
+            headers:{
+                "Content-Type":"application/json",
+            },
+            body: JSON.stringify({password:str})
+        })
+
+
+        if (!visitData.ok) {
+            throw new Error('Failed to login');
         }
+        const visits = (await visitData.json()).visits;
+
+        let filteredVisits:{[key:string]:number} = {}
+        for (const visit of Object.keys(visits)){
+            const num:number = visits[visit]
+            filteredVisits[visit.slice(1)] = num
+        }
+
+        setEmails(emails)
+        setVisits(filteredVisits)
+        setDisplayPW('none')
         setPW('')
     }
     const handleKeyPress = (event:any) => {

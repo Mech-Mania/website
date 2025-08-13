@@ -1,0 +1,1 @@
+declare const __SiteBase__: string;
