@@ -21,6 +21,7 @@ function App() {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
+              'credentials': "include"
           },
       });
     
