@@ -21,7 +21,8 @@ const VisitsLineChart: React.FC<Props> = ({ visits }) => {
   // Prepare labels
   const labels = Object.keys(visits).map((date) => {
     const year = date.slice(0, 4);
-    const month = (parseInt(date.slice(4, 6)) + 1).toString().padStart(2, '0'); // Ensure two digits
+    const month = date.slice(4,6)
+    // const month = (parseInt(date.slice(4, 6)) + 1).toString().padStart(2, '0'); // Ensure two digits
     const day = date.slice(6, 8);
     return `${year}-${month}-${day}`;
   });
