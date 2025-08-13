@@ -85,17 +85,27 @@ function Home() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({content: str}),
-            });
+            })
 
-        
+    
             if (!response.ok) {
-                throw new Error('Failed to record email');
+                setError(<p className="text-red-600">An error occurred</p>)
+                setTimeout(function(){setError(<></>)}, 5000)
+                
             }
-            setEmail('')
-            setError(<p className="text-lime-400">Success! Please check your email to confirm.</p>)
-            setTimeout(function(){setError(<></>)}, 5000)
+            else {
+                const data = await response.json()
+                if ([400,429].includes(data.status)){
+                    setError(<p className="text-red-600">{data.message}</p>)
+                    setTimeout(function(){setError(<></>)}, 5000)
+                    return
+                }
+                setEmail('')
+                setError(<p className="text-lime-400">Success! Please check your email to confirm.</p>)
+                setTimeout(function(){setError(<></>)}, 5000)
+            }
         } else {
-            setError(<p className="text-red-600">An error occured - please try again</p>)
+            setError(<p className="text-red-600">Invalid Email</p>)
             setTimeout(function(){setError(<></>)}, 5000)
         }
     }
@@ -122,7 +132,7 @@ function Home() {
                             </IconContext.Provider>
                         </div>
                     </Wheel>
-                    <Gears>
+                    <Gears id='emailing_list'>
                         <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
                             <div className="flex flex-col">
                                 <h2>What is MechMania?</h2>
