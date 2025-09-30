@@ -39,10 +39,8 @@ function EditableTextarea({ value, commitFunc, boxName}:{value:any,commitFunc:an
             onChange={(e) => setInputValue(e.target.value)}
             onBlur={pushChanges}
             onKeyDown={handleKeyDown}
-        >
-
-            {inputValue}
-        </textarea>
+            value={inputValue}
+        />
     );
 }
 export default EditableTextarea
