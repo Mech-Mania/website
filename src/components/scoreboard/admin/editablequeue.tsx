@@ -5,7 +5,6 @@ import EditableInput from "./editabletext"
 
 function Queue({game, gameContainer, onQueueChange}:{game:string, gameContainer:gameCont, onQueueChange:any}) {
 
-
     return (
         
 

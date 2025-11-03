@@ -29,7 +29,7 @@ function Rankings({enabled, onSave}:{enabled:boolean, onSave:any}) {
             return null
         }
 
-
+    
         const body = await response.json()
         const teamPoints = body.teams
         setPublicStatus(body.enabled)
