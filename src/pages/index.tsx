@@ -177,15 +177,26 @@ function Home() {
                                     <br/>
                                     <h2>Our Sponsors:</h2>
                                     <br/>
-                                    <div className="flex flex-row flex-wrap items-center justify-center">
+                                    <div className="flex flex-col flex-wrap items-center justify-center">
                                         <a href="https://www.solidworks.com/" target="_blank" className="w-fit h-fit">
                                             <div className="bg-white rounded-lg h-24 w-fit p-8 gap-8 cursor-pointer box-content">
                                                 <img className="h-24" src="/sponsors/solidworks.svg"></img>
                                             </div>
                                         </a>
+                                        <br/>
+                                        <div className="flex flex-col items-center">
+                                        <p>Interested? Take a look at our <a href="/sponsorPackage.pdf" className="underline text-blue-400" target="_blank">sponsorship package</a> and email us at <a href="mailto:organizers@mechmania.ca" className="underline text-blue-400">organizers@mechmania.ca</a>.</p>
+                                        <br/>
+                                        <a href="/sponsorPackage.pdf" target="_blank" className="w-fit h-fit flex flex-row">
+                                            
+                                            <div className="bg-white rounded-lg h-96 w-fit p-8 gap-8 cursor-pointer box-content mx-auto">
+                                                <img className="h-96" src="SponsorTitle.svg"></img>
+                                            </div>
+                                        </a>
+                                        </div>
                                     </div>
                                     <br/>
-                                    <p>Interested? Take a look at our <a href="/sponsorPackage.pdf" className="underline text-blue-400" target="_blank">sponsorship package</a> and email us at <a href="mailto:organizers@mechmania.ca" className="underline text-blue-400">organizers@mechmania.ca</a>.</p>
+                    
                                 </div>
                             </div>
                         </Gears>
