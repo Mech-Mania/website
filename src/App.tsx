@@ -6,9 +6,6 @@ import {
 } from "react-router-dom";
 import Home from "./pages";
 import { Analytics } from "@vercel/analytics/react"
-import Dash from "./pages/dash";
-import Scoreboard from "./pages/scoreboard"
-import EmailLanding from "./pages/emailLanding";
 
 function App() {
   
@@ -48,9 +45,6 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/dashboard" element={<Dash/>}/>
-          <Route path="/scoreboard/*" element={<Scoreboard pageStatus={pageStatus}/>}/>
-          <Route path="/emailLanding" element={<EmailLanding/>} />
           <Route path='/*' element={<h1>404 - Page Not Found</h1>}/>
         </Routes>
       </Router>
