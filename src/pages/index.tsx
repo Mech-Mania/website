@@ -69,13 +69,12 @@ function Home() {
                         </div>
                     </Wheel> */}
 
-                    <Gears dir>
+                    <Gears >
                         <Team>
 
                         </Team>
                     </Gears>
                     <Gears>
-                        <div className="w-[100vw]"></div>
 
                     </Gears>
  
