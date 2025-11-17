@@ -31,7 +31,11 @@ function Gears(props: any) {
 
     const addTeeth = () => {
         const lst = [];
-        for (let i = 0; i < (contWidth + contHeight) / 4 + 2; i++) {
+        const cornerRad = 4; // rem
+        const pathLength =  2*Math.PI*cornerRad + 2*contHeight + 2*contWidth; // in rem
+        const teethCount = pathLength / 8; //4rem gap
+
+        for (let i = 0; i < Math.floor(teethCount); i++) {
             lst.push(
                 <div
                     className="absolute w-16 h-16 -z-10 pointer-events-none"
@@ -52,9 +56,26 @@ function Gears(props: any) {
         }
     }, [updated]);
 
-    const dir = props.dir ? true : false;
+
+    const normalize = () =>{
+        return -new Date().getMilliseconds();
+    }
 
     useEffect(() => {
+        
+        const dir = props.dir ? true : false;
+        const cornerRad = 4; // rem
+        const pathLength =  2*Math.PI*cornerRad + 2*contHeight + 2*contWidth; // in rem
+        const teethCount = pathLength / 8
+        const duration =  teethCount * 1000;
+        const delayRatio = teethCount/ (Math.floor(teethCount));
+
+        const delay = 1000*delayRatio;
+
+        
+
+
+
         teethRefs.current.forEach((ref: any, index: any) => {
             if (ref) {
                 ref.getAnimations().forEach((animation: Animation) => animation.cancel()); // Clear existing animations
@@ -71,16 +92,16 @@ function Gears(props: any) {
                         { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(360deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`, offset: 1 },
                     ],
                     {
-                        duration: ((contWidth + contHeight) / 4 + 2) * 1000,
+                        duration: duration,
                         iterations: Infinity,
-                        delay: ((contWidth + contHeight) / 4 + 2) * -2000 + (dir ? 500 : 0) + index * -1000 + (dir ? -1 : 1) * ((contWidth + contHeight) / 4 + 2) * 1000 * (1.5 * contWidth + 2 * contHeight + 40) / (2 * contWidth + 2 * contHeight + 40),
+                        delay: -delay*index,
                         direction: dir ? "reverse" : "normal",
                     }
                 );
             }
         });
     }, [teeth, contWidth, contHeight, set]);
-
+    
     var resize = 0
     var size = -
     useEffect(() => {

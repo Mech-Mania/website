@@ -25,8 +25,11 @@ function Wheel(props: any) {
     };
 
     const addTeeth = () => {
+        const diameter = 8; // rem
+        const pathLength =  diameter*Math.PI; // in rem
+        const teethCount = pathLength / 4
         const lst = [];
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < Math.floor(teethCount); i++) {
             lst.push(
                 <div
                     className="absolute w-16 h-16 -z-10 pointer-events-none"
@@ -41,6 +44,8 @@ function Wheel(props: any) {
         setSet((prev) => prev + 1);
     };
 
+
+
     useEffect(() => {
         if (realWidth !== 0 && realHeight !== 0) {
             addTeeth();
@@ -50,6 +55,17 @@ function Wheel(props: any) {
     const dir = props.dir ? true : false;
 
     useEffect(() => {
+
+
+        const dir = props.dir ? true : false;
+        const diameter = 8; // rem
+        const pathLength =  diameter*Math.PI; // in rem
+        const teethCount = pathLength / 4;
+        const duration =  teethCount * 1000;
+        const delayRatio = teethCount/ (Math.floor(teethCount));
+
+        const delay = 1000*delayRatio;
+
         teethRefs.current.forEach((ref: any, index: any) => {
             if (ref) {
                 ref.getAnimations().forEach((animation: Animation) => animation.cancel()); // Clear existing animations
@@ -59,9 +75,9 @@ function Wheel(props: any) {
                         { transformOrigin: `${4}rem ${-realHeight + 4}rem`, transform: `rotate(360deg) translateX(${2}rem) translateY(${-realHeight - 4}rem)`, offset: 1 },
                     ],
                     {
-                        duration: 6 * 1000,
+                        duration: duration,
                         iterations: Infinity,
-                        delay: (dir ? -500 : 0 ) + (index * -1000),
+                        delay: -delay*index - (dir ? 500:0),
                         direction: dir ? "reverse" : "normal",
                     }
                 );
