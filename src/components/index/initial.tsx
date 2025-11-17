@@ -1,4 +1,4 @@
-import Gears from "./gears/gears"
+import Gears from "../gears/gears"
 function Initial() {
     return (
         <Gears>

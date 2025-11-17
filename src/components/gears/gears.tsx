@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import Tooth from "./tooth";
-import Reload from "../reload/reload";
+import Reload from "../load/reload/reload";
 
 function Gears(props: any) {
     // Ok so just a note to any future people working on this after me, I just inherited this code from the previous guy, and touching just about anything breaks the entire website, so leave it alone it should work fine.

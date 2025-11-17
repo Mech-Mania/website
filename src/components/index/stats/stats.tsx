@@ -21,7 +21,6 @@ function Stats() {
         setContent(contents[active])
     }, [active])
 
-    // Will need to make a better system for storing the stats from each year but I don't feel like it, so If I don't get to it good luck next website guy! - 2025/26 website guy
 
     return (
 
