@@ -33,9 +33,7 @@ function Gears(props: any) {
     const addTeeth = () => {
         const lst = [];
         const cornerRad = 4; // rem
-        const pathLength =  2*Math.PI*cornerRad +  //Radius of all 4 corners = 2*pi*cornerRadius
-                            2*(contHeight-2*cornerRad) + // We take the width in REM, then remove the width of the corners because they covered above
-                            2*(contWidth-2*cornerRad);
+        const pathLength = 2*(contHeight+contWidth)
         const teethCount = pathLength / 8; //4rem gap
 
         for (let i = 0; i < teethCount; i++) {
@@ -69,22 +67,38 @@ function Gears(props: any) {
         const dir = props.dir ? true : false;
         const cornerRad = 4; // rem
         // ///Pathlength calc: 
-        const cornerLength = (2*Math.PI*cornerRad) / 4 // rad of individual corner
+        const cornerLength = (Math.PI*cornerRad) / 2 // arc of individual corner
 
-        const pathLength =  2*Math.PI*cornerRad +  //Radius of all 4 corners = 2*pi*cornerRadius
+        const pathLength =  2*Math.PI*cornerRad +  //Perimeter of all 4 corners = 2*pi*cornerRadius
                             2*(contHeight-2*cornerRad) + // We take the width in REM, then remove the width of the corners because they covered above
                             2*(contWidth-2*cornerRad); // same as above but for height
-        const teethCount = (pathLength / 8)+2;
-        const delayRatio = teethCount/ (Math.floor(teethCount));
-        const delay = 1000*delayRatio;
-        const duration =  teethCount * delay;
+
+        const teethCount = Math.ceil(((contHeight+contWidth) / 4));
+
+        // At this point just find a way to make it so that pathlength/teethcount is 8
+        const delay = 1000
+        const duration = pathLength/8 * delay
+        
+        // console.log(duration,pathLength,duration/pathLength)
+        // console.log(pathLength, teethCount, pathLength/teethCount)
 
         // Now to get how much percent each element of the animation takes up the the entire animation time so that I can calculate offsets required to make this happen
         const cornerPercent = cornerLength/pathLength;
-        const widthPercent = contWidth/pathLength;
-        const heightPercent = contHeight/pathLength;
-        //
-        const offsetList:number[] = [];
+        const widthPercent = (contWidth-2*cornerRad)/pathLength;
+        const heightPercent = (contHeight-2*cornerRad)/pathLength;
+        
+        // calculates the percentage through as a digit between 0 and 1 of each section
+        const order = [widthPercent,cornerPercent,heightPercent,cornerPercent,widthPercent,cornerPercent,heightPercent]
+        const offsetList:number[] = [
+            0, // at start
+        ];
+        for (let i = 1;i<8;i++){
+            offsetList.push(
+                offsetList[i-1]+order[i-1]
+            )
+        }
+
+        offsetList.push(1)
 
         
 
@@ -101,42 +115,32 @@ function Gears(props: any) {
         teethRefs.current.forEach((ref: any, index: any) => {
             if (ref) {
                 ref.getAnimations().forEach((animation: Animation) => animation.cancel()); // Clear existing animations
-                ref.animate(
+                let anim:any = ref.animate(
                     [
-                        // { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`, offset: 0 },
-                        // { transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${contWidth - 6}rem) translateY(${-contHeight - 4}rem)`, offset: contWidth / (2 * contWidth + 2 * contHeight + 40) },
-                        // { transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(90deg) translateX(${contWidth - 6}rem) translateY(${-contHeight - 4}rem)`, offset: (contWidth + 10) / (2 * contWidth + 2 * contHeight + 40) },
-                        // { transformOrigin: `${contWidth - 4}rem ${-4}rem`, transform: `rotate(90deg) translateX(${contWidth - 6}rem) translateY(${-12}rem)`, offset: (contWidth + contHeight + 10) / (2 * contWidth + 2 * contHeight + 40) },
-                        // { transformOrigin: `${contWidth - 4}rem ${-4}rem`, transform: `rotate(180deg) translateX(${contWidth - 6}rem) translateY(${-12}rem)`, offset: 0.5 },
-                        // { transformOrigin: `${4}rem ${-4}rem`, transform: `rotate(180deg) translateX(${2}rem) translateY(${-12}rem)`, offset: (2 * contWidth + contHeight + 20) / (2 * contWidth + 2 * contHeight + 40) },
-                        // { transformOrigin: `${4}rem ${-4}rem`, transform: `rotate(270deg) translateX(${2}rem) translateY(${-12}rem)`, offset: (2 * contWidth + contHeight + 30) / (2 * contWidth + 2 * contHeight + 40) },
-                        // { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(270deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`, offset: (2 * contWidth + 2 * contHeight + 30) / (2 * contWidth + 2 * contHeight + 40) },
-                        // { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(360deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`, offset: 1 },
-                        
                         // Top left point
                         { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`,offset:0}, //loops from end
                         
                         
                         // Top right point
-                        {transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${contWidth-6}rem) translateY(${-contHeight-4}rem)`},
+                        {transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${contWidth-6}rem) translateY(${-contHeight-4}rem)`,offset: offsetList[1]},
                         // Right top point
-                        {transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`,transform: `rotate(90deg) translateX(${contWidth-6}rem) translateY(${-contHeight-4}rem)`},
+                        {transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`,transform: `rotate(90deg) translateX(${contWidth-6}rem) translateY(${-contHeight-4}rem)`, offset: offsetList[2]},
 
                         
                         //Right bottom point
-                        {transformOrigin: `${contWidth - 4}rem ${-4}rem`, transform: `rotate(90deg) translateX(${contWidth-6}rem) translateY(${-12}rem)`},
+                        {transformOrigin: `${contWidth - 4}rem ${-4}rem`, transform: `rotate(90deg) translateX(${contWidth-6}rem) translateY(${-12}rem)`, offset: offsetList[3]},
                         // Bottom right point
-                        { transformOrigin: `${contWidth - 4}rem ${-4}rem`, transform: `rotate(180deg) translateX(${contWidth - 6}rem) translateY(${-12}rem)`},
+                        { transformOrigin: `${contWidth - 4}rem ${-4}rem`, transform: `rotate(180deg) translateX(${contWidth - 6}rem) translateY(${-12}rem)`, offset: offsetList[4]},
 
 
                         // Bottom left point
-                        { transformOrigin: `${4}rem ${-4}rem`, transform: `rotate(180deg) translateX(${2}rem) translateY(${-12}rem)`},
+                        { transformOrigin: `${4}rem ${-4}rem`, transform: `rotate(180deg) translateX(${2}rem) translateY(${-12}rem)`, offset: offsetList[5]},
                         // left bottom point
-                        { transformOrigin: `${4}rem ${-4}rem`, transform: `rotate(270deg) translateX(${2}rem) translateY(${-12}rem)`},
+                        { transformOrigin: `${4}rem ${-4}rem`, transform: `rotate(270deg) translateX(${2}rem) translateY(${-12}rem)`, offset: offsetList[6]},
                         
 
                         // left top point
-                        { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(270deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`},
+                        { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(270deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`, offset: offsetList[7]},
                         //top left point
                         { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(360deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`, offset:1}, // this last one loops to start
 
