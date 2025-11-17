@@ -61,18 +61,22 @@ function Home() {
                     <Initial />
                 </div>
                 <div className="gap-16 flex flex-col items-center justify-start w-full bg-black lg:px-32 box-border">
-                    <Wheel dir >
+                    {/* <Wheel dir >
                         <div className="animate-bounce pt-4 cursor-pointer">
                             <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
                                 <FaArrowDown/>
                             </IconContext.Provider>
                         </div>
-                    </Wheel>
+                    </Wheel> */}
 
-                    <Gears >
+                    <Gears dir>
                         <Team>
 
                         </Team>
+                    </Gears>
+                    <Gears>
+                        <div className="w-[100vw]"></div>
+
                     </Gears>
  
                 </div>

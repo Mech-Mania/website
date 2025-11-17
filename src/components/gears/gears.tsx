@@ -32,7 +32,9 @@ function Gears(props: any) {
     const addTeeth = () => {
         const lst = [];
         const cornerRad = 4; // rem
-        const pathLength =  2*Math.PI*cornerRad + 2*contHeight + 2*contWidth; // in rem
+        const pathLength =  2*Math.PI*cornerRad +  //Radius of all 4 corners = 2*pi*cornerRadius
+                            2*(contHeight-2*cornerRad) + // We take the width in REM, then remove the width of the corners because they covered above
+                            2*(contWidth-2*cornerRad);
         const teethCount = pathLength / 8; //4rem gap
 
         for (let i = 0; i < Math.floor(teethCount); i++) {
@@ -65,11 +67,14 @@ function Gears(props: any) {
         
         const dir = props.dir ? true : false;
         const cornerRad = 4; // rem
-        const pathLength =  2*Math.PI*cornerRad + 2*contHeight + 2*contWidth; // in rem
-        const teethCount = pathLength / 8
-        const duration =  teethCount * 1000;
-        const delayRatio = teethCount/ (Math.floor(teethCount));
+        ///Pathlength calc: 
+        const pathLength =  2*Math.PI*cornerRad +  //Radius of all 4 corners = 2*pi*cornerRadius
+                            2*(contHeight-2*cornerRad) + // We take the width in REM, then remove the width of the corners because they covered above
+                            2*(contWidth-2*cornerRad); // same as above but for height
 
+        const teethCount = pathLength / 8;
+        const delayRatio = teethCount/ (Math.floor(teethCount));
+        const duration =  teethCount * 1000;
         const delay = 1000*delayRatio;
 
         
@@ -94,7 +99,7 @@ function Gears(props: any) {
                     {
                         duration: duration,
                         iterations: Infinity,
-                        delay: -delay*index,
+                        delay: -delay*index - (dir ? delay/2: 0),
                         direction: dir ? "reverse" : "normal",
                     }
                 );
