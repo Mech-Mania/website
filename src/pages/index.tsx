@@ -8,6 +8,7 @@ import Load from "../components/load/load";
 import Team from "../components/index/team/team";
 import Stats from "../components/index/stats/stats";
 import Initial from "../components/index/initial";
+import Line from "../components/gears/line"
 
 function Home() {
     const [marginTop, setMarginTop] = useState(0);
@@ -68,15 +69,17 @@ function Home() {
                             </IconContext.Provider>
                         </div>
                     </Wheel> */}
-
-                    <Gears dir>
+                    <Gears >
                         <Team>
 
                         </Team>
                     </Gears>
-                    <Gears>
-
+                    <Gears dir>
+                        <div className="-left-[10vw] w-[120vw]">
+                            <Carousel/>
+                        </div>
                     </Gears>
+                    <Line/>
  
                 </div>
                 
