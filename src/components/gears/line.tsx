@@ -32,7 +32,7 @@ function Line(props: {dir?:any, nopad?:any, down?:any, freeze?:any}) {
     const addTeeth = () => {
         const lst = [];
 
-        for (let i = 0; i < (contWidth-8)/8; i++) {
+        for (let i = 0; i < (contWidth-8)/8+2; i++) {
             lst.push(
                 <div
                     className="absolute w-16 h-16 -z-10 pointer-events-none"
@@ -57,7 +57,7 @@ function Line(props: {dir?:any, nopad?:any, down?:any, freeze?:any}) {
 
     useEffect(() => {
         
-        const toothCount = (contWidth-8)/8;
+        const toothCount = (contWidth-8)/8+2;
 
         teethRefs.current.forEach((ref: any, index: any) => {
             if (ref) {
@@ -70,12 +70,12 @@ function Line(props: {dir?:any, nopad?:any, down?:any, freeze?:any}) {
                 let anim:any = ref.animate(
                     (props.down)?
                     [   
-                            { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(180deg) translateX(${2}rem) translateY(${-contHeight + 4}rem)`},
-                            { transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(180deg) translateX(${contWidth - 6}rem) translateY(${-contHeight + 4}rem)` },
+                            { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(180deg) translateX(${-2}rem) translateY(${-contHeight + 4}rem)`},
+                            { transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(180deg) translateX(${contWidth - 12}rem) translateY(${-contHeight + 4}rem)` },
                     ]:
                     [   
                         { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`},
-                        { transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${contWidth - 6}rem) translateY(${-contHeight - 4}rem)` },
+                        { transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${contWidth -6}rem) translateY(${-contHeight - 4}rem)` },
                         // for 60vw its -3, -6
                         
                         
@@ -93,7 +93,7 @@ function Line(props: {dir?:any, nopad?:any, down?:any, freeze?:any}) {
                         direction: dir ? "reverse" : "normal",
                     }
                 );
-                if (props.freeze){anim.freeze();} 
+                if (props.freeze){anim.pause();} 
             }
         });
     }, [teeth, contWidth, contHeight, set]);

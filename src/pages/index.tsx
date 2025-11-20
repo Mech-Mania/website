@@ -61,25 +61,26 @@ function Home() {
                 <div ref={divRef} style={{ marginTop: `${marginTop}px` }}>
                     <Initial />
                 </div>
-                <div className="gap-16 flex flex-col items-center justify-start w-full bg-black lg:px-32 box-border">
-                    {/* <Wheel dir >
+
+                <div className="gap-16 flex flex-col items-center justify-start w-full bg-black lg:px-32 box-border" style={{ marginTop: `${marginTop}px` }}>
+                
+                    {/* <div className=" relative border-[#444f] bg-black box-content rounded-[4rem] border-[8px] border-solid h-0 -left-[10vw] w-[120vw] my-8"></div>
+                 */}
+                    <Line></Line>
+                    <Wheel dir >
                         <div className="animate-bounce pt-4 cursor-pointer">
                             <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
                                 <FaArrowDown/>
                             </IconContext.Provider>
                         </div>
-                    </Wheel> */}
-                    <Gears >
-                        <Team>
+                    </Wheel>
 
-                        </Team>
-                    </Gears>
-                    <Gears dir>
-                        <div className="-left-[10vw] w-[120vw]">
-                            <Carousel/>
+                    <Gears>
+                        <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
+                            <p>Navbar here</p>
                         </div>
                     </Gears>
-                    <Line/>
+
  
                 </div>
                 
