@@ -64,10 +64,16 @@ function Home() {
                 <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-black lg:px-32 box-border z-[0]">
                 
                     
-                    <div style={{borderColor: "#444f",transition: "border-color 1s ease", marginBottom:`4rem`}} className="z-50 bg-black box-content border-[8px] border-solid h-0 -left-[10vw] w-[120vw] flex flex-row items-center  justify-center align-middle">
-                        {/* Navbar here */}
+                    <div style={{borderColor: "#444f",transition: "border-color 1s ease", marginBottom:`0`}} className="z-50 bg-black box-content border-[8px] border-solid h-0 -left-[10vw] w-[120vw] flex flex-row items-center  justify-center align-middle">
                     </div>
-                 
+                    
+
+                    <div style={{marginBottom:`0rem`}} className={`flex flex-row flex-wrap items-center justify-evenly w-[90%]`}>
+                        <h2>Home</h2>
+                        <h2>Our Team</h2>
+                        <h2>Sponsor</h2>
+                        <h2>Scoreboard</h2>
+                    </div>
                     <div style={{marginBottom:`4rem`}}>
                         <Line dir down/>
                     </div>
