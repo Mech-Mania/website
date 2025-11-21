@@ -12,6 +12,7 @@ import {
     Route,
 } from "react-router-dom";
 import Main from "./main";
+import Stats from "../components/index/stats/stats";
 
 function Home() {
     const [marginTop, setMarginTop] = useState(0);
@@ -62,6 +63,11 @@ function Home() {
                
                 <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-black lg:px-32 box-border z-[0]">
                 
+                    
+                    <div style={{borderColor: "#444f",transition: "border-color 1s ease", marginBottom:`4rem`}} className="z-50 bg-black box-content border-[8px] border-solid h-0 -left-[10vw] w-[120vw] flex flex-row items-center  justify-center align-middle">
+                        {/* Navbar here */}
+                    </div>
+                 
                     <div style={{marginBottom:`4rem`}}>
                         <Line dir down/>
                     </div>
@@ -77,7 +83,7 @@ function Home() {
                     <Gears>
                         <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
                             <Email></Email>
-                            <p>Navbar here</p>
+                            <Stats></Stats>
                         </div>
                     </Gears>
                     
