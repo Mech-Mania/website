@@ -67,7 +67,7 @@ function Gears(props: any) {
                 // transformOrigin is for rotations. It just transforms where the tooth rotates around
                 // transform is pretty self-explanatory
                 // offset represents the % complete that the animation is once it reaches this point
-                ref.animate(
+                let anim:any = ref.animate(
                     [   
                         { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${2}rem) translateY(${-contHeight - 4}rem)`, offset: 0 },
                         { transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(0deg) translateX(${contWidth - 6}rem) translateY(${-contHeight - 4}rem)`, offset: contWidth / (2 * contWidth + 2 * contHeight + 40) },
@@ -92,6 +92,7 @@ function Gears(props: any) {
                         direction: dir ? "reverse" : "normal",
                     }
                 );
+                if (props.freeze){anim.pause();} 
             }
         });
     }, [teeth, contWidth, contHeight, set]);

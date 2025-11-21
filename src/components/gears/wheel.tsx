@@ -53,7 +53,7 @@ function Wheel(props: any) {
         teethRefs.current.forEach((ref: any, index: any) => {
             if (ref) {
                 ref.getAnimations().forEach((animation: Animation) => animation.cancel()); // Clear existing animations
-                ref.animate(
+                let anim:any = ref.animate(
                     [
                         { transformOrigin: `${4}rem ${-realHeight + 4}rem`, transform: `rotate(0deg) translateX(${2}rem) translateY(${-realHeight - 4}rem)`, offset: 0 },
                         { transformOrigin: `${4}rem ${-realHeight + 4}rem`, transform: `rotate(360deg) translateX(${2}rem) translateY(${-realHeight - 4}rem)`, offset: 1 },
@@ -65,6 +65,7 @@ function Wheel(props: any) {
                         direction: dir ? "reverse" : "normal",
                     }
                 );
+                if (props.freeze){anim.pause();} 
             }
         });
     }, [teeth, realWidth, realHeight, contWidth, contHeight, set]);

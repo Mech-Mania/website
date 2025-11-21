@@ -70,7 +70,7 @@ function Line(props: {dir?:any, nopad?:any, down?:any, freeze?:any}) {
                 let anim:any = ref.animate(
                     (props.down)?
                     [   
-                            { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(180deg) translateX(${-2}rem) translateY(${-contHeight + 4}rem)`},
+                            { transformOrigin: `${4}rem ${-contHeight + 4}rem`, transform: `rotate(180deg) translateX(${2}rem) translateY(${-contHeight + 4}rem)`},
                             { transformOrigin: `${contWidth - 4}rem ${-contHeight + 4}rem`, transform: `rotate(180deg) translateX(${contWidth - 12}rem) translateY(${-contHeight + 4}rem)` },
                     ]:
                     [   
