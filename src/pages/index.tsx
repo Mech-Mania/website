@@ -3,12 +3,15 @@ import Gears from "../components/gears/gears";
 import Wheel from "../components/gears/wheel";
 import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
-import Carousel from "../components/index/carousel/carousel";
 import Load from "../components/load/load";
-import Team from "../components/index/team/team";
-import Stats from "../components/index/stats/stats";
 import Initial from "../components/index/initial";
 import Line from "../components/gears/line"
+import Email from "../components/index/email";
+import {
+    Routes,
+    Route,
+} from "react-router-dom";
+import Main from "./main";
 
 function Home() {
     const [marginTop, setMarginTop] = useState(0);
@@ -18,31 +21,20 @@ function Home() {
     const [normalTime, setNormalTime] = useState((new Date()).getMilliseconds());
 
 
-    const updateMarginTop = () => {
-        if (window.innerHeight!=size[1]){
-            if (divRef.current) {
-                const divHeight = divRef.current.clientHeight; // Get the height of the <div>
-                const offset = (window.innerHeight - divHeight) / 2; // Calculate the marginTop
-                setMarginTop(offset);
-            }
-        }
-    };
-
-
     useEffect(() => {
 
         setSize([window.innerWidth, window.innerHeight])
         setWidth(window.innerWidth)
         setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
         window.addEventListener("resize", function(){
-            updateMarginTop();
+            setMarginTop(window.innerHeight*1.1);
             setSize([window.innerWidth, window.innerHeight])
             setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
             setNormalTime((new Date()).getMilliseconds());
         });
         document.body.style.overflow = 'hidden';
         setTimeout(function(){
-            updateMarginTop()
+            setMarginTop(window.innerHeight*1.1);
             window.scrollTo(0, 0)
             setTimeout(() => {
                 document.body.style.overflow = '';
@@ -56,17 +48,24 @@ function Home() {
 
     return (
         <>
+        {/* Mechmania logo load + intial screen */}
             <div className="w-screen h-screen fixed top-0 left-0 loaded z-[100] animate-loaded pointer-events-none"><Load/></div>
-            <div style={{ width: width+'px' }} className="gap-16 flex flex-col items-center justify-center bg-black">
-                <div ref={divRef} style={{ marginTop: `${marginTop}px` }}>
-                    <Initial />
+            <div className="fixed w-screen h-full top-0 left-0 flex flex-row items-center align-middle z-[-1] pointer-events-none">
+                <div className="flex flex-row items-center justify-center w-full">
+                    <Initial/>
+                    {/* Todo, add some blinking lights or something indicated the user to scroll down that appear after a few seconds */}
                 </div>
+            </div>
 
-                <div className="gap-16 flex flex-col items-center justify-start w-full bg-black lg:px-32 box-border" style={{ marginTop: `${marginTop}px` }}>
+            {/* Initial screen cover, email, + navbar & router */}
+            <div style={{ width: width+'px',marginTop: `${marginTop}px` }} className="gap-16 flex flex-col items-center justify-center bg-black" >
+               
+                <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-black lg:px-32 box-border z-[0]">
                 
-                    {/* <div className=" relative border-[#444f] bg-black box-content rounded-[4rem] border-[8px] border-solid h-0 -left-[10vw] w-[120vw] my-8"></div>
-                 */}
-                    <Line></Line>
+                    <div style={{marginBottom:`4rem`}}>
+                        <Line dir down/>
+                    </div>
+
                     <Wheel dir >
                         <div className="animate-bounce pt-4 cursor-pointer">
                             <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
@@ -77,9 +76,23 @@ function Home() {
 
                     <Gears>
                         <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
+                            <Email></Email>
                             <p>Navbar here</p>
                         </div>
                     </Gears>
+                    
+                    <Wheel dir >
+                        <div className="animate-bounce pt-4 cursor-pointer">
+                            <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
+                                <FaArrowDown/>
+                            </IconContext.Provider>
+                        </div>
+                    </Wheel>
+
+
+                    <Routes>
+                        <Route path="/" element={<Main/>}/>
+                    </Routes>
 
  
                 </div>

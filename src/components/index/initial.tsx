@@ -9,6 +9,7 @@ function Initial() {
                         <p className="w-full text-center lg:text-left">2026 - May 8th - UW @ Robohub</p>
                         <h1 className="w-full text-center lg:text-left">MechMania</h1>
                         <h2 className="w-full text-center lg:text-left">Where Metal Meets Mind </h2>
+
                     </div>
                 </div>
             </div>
