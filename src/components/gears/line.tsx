@@ -103,7 +103,7 @@ function Line(props: {dir?:any, nopad?:any, down?:any, freeze?:any}) {
     useEffect(() => {
         setTimeout(function(){
             updateDimensions();
-        }, 1000)
+        }, 10)
         setColor("#444f");
         size = window.innerWidth
         window.addEventListener("resize", function(){
@@ -118,7 +118,7 @@ function Line(props: {dir?:any, nopad?:any, down?:any, freeze?:any}) {
                         resize = 0
                         setLoader(<></>)
                     }
-                }, 1000);
+                }, 10);
                 size = window.innerWidth
             }
         });

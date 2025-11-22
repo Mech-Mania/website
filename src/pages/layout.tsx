@@ -4,17 +4,18 @@ import Wheel from "../components/gears/wheel";
 import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
 import Load from "../components/load/load";
-import Initial from "../components/index/initial";
+import Initial from "../components/layout/initial";
 import Line from "../components/gears/line"
-import Email from "../components/index/email";
 import {
     Routes,
     Route,
 } from "react-router-dom";
 import Main from "./main";
+import Nav from "../components/layout/navbar";
 import Stats from "../components/index/stats/stats";
+import TeamPage from "./team";
 
-function Home() {
+function Layout() {
     const [marginTop, setMarginTop] = useState(0);
     const divRef = useRef<HTMLDivElement>(null);
     const [size, setSize] = useState([0, 0])
@@ -69,11 +70,10 @@ function Home() {
                     
 
                     <div style={{marginBottom:`0rem`}} className={`flex flex-row flex-wrap items-center justify-evenly w-[90%]`}>
-                        <h2>Home</h2>
-                        <h2>Our Team</h2>
-                        <h2>Sponsor</h2>
-                        <h2>Scoreboard</h2>
+                        <Nav></Nav>
                     </div>
+
+
                     <div style={{marginBottom:`4rem`}}>
                         <Line dir down/>
                     </div>
@@ -86,25 +86,11 @@ function Home() {
                         </div>
                     </Wheel>
 
-                    <Gears>
-                        <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
-                            <Email></Email>
-                            <Stats></Stats>
-                        </div>
-                    </Gears>
-                    
-                    <Wheel dir >
-                        <div className="animate-bounce pt-4 cursor-pointer">
-                            <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
-                                <FaArrowDown/>
-                            </IconContext.Provider>
-                        </div>
-                    </Wheel>
-
-
                     <Routes>
                         <Route path="/" element={<Main/>}/>
+                        <Route path="/team" element={<TeamPage/>}/>
                     </Routes>
+
 
  
                 </div>
@@ -120,4 +106,4 @@ function Home() {
     );
     }
 
-    export default Home;
+    export default Layout;

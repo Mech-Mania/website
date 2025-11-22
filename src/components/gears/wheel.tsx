@@ -1,7 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import Tooth from "./tooth";
+import {
+    useLocation
+} from "react-router-dom";
 
 function Wheel(props: any) {
+    const location = useLocation(); // resets animation on link change so that everything is nice and synced
     const [color, setColor] = useState("0");
     const [teeth, setTeeth]: any[] = useState([]);
     const [set, setSet] = useState(0);
@@ -68,14 +72,14 @@ function Wheel(props: any) {
                 if (props.freeze){anim.pause();} 
             }
         });
-    }, [teeth, realWidth, realHeight, contWidth, contHeight, set]);
+    }, [teeth, realWidth, realHeight, contWidth, contHeight, set, location]);
 
     var resize = 0
     var size = 0
     useEffect(() => {
         setTimeout(function(){
             updateDimensions();
-        }, 1000)
+        }, 10)
         setColor("1");
         size = window.innerWidth
         window.addEventListener("resize", function(){
@@ -87,7 +91,7 @@ function Wheel(props: any) {
                         addTeeth()
                         resize = 0
                     }
-                }, 1000);
+                }, 10);
             }
             size = window.innerWidth
         });

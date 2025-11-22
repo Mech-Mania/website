@@ -4,7 +4,7 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import Home from "./pages";
+import Layout from "./pages/layout";
 import { Analytics } from "@vercel/analytics/react"
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/*" element={<Home/>}/>
+          <Route path="/*" element={<Layout/>}/>
         </Routes>
       </Router>
       <Analytics/>

@@ -1,10 +1,14 @@
 import { useEffect, useState, useRef } from "react";
 import Tooth from "./tooth";
 import Reload from "../load/reload/reload";
+import {
+    useLocation
+} from "react-router-dom";
 
 function Gears(props: any) {
     // I've tried for so long to understand what the hell is happening here. I made some progress on reverse engineering it but honestly it's probably a waste of time.
     // I've put some line comments around to hopefully help anyone else who tries to refactor this because before there were none
+    const location = useLocation(); // resets animation on link change so that everything is nice and synced
     const [color, setColor] = useState("#4440");
     const [teeth, setTeeth]: any[] = useState([]);
     const [set, setSet] = useState(0);
@@ -95,14 +99,14 @@ function Gears(props: any) {
                 if (props.freeze){anim.pause();} 
             }
         });
-    }, [teeth, contWidth, contHeight, set]);
+    }, [teeth, contWidth, contHeight, set,location]);
 
     var resize = 0
     var size = -
     useEffect(() => {
         setTimeout(function(){
             updateDimensions();
-        }, 1000)
+        }, 10)
         setColor("#444f");
         size = window.innerWidth
         window.addEventListener("resize", function(){
@@ -118,7 +122,7 @@ function Gears(props: any) {
                         resize = 0
                         setLoader(<></>)
                     }
-                }, 1000);
+                }, 10);
                 size = window.innerWidth
             }
         });

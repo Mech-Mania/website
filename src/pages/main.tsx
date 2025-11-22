@@ -5,10 +5,10 @@ import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
 import Carousel from "../components/index/carousel/carousel";
 import Load from "../components/load/load";
-import Team from "../components/index/team/team";
 import Stats from "../components/index/stats/stats";
-import Initial from "../components/index/initial";
+import Initial from "../components/layout/initial";
 import Line from "../components/gears/line"
+import Email from "../components/index/email";
 
 function Main() {
 
@@ -18,6 +18,20 @@ function Main() {
 
     return (
         <>  
+            <Gears>
+                <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
+                    <Email></Email>
+                    <Stats></Stats>
+                </div>
+            </Gears>
+            
+            <Wheel dir >
+                <div className="animate-bounce pt-4 cursor-pointer">
+                    <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
+                        <FaArrowDown/>
+                    </IconContext.Provider>
+                </div>
+            </Wheel>
 
             <Gears>
                 <div className="flex flex-col w-[100vw] items-center">
