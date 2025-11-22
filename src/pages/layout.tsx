@@ -6,6 +6,8 @@ import { FaArrowDown } from "react-icons/fa";
 import Load from "../components/load/load";
 import Initial from "../components/layout/initial";
 import Line from "../components/gears/line"
+import PageNotFound from "../components/layout/notfound";
+import PageUnderConstruction from "../components/layout/construction";
 import {
     Routes,
     Route,
@@ -89,6 +91,9 @@ function Layout() {
                     <Routes>
                         <Route path="/" element={<Main/>}/>
                         <Route path="/team" element={<TeamPage/>}/>
+                        <Route path="/sponsor" element={<PageUnderConstruction/>}/>
+                        <Route path="/scoreboard" element={<PageUnderConstruction/>}/>
+                        <Route path="/*" element={<PageNotFound/>}/>
                     </Routes>
 
 

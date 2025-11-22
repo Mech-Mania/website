@@ -20,7 +20,15 @@ function TeamPage() {
         <>  
 
         <Gears>
-            <Team/>
+            <div className="items-center justify-center w-full cont gap-8 z-50 relative box-content rounded-[4rem] flex flex-col">
+                <div className="flex flex-col w-full">
+                    <h2>Meet our team!</h2>
+                    <br/>
+                    <div className="h-16"/>
+                        <Team/>
+                    <div className="h-16"/>
+                </div>
+            </div>
         </Gears>
 
         </>
