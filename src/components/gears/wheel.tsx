@@ -99,11 +99,13 @@ function Wheel(props: any) {
             size = window.innerWidth
         });
         let handleVisibility:any = document.addEventListener("visibilitychange", () => {
+            if (currRef.current == null){return}
             addTeeth()
         });
 
         let handleFocus:any = window.addEventListener('focus', () => {
-            updateDimensions()
+            if (currRef.current == null){return}
+            addTeeth()
         });
  
 

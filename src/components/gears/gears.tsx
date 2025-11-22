@@ -25,6 +25,7 @@ function Gears(props: any) {
 
     const [updated, setUpdated] = useState(0)
     const updateDimensions = () => {
+        
         const clientWidth = currRef.current.clientWidth;
         const clientHeight = currRef.current.clientHeight;
         setContWidth(Math.ceil(clientWidth / getRem() / 8) * 8);
@@ -107,6 +108,7 @@ function Gears(props: any) {
 
     useEffect(() => {
         setTimeout(function(){
+            if (currRef.current == null){return}
             updateDimensions();
         }, 1000)
         setColor("#444f");
@@ -120,7 +122,7 @@ function Gears(props: any) {
                 resize+=1
                 setTimeout(function(){
                     if (resize==num+1){
-                        if (currRef.current == null)
+                        if (currRef.current == null){return}
                         updateDimensions()
                         resize = 0
                         setLoader(<></>)
@@ -132,10 +134,12 @@ function Gears(props: any) {
 
 
         let handleVisibility:any = document.addEventListener("visibilitychange", () => {
+            if (currRef.current == null){return}
             updateDimensions()
         });
 
         let handleFocus:any = window.addEventListener('focus', () => {
+            if (currRef.current == null){return}
             updateDimensions()
         });
 
