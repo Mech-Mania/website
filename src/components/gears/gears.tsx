@@ -107,7 +107,6 @@ function Gears(props: any) {
 
     useEffect(() => {
         setTimeout(function(){
-            if (currRef.current == null){return}
             updateDimensions();
         }, 1000)
         setColor("#444f");
@@ -121,7 +120,7 @@ function Gears(props: any) {
                 resize+=1
                 setTimeout(function(){
                     if (resize==num+1){
-                        if (currRef.current == null){return}
+                        if (currRef.current == null)
                         updateDimensions()
                         resize = 0
                         setLoader(<></>)
@@ -133,17 +132,18 @@ function Gears(props: any) {
 
 
         let handleVisibility:any = document.addEventListener("visibilitychange", () => {
-            setTimeout(function(){
-                addTeeth()
-            ,1000})
+            updateDimensions()
         });
-        
+
+        let handleFocus:any = window.addEventListener('focus', () => {
+            updateDimensions()
+        });
 
 
         return () => { // Cleanup on unmount eg. on page switch
             window.removeEventListener("resize", handleResize);
             document.removeEventListener("visibilitychange", handleVisibility);
-
+            window.removeEventListener("focus", handleFocus);
         };
     }, []);
 

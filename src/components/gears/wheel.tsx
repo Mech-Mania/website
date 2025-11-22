@@ -99,16 +99,18 @@ function Wheel(props: any) {
             size = window.innerWidth
         });
         let handleVisibility:any = document.addEventListener("visibilitychange", () => {
-            setTimeout(function(){
-                addTeeth()
-            ,1000})
+            addTeeth()
         });
 
+        let handleFocus:any = window.addEventListener('focus', () => {
+            updateDimensions()
+        });
  
 
         return () => { // Cleanup on unmount eg. on page switch
             window.removeEventListener("resize", handleResize);
             document.removeEventListener("visibilitychange", handleVisibility);
+            window.removeEventListener("focus", handleFocus);
         };
     }, []);
 
