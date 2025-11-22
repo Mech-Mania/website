@@ -103,13 +103,16 @@ function Gears(props: any) {
 
     var resize = 0
     var size = -
+
+
     useEffect(() => {
         setTimeout(function(){
+            if (currRef.current == null){return}
             updateDimensions();
-        }, 10)
+        }, 1000)
         setColor("#444f");
         size = window.innerWidth
-        window.addEventListener("resize", function(){
+        let handleResize:any = window.addEventListener("resize", function(){
             if (size!=window.innerWidth){
                 setLoader(<Reload/>)
                 setCurrWidth('auto')
@@ -118,20 +121,30 @@ function Gears(props: any) {
                 resize+=1
                 setTimeout(function(){
                     if (resize==num+1){
+                        if (currRef.current == null){return}
                         updateDimensions()
                         resize = 0
                         setLoader(<></>)
                     }
-                }, 10);
+                }, 1000);
                 size = window.innerWidth
             }
         });
-        document.addEventListener("visibilitychange", () => {
-            updateDimensions()
+
+
+        let handleVisibility:any = document.addEventListener("visibilitychange", () => {
+            setTimeout(function(){
+                addTeeth()
+            ,1000})
         });
-        window.addEventListener('focus', () => {
-            updateDimensions()
-        });
+        
+
+
+        return () => { // Cleanup on unmount eg. on page switch
+            window.removeEventListener("resize", handleResize);
+            document.removeEventListener("visibilitychange", handleVisibility);
+
+        };
     }, []);
 
     return (

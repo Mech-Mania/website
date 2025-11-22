@@ -78,11 +78,14 @@ function Wheel(props: any) {
     var size = 0
     useEffect(() => {
         setTimeout(function(){
+            if (currRef.current == null){return}
             updateDimensions();
-        }, 10)
+        }, 1000)
         setColor("1");
         size = window.innerWidth
-        window.addEventListener("resize", function(){
+    
+        size = window.innerWidth
+        let handleResize:any = window.addEventListener("resize", function(){
             if (size!=window.innerWidth){
                 let num = resize
                 resize+=1
@@ -91,16 +94,22 @@ function Wheel(props: any) {
                         addTeeth()
                         resize = 0
                     }
-                }, 10);
+                }, 1000);
             }
             size = window.innerWidth
         });
-        document.addEventListener("visibilitychange", () => {
-            addTeeth()
+        let handleVisibility:any = document.addEventListener("visibilitychange", () => {
+            setTimeout(function(){
+                addTeeth()
+            ,1000})
         });
-        window.addEventListener('focus', () => {
-            addTeeth()
-        });
+
+ 
+
+        return () => { // Cleanup on unmount eg. on page switch
+            window.removeEventListener("resize", handleResize);
+            document.removeEventListener("visibilitychange", handleVisibility);
+        };
     }, []);
 
     return (
