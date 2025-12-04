@@ -18,13 +18,13 @@ function Navbar() {
         }
         
     }
-
+    // Need to make the navbar vertical instead of horizontal
     return (
         
-        <div className="flex items-center justify-center" id='bar'>
+        <div className="flex items-center justify-evenly w-[70vw]" id='bar'>
                 
             {pages.map((page,index)=>(
-                <div key={index} className="w-64">
+                <div key={index} className="w-fit">
                     <div onClick={()=>{switchPage(page)}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
                         <h2  className="transition-all text-right">{page}</h2>
                     </div>

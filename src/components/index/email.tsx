@@ -1,8 +1,10 @@
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 function Email() {
 
     const [email, setEmail] = useState('')
     const [error, setError] = useState(<></>)
+    const navigate = useNavigate()
 
 
     const handleKeyPress = (event:any) => {
@@ -63,6 +65,8 @@ function Email() {
                     Submit
                 </button>
             </div>
+            <br/>
+            <p>Interested in <a  className="text-blue-400 underline cursor-pointer" onClick={()=>{navigate('./sponsor')}}>sponsoring</a> us?</p>
             <br/>
             <hr/>
             <br/>

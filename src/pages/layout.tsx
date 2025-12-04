@@ -15,6 +15,7 @@ import {
 import Main from "./main";
 import Nav from "../components/layout/navbar";
 import Stats from "../components/index/stats/stats";
+import Footer from "../components/layout/footer";
 import TeamPage from "./team";
 
 function Layout() {
@@ -67,11 +68,11 @@ function Layout() {
                 <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-black lg:px-32 box-border z-[0]">
                 
                     
-                    <div style={{borderColor: "#444f",transition: "border-color 1s ease", marginBottom:`0`}} className="z-50 bg-black box-content border-[8px] border-solid h-0 -left-[10vw] w-[120vw] flex flex-row items-center  justify-center align-middle">
+                    <div style={{borderColor: "#444f",transition: "border-color 1s ease", marginBottom:`0rem`}} className="z-50 bg-black box-content border-[8px] border-solid h-0 -left-[10vw] w-[120vw] flex flex-row items-center  justify-center align-middle">
                     </div>
                     
 
-                    <div style={{marginBottom:`0rem`}} className={`flex flex-row flex-wrap items-center justify-evenly w-[90%]`}>
+                    <div style={{marginBottom:`0rem`}} className={`flex flex-row flex-wrap items-center justify-evenly w-[90%] h-10 translate-y-[-1.5rem]`}>
                         <Nav></Nav>
                     </div>
 
@@ -100,12 +101,8 @@ function Layout() {
  
                 </div>
                 
-                {/* To all future website people: Add your name to this 'by' section. Keep making it better as you go */}
-                <div className="my-20 flex gap-8 justify-center items-center">
-
-                    <p className="text-center text-2xl text-zinc-600">By</p>
-                    <p className="text-center text-zinc-700"> <b>Derek Gou,</b> <br/> <b>Alexander Edwards</b></p>
-                </div>
+                <Footer></Footer>
+                
             </div>
         </>
     );
