@@ -55,6 +55,10 @@ function Layout() {
         <>
         {/* Mechmania logo load + intial screen */}
             <div className="w-screen h-screen fixed top-0 left-0 loaded z-[100] animate-loaded pointer-events-none"><Load/></div>
+            <div className="z-[10]">
+                <Nav/>
+            </div>
+            
             <div className="fixed w-screen h-full top-0 left-0 flex flex-row items-center align-middle z-[-1] pointer-events-none">
                 <div className="flex flex-row items-center justify-center w-full">
                     <Initial/>
@@ -75,7 +79,6 @@ function Layout() {
                     <div style={{marginBottom:`0rem`}} className={`flex flex-row flex-wrap items-center justify-evenly w-[90%] h-10 translate-y-[-1.5rem]`}>
                         <Nav></Nav>
                     </div> */}
-
 
                     <div style={{marginBottom:`4rem`}}>
                         <Line dir down/>
