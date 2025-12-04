@@ -68,13 +68,13 @@ function Layout() {
                 <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-black lg:px-32 box-border z-[0]">
                 
                     
-                    <div style={{borderColor: "#444f",transition: "border-color 1s ease", marginBottom:`0rem`}} className="z-50 bg-black box-content border-[8px] border-solid h-0 -left-[10vw] w-[120vw] flex flex-row items-center  justify-center align-middle">
+                    {/* <div style={{borderColor: "#444f",transition: "border-color 1s ease", marginBottom:`0rem`}} className="z-50 bg-black box-content border-[8px] border-solid h-0 -left-[10vw] w-[120vw] flex flex-row items-center  justify-center align-middle">
                     </div>
                     
 
                     <div style={{marginBottom:`0rem`}} className={`flex flex-row flex-wrap items-center justify-evenly w-[90%] h-10 translate-y-[-1.5rem]`}>
                         <Nav></Nav>
-                    </div>
+                    </div> */}
 
 
                     <div style={{marginBottom:`4rem`}}>
