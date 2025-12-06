@@ -1,5 +1,7 @@
+import Navbar from "./navbar"
+function Footer(props:{scrollRef:any,marginTop:number}) {
 
-function Footer() {
+
     return (
         <>
         {/* To all future website people: Add your name to this 'by' section. Keep making it better as you go */}
@@ -19,10 +21,8 @@ function Footer() {
                 <div className="flex flex-col gap-1">
                     <h3>Pages</h3>
                     <div className="h-[0.125rem] w-[100%] bg-gradient-to-r from-[#444] to-[#444]"/>
-                    <p className="ease-out hover:brightness-[25%] duration-200 cursor-pointer">Home</p>
-                    <p className="ease-out hover:brightness-[25%] duration-200 cursor-pointer">Team</p>
-                    <p className="ease-out hover:brightness-[25%] duration-200 cursor-pointer">Scoreboard</p>
-                    <p className="ease-out hover:brightness-[25%] duration-200 cursor-pointer">Sponsor</p>
+                    <Navbar scrollRef={props.scrollRef} marginTop={props.marginTop} unformatted={true}/> 
+                    {/* Unformatted navbar */}
                 </div>
 
                 <div className="flex flex-col gap-1">
@@ -58,7 +58,7 @@ function Footer() {
             </div>
 
             <div className="">
-                <p>© mechmania 2025</p>
+                <p>mechmania 2025</p>
             </div>
 
         </div>

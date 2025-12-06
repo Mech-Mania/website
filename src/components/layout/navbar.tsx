@@ -5,7 +5,7 @@ import {
     useNavigate,
 } from "react-router-dom";
 
-function Navbar(props:{scrollRef:any,marginTop:number}) {
+function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
 
     const navigate = useNavigate();
     const pages: string[] = ["Home","Team","Sponsor","Scoreboard"];
@@ -76,8 +76,17 @@ function Navbar(props:{scrollRef:any,marginTop:number}) {
     }, [show]);
     // Need to make the navbar vertical instead of horizontal
     return ( // This is for stuff > 1024 pixels wide
-
+        (props.unformatted)?
         <>
+            {pages.map((page,index)=>(
+                <div id={`${index}`} className="cursor-pointer" >
+                    <div onClick={()=>{switchPage(page)}}><p className="ease-out hover:brightness-[25%] duration-200 cursor-pointer">{page}</p></div>
+                </div>
+            ))}
+        </>
+        :
+        <>
+        
             <div className={` transition ease-out duration-300 ${(show)?"":"opacity-0 pointer-events-none"} h-40 items-center w-[100vw] fixed top-0 left-0 bg-gradient-to-b from-black to-transparent`}>
                 <div className="fixed w-[100vw] top-0 left-0 h-20  flex flex-row items-center ">
                     <div className="mx-10 flex flex-row items-center">
@@ -90,7 +99,7 @@ function Navbar(props:{scrollRef:any,marginTop:number}) {
                         <div className="flex flex-row text-2xl">  
                             {pages.map((page,index)=>(
                                 <div id={`${index}`} className="mx-5 cursor-pointer" >
-                                    <div onClick={()=>{switchPage(page)}}><h3 className="hover:text-gray-500">{page}</h3></div>
+                                    <div onClick={()=>{switchPage(page)}}><h3 className="ease-out hover:brightness-[25%] duration-200 cursor-pointer">{page}</h3></div>
                                 </div>
                             ))
                             }

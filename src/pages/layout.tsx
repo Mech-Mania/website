@@ -104,7 +104,7 @@ function Layout() {
  
                 </div>
                 
-                <Footer></Footer>
+                <Footer scrollRef={scrollRef} marginTop={marginTop}></Footer>
                 
             </div>
         </>
