@@ -30,7 +30,8 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
                 navigate('/'+page.toLowerCase());
                 setShow(true)
             }
-        }
+        } 
+        // Could split the up and below into two different useeffect stuff to have the scroll happen first and *then* the page transition
         if (props.scrollRef.current){
             if (document.body.scrollTop<props.marginTop || '/'+((page=="Home")?"":page.toLowerCase()) !== prev){
                 scrollDisabled = true
