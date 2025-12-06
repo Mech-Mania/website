@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Ref } from "react";
 import Gears from "../components/gears/gears";
 import Wheel from "../components/gears/wheel";
 import { IconContext } from "react-icons";
@@ -24,10 +24,10 @@ function Layout() {
     const [size, setSize] = useState([0, 0])
     const [width, setWidth] = useState(0)
     const [normalTime, setNormalTime] = useState((new Date()).getMilliseconds());
+    const scrollRef:Ref<HTMLDivElement> = useRef<HTMLDivElement>(null);
 
 
     useEffect(() => {
-
         setSize([window.innerWidth, window.innerHeight])
         setWidth(window.innerWidth)
         setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))
@@ -56,7 +56,7 @@ function Layout() {
         {/* Mechmania logo load + intial screen */}
             <div className="w-screen h-screen fixed top-0 left-0 loaded z-[100] animate-loaded pointer-events-none"><Load/></div>
             <div className="z-[10]">
-                <Nav/>
+                <Nav scrollRef={scrollRef} marginTop={marginTop}/>
             </div>
             
             <div className="fixed w-screen h-full top-0 left-0 flex flex-row items-center align-middle z-[-1] pointer-events-none">
@@ -67,9 +67,9 @@ function Layout() {
             </div>
 
             {/* Initial screen cover, email, + navbar & router */}
-            <div style={{ width: width+'px',marginTop: `${marginTop}px` }} className="gap-16 flex flex-col items-center justify-center bg-black" >
+            <div style={{ width: width+'px',marginTop: `${marginTop}px` }} className="gap-16 flex flex-col min-h-[120vh] items-center bg-black" ref={scrollRef}>
                
-                <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-black lg:px-32 box-border z-[0]">
+                <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-black lg:px-32 box-border z-[0] relative top-0">
                 
                     
                     {/* <div style={{borderColor: "#444f",transition: "border-color 1s ease", marginBottom:`0rem`}} className="z-50 bg-black box-content border-[8px] border-solid h-0 -left-[10vw] w-[120vw] flex flex-row items-center  justify-center align-middle">
