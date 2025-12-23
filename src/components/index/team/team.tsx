@@ -14,6 +14,7 @@ const members = [
     'Ali Bagheri',
     'Victor Jiao',
     'Suvethan Ravichandran',
+    'Amy Zhang',
 ]
 const wideDisplay = 4; // Amount of members shown in each row
 const smallDisplay = 2;
