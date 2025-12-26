@@ -60,7 +60,7 @@ function Main() {
                                 <h3>How do I participate?</h3>
                                 <hr/>
                                 <p>
-                                    To participate in Mechmania, you need to be a highschool student at a school in the Waterloo Region District Schoolboard. If your school already has a contact point with us, register a team through them. Otherwise find a willing teacher and at least one team, then join our emailing list and reach out to us at organizers@mechmania.ca. It is preferred that you are the president and/or executive of an engineering-related club at your school to make the process easier. 
+                                    To participate in Mechmania, you need to be a highschool student at a school in the Waterloo Region and surrounding areas. If your school already has a contact point with us, register a team through them. Otherwise find a willing teacher and at least one team, then join our emailing list and reach out to us at organizers@mechmania.ca. It is preferred that you are the president and/or executive of an engineering-related club at your school to make the process easier. 
                                 </p>
 
 
