@@ -14,7 +14,7 @@ import {
 } from "react-router-dom";
 import Main from "./main";
 import Nav from "../components/layout/navbar";
-import Stats from "../components/index/stats/stats";
+import Sponsor from "./sponsor.tsx"
 import Footer from "../components/layout/footer";
 import TeamPage from "./team";
 
@@ -95,7 +95,7 @@ function Layout() {
                     <Routes>
                         <Route path="/" element={<Main/>}/>
                         <Route path="/team" element={<TeamPage/>}/>
-                        <Route path="/sponsor" element={<PageUnderConstruction/>}/>
+                        <Route path="/sponsor" element={<Sponsor/>}/>
                         <Route path="/scoreboard" element={<PageUnderConstruction/>}/>
                         <Route path="/*" element={<PageNotFound/>}/>
                     </Routes>
