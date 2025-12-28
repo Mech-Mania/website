@@ -18,6 +18,7 @@ import Sponsor from "./sponsor.tsx"
 import Footer from "../components/layout/footer";
 import TeamPage from "./team";
 
+
 function Layout() {
     const [marginTop, setMarginTop] = useState(0);
     const divRef = useRef<HTMLDivElement>(null);
