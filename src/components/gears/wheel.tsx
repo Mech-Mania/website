@@ -1,7 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import Tooth from "./tooth";
+import {
+    useLocation
+} from "react-router-dom";
 
 function Wheel(props: any) {
+    const location = useLocation(); // resets animation on link change so that everything is nice and synced
     const [color, setColor] = useState("0");
     const [teeth, setTeeth]: any[] = useState([]);
     const [set, setSet] = useState(0);
@@ -53,7 +57,7 @@ function Wheel(props: any) {
         teethRefs.current.forEach((ref: any, index: any) => {
             if (ref) {
                 ref.getAnimations().forEach((animation: Animation) => animation.cancel()); // Clear existing animations
-                ref.animate(
+                let anim:any = ref.animate(
                     [
                         { transformOrigin: `${4}rem ${-realHeight + 4}rem`, transform: `rotate(0deg) translateX(${2}rem) translateY(${-realHeight - 4}rem)`, offset: 0 },
                         { transformOrigin: `${4}rem ${-realHeight + 4}rem`, transform: `rotate(360deg) translateX(${2}rem) translateY(${-realHeight - 4}rem)`, offset: 1 },
@@ -65,19 +69,23 @@ function Wheel(props: any) {
                         direction: dir ? "reverse" : "normal",
                     }
                 );
+                if (props.freeze){anim.pause();} 
             }
         });
-    }, [teeth, realWidth, realHeight, contWidth, contHeight, set]);
+    }, [teeth, realWidth, realHeight, contWidth, contHeight, set, location]);
 
     var resize = 0
     var size = 0
     useEffect(() => {
         setTimeout(function(){
+            if (currRef.current == null){return}
             updateDimensions();
         }, 1000)
         setColor("1");
         size = window.innerWidth
-        window.addEventListener("resize", function(){
+    
+        size = window.innerWidth
+        let handleResize:any = window.addEventListener("resize", function(){
             if (size!=window.innerWidth){
                 let num = resize
                 resize+=1
@@ -90,12 +98,22 @@ function Wheel(props: any) {
             }
             size = window.innerWidth
         });
-        document.addEventListener("visibilitychange", () => {
+        let handleVisibility:any = document.addEventListener("visibilitychange", () => {
+            if (currRef.current == null){return}
             addTeeth()
         });
-        window.addEventListener('focus', () => {
+
+        let handleFocus:any = window.addEventListener('focus', () => {
+            if (currRef.current == null){return}
             addTeeth()
         });
+ 
+
+        return () => { // Cleanup on unmount eg. on page switch
+            window.removeEventListener("resize", handleResize);
+            document.removeEventListener("visibilitychange", handleVisibility);
+            window.removeEventListener("focus", handleFocus);
+        };
     }, []);
 
     return (
