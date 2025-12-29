@@ -28,12 +28,6 @@ function Email() {
             })
 
     
-            if (!response.ok) {
-                setError(<p className="text-red-600">An error occurred</p>)
-                setTimeout(function(){setError(<></>)}, 5000)
-                
-            }
-            else {
                 const data = await response.json()
                 if ([400,429].includes(data.status)){
                     setError(<p className="text-red-600">{data.message}</p>)
@@ -43,7 +37,6 @@ function Email() {
                 setEmail('')
                 setError(<p className="text-lime-400">Success! Please check your email to confirm.</p>)
                 setTimeout(function(){setError(<></>)}, 5000)
-            }
         } else {
             setError(<p className="text-red-600">Invalid Email</p>)
             setTimeout(function(){setError(<></>)}, 5000)
