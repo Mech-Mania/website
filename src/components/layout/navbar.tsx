@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
-
+    // I am going to have to think about the mobile version of the navbar
     const navigate = useNavigate();
     const pages: string[] = ["Home","Team","Sponsor","Scoreboard"];
     const location = useLocation()
@@ -65,8 +65,7 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
 
         // remember current page location to use in the next move
     };
-
-
+    
     useEffect(() => {
         document.body.addEventListener('scroll', controlNavbar);
 
@@ -76,7 +75,14 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
             };
     }, [show]);
     // Need to make the navbar vertical instead of horizontal
-    return ( // This is for stuff > 1024 pixels wide
+    
+
+
+
+
+
+    return ( 
+        // This is for stuff > 1024 pixels wide
         (props.unformatted)?
         <>
             {pages.map((page,index)=>(
