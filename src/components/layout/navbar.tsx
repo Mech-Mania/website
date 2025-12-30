@@ -4,6 +4,7 @@ import {
     useLocation,
     useNavigate,
 } from "react-router-dom";
+import Footer from './footer';
 
 function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
     // I am going to have to think about the mobile version of the navbar
@@ -12,6 +13,7 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
     const location = useLocation()
     let prev = location.pathname;
     const [show, setShow] = useState(true);
+    const [mobileShow, setmobileShow] = useState(true)
     let lastScrollY = document.body.scrollTop
     let scrollPoint = document.body.scrollTop;
     let scrollDisabled = false;
@@ -80,10 +82,8 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
 
 
 
-
-    return ( 
-        // This is for stuff > 1024 pixels wide
-        (props.unformatted)?
+    if (props.unformatted)
+        return ( 
         <>
             {pages.map((page,index)=>(
                 <div id={`${index}`} className="cursor-pointer" >
@@ -91,34 +91,38 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
                 </div>
             ))}
         </>
-        :
-        <>
-        
-            <div className={` transition ease-out duration-300 ${(show)?"":"opacity-0 pointer-events-none"} h-40 items-center w-[100vw] fixed top-0 left-0 bg-gradient-to-b from-black to-transparent`}>
-                <div className="fixed w-[100vw] top-0 left-0 h-20  flex flex-row items-center ">
-                    <div className="mx-10 flex flex-row items-center">
-                        <img
-                            className="w-12 h-12 rounded-2xl" src="/mechmania.svg" //Placeholder image will get someone to make a proper thing
-                            style={{filter: "blur(0px) brightness(0%) invert(100%) opacity(100%)"}} // Invert logo
-                            // I'm not a fan of the ont being used. I think that i can change it later though
-                        />
-                        
-                        <div className="flex flex-row text-2xl">  
-                            {pages.map((page,index)=>(
-                                <div id={`${index}`} className="mx-5 cursor-pointer" >
-                                    <div onClick={()=>{switchPage(page)}}><h3 className="ease-out hover:brightness-[25%] duration-200 cursor-pointer">{page}</h3></div>
-                                </div>
-                            ))
-                            }
-                        </div>
-                    </div>
+        );
+    else if (window.innerWidth>600) {
+        return ( 
+         <div className={` transition ease-out duration-300 ${(show)?"":"opacity-0 pointer-events-none"} h-40 items-center w-[100vw] fixed top-0 left-0 bg-gradient-to-b from-black to-transparent`}>
+            <div className="fixed w-[100vw] top-0 left-0 h-20  flex flex-row items-center ">
+                <div className="mx-10 flex flex-row items-center">
+                    <img
+                        className="w-12 h-12 rounded-2xl" src="/mechmania.svg" //Placeholder image will get someone to make a proper thing
+                        style={{filter: "blur(0px) brightness(0%) invert(100%) opacity(100%)"}} // Invert logo
+                        // I'm not a fan of the ont being used. I think that i can change it later though
+                    />
                     
+                    <div className="flex flex-row text-2xl">  
+                        {pages.map((page,index)=>(
+                            <div id={`${index}`} className="mx-5 cursor-pointer" >
+                                <div onClick={()=>{switchPage(page)}}><h3 className="ease-out hover:brightness-[25%] duration-200 cursor-pointer">{page}</h3></div>
+                            </div>
+                        ))
+                        }
+                    </div>
                 </div>
+                
             </div>
-        </>
-            
-        
-    );
+        </div>
+        );
+    } else {
+        return ( // need to get auto-close and the built-in close button working and also open button but this is good start
+            <div className={`transition ease-out duration-300 ${(mobileShow)?"":"opacity-0 pointer-events-none"} items-center w-screen h-screen fixed top-0 left-0 bg-black`}>
+                <Footer scrollRef={props.scrollRef} marginTop={props.marginTop}/>    
+            </div>
+        )
     }
+}
 
     export default Navbar;
