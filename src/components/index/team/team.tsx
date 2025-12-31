@@ -41,7 +41,7 @@ function Team(props:any) {
         <>
         <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
             {[...Array(Math.ceil(members.length/per_row_count)).keys()].map((e,index)=>(
-                <div className="items-center flex flex-row gap-16" key={index}>
+                <div className="items-center justify-center align-middle flex flex-row gap-16" key={index}>
                 
                 {members.slice(index*per_row_count,(members.length+1 > index*per_row_count+per_row_count) ? index*per_row_count+per_row_count: members.length+1).map((member, loc_index) => (
 
