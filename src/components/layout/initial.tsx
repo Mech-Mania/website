@@ -12,6 +12,7 @@ function Initial() {
 
                     </div>
                 </div>
+                 <div className={`${(window.innerWidth < 1024) ? 'w-[120vw]' : ''}`}></div>
             </div>
         </Gears>
     )

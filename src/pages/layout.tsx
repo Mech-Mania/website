@@ -60,11 +60,8 @@ function Layout() {
                 <Nav scrollRef={scrollRef} marginTop={marginTop}/>
             </div>
             
-            <div className="fixed w-screen h-full top-0 left-0 flex flex-row items-center align-middle z-[-1] pointer-events-none">
-                <div className="flex flex-row items-center justify-center w-full">
-                    <Initial/>
-                    {/* Todo, add some blinking lights or something indicated the user to scroll down that appear after a few seconds */}
-                </div>
+            <div className={`fixed w-full h-full top-0 left-0 flex flex-row items-center align-middle justify-center z-[-1] pointer-events-none`}> 
+                <Initial/>
             </div>
 
             {/* Initial screen cover, email, + navbar & router */}
