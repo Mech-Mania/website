@@ -14,6 +14,7 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
     const location = useLocation()
     let prev = location.pathname;
     const [show, setShow] = useState(true);
+
     const [mobileShow, setMobileShow] = useState(true)
     let lastScrollY = document.body.scrollTop
     let scrollPoint = document.body.scrollTop;
