@@ -5,6 +5,7 @@ import {
     useNavigate,
 } from "react-router-dom";
 import Footer from './footer';
+import { FiMenu, FiX } from "react-icons/fi";
 
 function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
     // I am going to have to think about the mobile version of the navbar
@@ -13,7 +14,8 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
     const location = useLocation()
     let prev = location.pathname;
     const [show, setShow] = useState(true);
-    const [mobileShow, setmobileShow] = useState(true)
+
+    const [mobileShow, setMobileShow] = useState(true)
     let lastScrollY = document.body.scrollTop
     let scrollPoint = document.body.scrollTop;
     let scrollDisabled = false;
@@ -78,9 +80,13 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
     }, [show]);
     // Need to make the navbar vertical instead of horizontal
     
+    const setMbInverse = () => {
+        setMobileShow((mobileShow)?false:true);
+    }
 
-
-
+    useEffect(()=>{ // When a navigation happens on mobile, close the navbar
+        setMobileShow(false)
+    },[location]);
 
     if (props.unformatted)
         return ( 
@@ -118,9 +124,21 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
         );
     } else {
         return ( // need to get auto-close and the built-in close button working and also open button but this is good start
-            <div className={`transition ease-out duration-300 ${(mobileShow)?"":"opacity-0 pointer-events-none"} items-center w-screen h-screen fixed top-0 left-0 bg-black`}>
-                <Footer scrollRef={props.scrollRef} marginTop={props.marginTop}/>    
+            <>
+            <div className="absolute right-[2.5rem] top-[2.5rem] z-10 w-fit h-fit hover:brightness-50 ease-in-out duration-100" onClick={()=>{setMbInverse()}}>
+                {(mobileShow)?
+                <><FiX size={"3rem"}/></>
+                    :
+                <><FiMenu size={"3rem"}/> </>
+                }    
             </div>
+
+            <div className={`transition ease-out duration-300 ${(mobileShow)?"":"opacity-0 pointer-events-none"} items-center w-screen h-screen fixed top-0 left-0 bg-black`}>
+                <div className="w-full h-full flex items-center justify-center align-middle relative z-0">
+                    <Footer scrollRef={props.scrollRef} marginTop={props.marginTop}/>    
+                </div>
+            </div>
+            </>
         )
     }
 }
