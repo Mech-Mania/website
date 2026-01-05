@@ -56,6 +56,17 @@ p {
     font-weight: 500;
 }
 
+a {
+    transition:ease-out;
+    transition-duration: 200ms;
+    filter:brightness(100%);
+
+}
+a:hover {
+    cursor: pointer;
+    filter:brightness(25%);
+}
+
 strong {
     color: white;
 }

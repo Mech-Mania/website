@@ -1,5 +1,5 @@
 import Gears from "../gears/gears"
-function Initial() {
+function Success() {
     return (
         <Gears>
             <div className="w-[50vw] cont h-full flex flex-col lg:flex-row items-center justify-center">
@@ -16,4 +16,4 @@ function Initial() {
     )
 }
 
-export default Initial
+export default Success

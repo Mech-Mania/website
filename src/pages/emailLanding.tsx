@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import Initial from "../components/emailLanding/initial";
-import Invalid from "../components/emailLanding/invalid";
+import Initial from "../components/email/landingSuccess.tsx";
+import Invalid from "../components/email/landingFailure.tsx";
 import Load from "../components/load/load";
 import { useLocation } from "react-router-dom";
 import Gears from "../components/gears/gears";
@@ -26,27 +26,8 @@ function emailLanding() {
         }
     };
 
-    const newVisit = async() => {
-        const response = await fetch(`${__SiteBase__}/visits`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-      
-        if (!response.ok) {
-            throw new Error('Failed to increment visits');
-        }
-    }
-
-
-    var myBool = true
     useEffect(() => {
         checkId()
-        if (myBool){
-            newVisit()
-            myBool = false
-        }
         setSize([window.innerWidth, window.innerHeight])
         setWidth(window.innerWidth)
         setWidth(window.innerWidth + (window.innerWidth>=1024 ? 0 : 12*parseFloat(getComputedStyle(document.documentElement).fontSize)))

@@ -1,4 +1,4 @@
-import Gears from "./gears/gears"
+import Gears from "../gears/gears"
 function Initial() {
     return (
         <Gears>
@@ -9,8 +9,10 @@ function Initial() {
                         <p className="w-full text-center lg:text-left">2026 - May 8th - UW @ Robohub</p>
                         <h1 className="w-full text-center lg:text-left">MechMania</h1>
                         <h2 className="w-full text-center lg:text-left">Where Metal Meets Mind </h2>
+
                     </div>
                 </div>
+                 <div className={`${(window.innerWidth < 1024) ? 'w-[120vw]' : ''}`}></div>
             </div>
         </Gears>
     )

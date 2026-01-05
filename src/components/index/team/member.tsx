@@ -2,7 +2,7 @@ function Member(props:any) {
     return (
         <>
             <div className="w-full h-full flex items-center justify-center overflow-hidden">
-                <img className="w-full h-full object-cover absolute" src={'/team/Placeholder.jpg'}></img>
+                <img className="w-full h-full object-cover absolute " src={'/team/Placeholder.jpg'}></img>
                 <img className="w-full h-full object-cover absolute" src={'/team'+props.src}></img>
             </div>
             <div className="opacity-0 hover:opacity-100 transition-all p-8 flex items-center justify-center bg-[#000a] absolute w-full h-full">

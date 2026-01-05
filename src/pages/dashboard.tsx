@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { IconContext } from "react-icons";
 import { FaCopy } from "react-icons/fa";
-import VisitsLineChart from "../components/graph/graph";
 
-function Dash() {
+
+function Dashboard() {
     const [pw, setPW] = useState('')
     const [emails, setEmails] = useState([])
-    const [visits, setVisits] = useState({})
     const [displayPW, setDisplayPW] = useState('flex')
 
     const submit = async (str:string) => {
@@ -26,28 +25,7 @@ function Dash() {
 
 
 
-        const visitData = await fetch(`${__SiteBase__}/visits`,{
-            method:'POST',
-            headers:{
-                "Content-Type":"application/json",
-            },
-            body: JSON.stringify({password:str})
-        })
-
-
-        if (!visitData.ok) {
-            throw new Error('Failed to login');
-        }
-        const visits = (await visitData.json()).visits;
-
-        let filteredVisits:{[key:string]:number} = {}
-        for (const visit of Object.keys(visits)){
-            const num:number = visits[visit]
-            filteredVisits[visit.slice(1)] = num
-        }
-
         setEmails(emails)
-        setVisits(filteredVisits)
         setDisplayPW('none')
         setPW('')
     }
@@ -88,17 +66,10 @@ function Dash() {
                         </div>
                         <hr/>
                     </div>
-
-            {/*  */}
-                    <div className="grow w-full border-8 border-solid border-[#444] p-8 gap-4 flex flex-col">
-                        <h3>{"Visits: "+Object.values(visits as Record<string, number>).reduce((partialSum, a) => partialSum + a,0)}</h3>
-                        <hr/>
-                        <VisitsLineChart visits={visits}/>
-                    </div>
                 </div>
             </div>
         </>
     );
 }
 
-export default Dash;
+export default Dashboard;
