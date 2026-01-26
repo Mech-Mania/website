@@ -78,8 +78,7 @@ function Layout() {
                         <Nav></Nav>
                     </div> */}
 
-                    <div style={{marginBottom:`4rem`}}>
-                        <Line dir down/>
+                    <div style={{marginBottom:`4rem`}} className="border-[8px] border-[#444] w-screen">
                     </div>
 
                     <Wheel dir >
