@@ -53,6 +53,12 @@ function Footer(props:{scrollRef:any,marginTop:number}) {
                         <img src="/icons/youtubeLogo.svg" className="w-6 h-6 group-hover:scale-110 ease-out duration-200"/>
                         <p>mechmania-kw</p> 
                     </a>
+                    
+                    {/* discord */}
+                    <a href="https://discord.gg/z5pcMevHpK" target="_blank" className="flex flex-row gap-2 align-middle ease-out hover:brightness-[25%] duration-200 cursor-pointer group">
+                        <img src="/icons/discordLogo.svg" className="w-6 h-6 group-hover:scale-110 ease-out duration-200"/>
+                        <p>our discord server!</p> 
+                    </a>
                 </div>
                 
             </div>

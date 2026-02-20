@@ -60,6 +60,7 @@ a {
     transition:ease-out;
     transition-duration: 200ms;
     filter:brightness(100%);
+    color: #60a5fa;
 
 }
 a:hover {
@@ -83,6 +84,8 @@ strong {
     height: 12rem;
     width: 12rem;
 }
+text-blue-400 underline cursor-pointer
+
 .cont {
     max-width: 95vw !important;
 }

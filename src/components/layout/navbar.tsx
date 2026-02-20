@@ -98,7 +98,7 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
             ))}
         </>
         );
-    else if (window.innerWidth>600) {
+    else if (window.innerWidth>800) {
         return ( 
          <div className={` transition ease-out duration-300 ${(show)?"":"opacity-0 pointer-events-none"} h-40 items-center w-[100vw] fixed top-0 left-0 bg-gradient-to-b from-black to-transparent`}>
             <div className="fixed w-[100vw] top-0 left-0 h-20  flex flex-row items-center ">
@@ -117,7 +117,37 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
                         ))
                         }
                     </div>
+
+
+                    <div className = "flex flex-row gap-4 fixed right-8">
+                        <div className="flex flex-row gap-4">
+                            <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRzCbZtZTTMCLGpkFmvFpBNVkdZZJNmbSfshSkxKGfrBNSFnLhTHWkMslthLwvSzctQJFwJF" target="_blank" className="align-middle ease-out duration-200 cursor-pointer "> 
+                        <img src="/icons/emailLogo.svg" className="w-8 h-8 hover:scale-110 ease-out duration-200"/>
+                    </a>
+                    
+                    {/* insta */}
+                    <a href="https://www.instagram.com/mechmaniakw/" target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
+                        <img src="/icons/instagramLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
+                    </a>
+
+                    {/* github */}
+                    <a href="https://github.com/Mech-Mania" target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
+                        <img src="/icons/githubLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
+                    </a>
+
+                    {/* youtube */}
+                    <a href="https://www.youtube.com/@MechMania-KW" target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
+                        <img src="/icons/youtubeLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
+                    </a>
+                    
+                    {/* discord */}
+                    <a href="https://discord.gg/z5pcMevHpK" target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
+                        <img src="/icons/discordLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
+                    </a>
+                        </div>
+                    </div>
                 </div>
+
                 
             </div>
         </div>

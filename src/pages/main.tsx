@@ -9,6 +9,7 @@ import Stats from "../components/index/stats/stats";
 import Initial from "../components/layout/initial";
 import Line from "../components/gears/line"
 import Email from "../components/index/email";
+import "../index.css";
 
 function Main() {
 
@@ -67,7 +68,7 @@ function Main() {
                                 <h3>What is the format?</h3>
                                 <hr/>
                                 <p>
-                                    Every year shortly after the winter break, we send out the details of the year's competition, including the specifications of the year's game and game pieces, the rulebook, and the code of conduct. Every team then has until the day of the competition to build their robot according to the guidelines, and to ask questions/submit concerns to our email.                                
+                                    Every year shortly after the winter break, we send out the details of the year's competition, including the specifications of the year's game and game pieces, the rulebook, and the code of conduct. Every team then has until the day of the competition to build their robot according to the guidelines, and to ask questions/submit concerns to our email or our <a target="_blank" href="https://discord.gg/z5pcMevHpK">discord</a>.                           
                                 </p>
 
 
