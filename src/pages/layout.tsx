@@ -18,6 +18,7 @@ import Sponsor from "./sponsor.tsx"
 import Footer from "../components/layout/footer";
 import TeamPage from "./team";
 import Scoreboard from "./scoreboard.tsx";
+import ScoreboardAdmin from "./scoreboardAdmin.tsx";
 
 
 function Layout() {
@@ -97,7 +98,7 @@ function Layout() {
                         <Route path="/team" element={<TeamPage/>}/>
                         <Route path="/sponsor" element={<Sponsor/>}/>
                         <Route path="/scoreboard" element={<Scoreboard width={width}/>}/>
-                        <Route path="/scoreboard/admin" element={<PageUnderConstruction/>}/>
+                        <Route path="/scoreboard/admin" element={<ScoreboardAdmin width={width}/>}/>
                         <Route path="/*" element={<PageNotFound/>}/>
                     </Routes>
 

@@ -3,7 +3,7 @@ import Gears from "../components/gears/gears";
 import { RankData, RankingsCont, ScoreboardScores, ScoreboardSettings } from "../components/scoreboard/scoreboard.types";
 import { createRankings } from "../components/scoreboard/scoreboard.util";
 
-function Scoreboard(props:{width:number}) {
+function ScoreboardAdmin(props:{width:number}) {
 
     const [names,setNames] = useState<string[]>([]);
     const [games,setGames] = useState<ScoreboardScores>({});
@@ -11,9 +11,11 @@ function Scoreboard(props:{width:number}) {
     const [rankings, setRankings] = useState<RankingsCont>({overall:[]});
     const [enabled, setEnabled] = useState<boolean>(false);
     const [settings, setSettings] = useState<ScoreboardSettings>({overall:{pointsName:"Points",descending:true}});
+    
+    const [locked, setLocked] = useState<boolean>(true);
 
     const requestFromAPI = async () => {
-        // Keep in mind I may want a universal header to see the latest change from 
+        
         const responseStatus = await fetch(
             `${__SiteBase__}/scoreboard/status`,
             {
@@ -24,9 +26,7 @@ function Scoreboard(props:{width:number}) {
         let statusBody:any;
         if (responseStatus.ok){
             statusBody = await responseStatus.json();
-            setEnabled(statusBody.status);
-            
-            if (!statusBody.status) return;
+            setEnabled(statusBody.status); 
             setSettings(statusBody.settings);
         } else {
             console.log(responseStatus);
@@ -60,10 +60,7 @@ function Scoreboard(props:{width:number}) {
             setRankings(createRankings(body.content,namebody.content,statusBody.settings));
             setGames(body.content);
         } else console.log(responseGameScores)
-    };
-    
-
-
+    }; 
 
     const setMode = (mode:string) => {
         setCurrent(mode);
@@ -127,7 +124,6 @@ function Scoreboard(props:{width:number}) {
             </Gears>
         </>
     );
-}
+    }
 
-export default Scoreboard;
- 
+    export default ScoreboardAdmin;
