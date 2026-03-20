@@ -64,7 +64,7 @@ function Footer(props:{scrollRef:any,marginTop:number}) {
             </div>
 
             <div className="">
-                <p>mechmania 2025</p>
+                <p>mechmania 2026</p>
             </div>
 
         </div>

@@ -95,7 +95,7 @@ function Layout() {
                         <Route path="/" element={<Main/>}/>
                         <Route path="/team" element={<TeamPage/>}/>
                         <Route path="/sponsor" element={<Sponsor/>}/>
-                        <Route path="/scoreboard" element={<Scoreboard />}/>
+                        <Route path="/scoreboard" element={<Scoreboard width={width}/>}/>
                         <Route path="/scoreboard/admin" element={<PageUnderConstruction/>}/>
                         <Route path="/*" element={<PageNotFound/>}/>
                     </Routes>
