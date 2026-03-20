@@ -15,3 +15,12 @@ export type RankData = {
 export type RankingsCont = {
     [key:string] : RankData[]
 }
+
+export type Setting = {
+    pointsName:string,
+    descending:boolean
+}
+
+export type ScoreboardSettings = {
+    [key:string] : Setting
+}
