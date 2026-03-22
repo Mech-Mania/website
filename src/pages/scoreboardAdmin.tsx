@@ -54,7 +54,7 @@ function ScoreboardAdmin(props:{width:number}) {
 
 
         const responseGameScores = await fetch(
-            `${__SiteBase__}/scoreboard/game`,
+            `${__SiteBase__}/scoreboard/score`,
             {
                 method : 'GET'
             }
@@ -116,24 +116,8 @@ function ScoreboardAdmin(props:{width:number}) {
 
 
     const onSave = async () => {
-        //prune teams
-
+        //prune teams and update scores
         let response = await fetch(
-            `${__SiteBase__}/scoreboard/team    `,
-            {
-                method : 'POST',
-                body : JSON.stringify({
-                    data:Object.keys(scores),
-                    password:pw
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            }
-        );
-
-        // update scores
-        response = await fetch(
             `${__SiteBase__}/scoreboard/game/score`,
             {
                 method : 'POST',

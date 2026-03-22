@@ -49,7 +49,7 @@ function Scoreboard(props:{width:number}) {
 
 
         const responseGameScores = await fetch(
-            `${__SiteBase__}/scoreboard/game`,
+            `${__SiteBase__}/scoreboard/score`,
             {
                 method : 'GET'
             }
@@ -74,7 +74,7 @@ function Scoreboard(props:{width:number}) {
     useEffect(()=>{
         requestFromAPI()
         
-        setInterval(requestFromAPI,40000);
+        setInterval(requestFromAPI,50000);
     },[]);
     
    
@@ -86,7 +86,7 @@ function Scoreboard(props:{width:number}) {
     return (
         enabled ? 
         <>
-            <Gears key='1'>
+            <Gears key='0'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center items-center -left-[10vw] w-[120vw]">
                         <div className='flex max-w-[96vw] gap-8'>
 
@@ -120,7 +120,7 @@ function Scoreboard(props:{width:number}) {
         </>
         :
         <>
-            <Gears key='0'>
+            <Gears key='1'>
                 <p className="-left-[10vw] w-[120vw] flex justify-center items-center">
                     The scoreboard is not available at this time
                 </p>
