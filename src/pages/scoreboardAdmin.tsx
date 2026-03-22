@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import Gears from "../components/gears/gears";
 import { RankData, RankingsCont, ScoreboardScores, ScoreboardSettings } from "../components/scoreboard/scoreboard.types";
 import { createRankings } from "../components/scoreboard/scoreboard.util";
-import FieldSM from "../components/scoreboard/fieldsm";
+import FieldSM from "../components/scoreboard/fieldSM";
+import FieldL from "../components/scoreboard/fieldL";
 import PassField from "../components/layout/passwordField";
 
 function ScoreboardAdmin(props:{width:number}) {
@@ -70,10 +71,12 @@ function ScoreboardAdmin(props:{width:number}) {
         setCurrent(mode);
     };
 
+
     const unlock = (name:string, value:string) => {
         setLocked(false);
         setPW(value); // set the PW to what was given as it is correct
     }
+
 
     const updateScore = (name:string, value:string) => {
         setScores(prevState => ({
@@ -87,8 +90,50 @@ function ScoreboardAdmin(props:{width:number}) {
         refreshRankings(prev=>((prev == 0)?1:0));
     }
 
+
+    const updateTeams = (name:string, value:string) => {
+        // Prunes unused teams and adds new teams
+        const newTeams:string[] = value.split(" ");
+        const currentTeams:string[] = Object.keys(scores);
+
+        setScores(prevState => {
+            let newState:ScoreboardScores = {};
+            let defEmpty:{[key:string]:number} = {};
+
+            names.forEach((gameName:string)=>{
+                defEmpty[gameName] = 0;
+            });
+
+            newTeams.forEach((teamName)=>{
+                newState[teamName] = prevState[teamName] ?? {...defEmpty};
+            });
+            
+            return newState;
+        });
+
+        refreshRankings(prev=>((prev == 0)?1:0));
+    }
+
+
     const onSave = async () => {
+        //prune teams
+
         let response = await fetch(
+            `${__SiteBase__}/scoreboard/team    `,
+            {
+                method : 'POST',
+                body : JSON.stringify({
+                    data:Object.keys(scores),
+                    password:pw
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        // update scores
+        response = await fetch(
             `${__SiteBase__}/scoreboard/game/score`,
             {
                 method : 'POST',
@@ -103,6 +148,7 @@ function ScoreboardAdmin(props:{width:number}) {
         );
         if (!response.ok) console.log(response);
 
+        // update enable status
         response = await fetch(
             `${__SiteBase__}/scoreboard/status`,
             {
@@ -125,11 +171,9 @@ function ScoreboardAdmin(props:{width:number}) {
         setRankings(createRankings(scores,names,settings))
     },[RRHandle])
 
-
     useEffect(()=>{
-        requestFromAPI()
+        requestFromAPI();
     },[]);
-
 
     /*
      * Needs to implement rankings data first and foremost.
@@ -146,7 +190,7 @@ function ScoreboardAdmin(props:{width:number}) {
         </>
         :
         <>
-            <Gears key='0'>
+            <Gears key='1'>
                 <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center w-[20vw]">
                     <div onClick={()=>{onSave()}} className="hover:brightness-110 transition-all rounded-sm w-full pentagon-left p-4 cursor-pointer bg-white">
                         <h2 style={{ color: 'black'}} className="transition-all text-right">Save</h2>
@@ -156,7 +200,15 @@ function ScoreboardAdmin(props:{width:number}) {
                 </div>
             </Gears>
 
-            <Gears dir key='1'>
+            {/* Teams */}
+            <Gears dir key='2'>
+                <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center left-[5vw] w-[90vw]">
+                    <h1>Enter team names</h1>
+                    <FieldL value={Object.keys(scores).join(' ')} boxName='Names' commitFunc={updateTeams}/>
+                </div>
+            </Gears>
+
+            <Gears key='3'>
                     <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center items-center -left-[10vw] w-[120vw]">
                         <div className='flex max-w-[96vw] gap-8'>
 
