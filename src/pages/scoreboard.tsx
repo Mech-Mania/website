@@ -1,19 +1,38 @@
 import { useState, useEffect, useRef } from "react";
 import Gears from "../components/gears/gears";
 import { RankData, RankingsCont, ScoreboardScores, ScoreboardSettings } from "../components/scoreboard/scoreboard.types";
-import { createRankings } from "../components/scoreboard/scoreboard.util";
+import { cacheData, createRankings, loadCache, verifyGenCount } from "../components/scoreboard/scoreboard.util";
 
 function Scoreboard(props:{width:number}) {
 
     const [names,setNames] = useState<string[]>([]);
-    const [games,setGames] = useState<ScoreboardScores>({});
+    const [scores,setScores] = useState<ScoreboardScores>({});
     const [current, setCurrent] = useState<string>("overall");
     const [rankings, setRankings] = useState<RankingsCont>({overall:[]});
     const [enabled, setEnabled] = useState<boolean>(false);
     const [settings, setSettings] = useState<ScoreboardSettings>({overall:{pointsName:"Points",descending:true}});
 
     const requestFromAPI = async () => {
-        // Keep in mind I may want a universal header to see the latest change from 
+        
+        const genCountStatus = await fetch(
+            `${__SiteBase__}/scoreboard/status/generation`,
+            {
+                method : 'GET'
+            }
+        );
+
+        let genCount:number = -2;
+        if (genCountStatus.ok){
+            const body = await genCountStatus.json();
+            genCount = body.content;
+            if (await verifyGenCount(body.content)) { // If gencount didn't refresh load from cache
+                loadCache(setScores,setSettings,setEnabled, setRankings, setNames);
+                return;
+            };
+        };
+        
+        // If not loading from cache then reload from db
+
         const responseStatus = await fetch(
             `${__SiteBase__}/scoreboard/status`,
             {
@@ -57,9 +76,12 @@ function Scoreboard(props:{width:number}) {
 
         if (responseGameScores.ok){
             const body = await responseGameScores.json();
+            console.log(body.content);
             setRankings(createRankings(body.content,namebody.content,statusBody.settings));
-            setGames(body.content);
+            setScores(body.content); 
+            cacheData(body.content,statusBody.settings,statusBody.status, genCount, namebody.content);
         } else console.log(responseGameScores)
+
     };
     
 
@@ -69,7 +91,7 @@ function Scoreboard(props:{width:number}) {
         setCurrent(mode);
     };
 
-
+    
 
     useEffect(()=>{
         requestFromAPI()
@@ -77,7 +99,9 @@ function Scoreboard(props:{width:number}) {
         setInterval(requestFromAPI,50000);
     },[]);
     
-   
+
+
+
 
 
     /*

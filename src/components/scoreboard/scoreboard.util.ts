@@ -33,7 +33,48 @@ export const createRankings = (scores:ScoreboardScores, gameNames:string[], sett
                 
         }
     });
-    
     return rks;
+}; 
 
-};  
+// Use localstorage to cache data so that reads from db don't need to happen as often
+
+export const cacheData = (scores:ScoreboardScores, settings:ScoreboardSettings, enabled:boolean, genCount:number, gameNames:string[]) => {
+    localStorage.setItem("sb_scores",JSON.stringify(scores));
+    localStorage.setItem("sb_settings", JSON.stringify(settings));
+    localStorage.setItem("sb_enabled", `${enabled}`);
+    localStorage.setItem("sb_genCount", `${genCount}`); 
+    localStorage.setItem("sb_gnames",JSON.stringify(gameNames));
+};
+
+
+export const verifyGenCount = async (passedGenCount:number):Promise<boolean> => {
+    const genCount = Number.parseInt(localStorage.getItem("sb_genCount") || '-1');
+    
+    if (genCount === passedGenCount) return true;
+    
+    localStorage.setItem("sb_genCount", `${passedGenCount}`);
+
+    return false;
+};
+
+export const loadCache = (
+    setScore: (value: ScoreboardScores) => void,
+    setSettings: (value: ScoreboardSettings) => void,
+    setEnabled: (value: boolean) => void,
+    setRankings: (value: RankingsCont) => void,
+    setNames: (value: string[]) => void,
+) => {
+    
+    // Will throw error downstream if these conditions are null. Handled elsewhere
+    const scores:ScoreboardScores = JSON.parse(localStorage.getItem("sb_scores")||"{}");     
+    const settings:ScoreboardSettings = JSON.parse(localStorage.getItem("sb_settings")||"{}"); 
+    const enabled:boolean = (localStorage.getItem("sb_enabled")||"false")==="true"; 
+    const gameNames:string[] = JSON.parse(localStorage.getItem("sb_gnames")||"[\"overall\"]"); 
+    const rks:RankingsCont = createRankings(scores,gameNames,settings);
+
+    setScore(scores);
+    setSettings(settings);
+    setEnabled(enabled);
+    setNames(gameNames);
+    setRankings(rks);
+};
