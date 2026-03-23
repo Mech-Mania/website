@@ -7,8 +7,6 @@ function Footer(props:{scrollRef:any,marginTop:number}) {
         {/* To all future website people: Add your name to this 'by' section. Keep making it better as you go */}
         <div className="my-20 flex flex-col gap-8 justify-items-center items-center flex-wrap">
 
-            {/* <div className="h-[0.125rem] w-[70vw] bg-[#444]"/> */}
-            {/* todo: Add the real links */}
             
             <div className={`flex ${(window.innerWidth > 1024) ? "flex-row gap-32" : "flex-col gap-16"} justify-center items-center`}>
 
@@ -20,7 +18,7 @@ function Footer(props:{scrollRef:any,marginTop:number}) {
 
                 <div className="flex flex-col gap-1">
                     <h3>Pages</h3>
-                    <div className="h-[0.125rem] w-[100%] bg-gradient-to-r from-[#444] to-[#444]"/>
+                    <div className="h-[0.125rem] w-[100%] bg-[#444] "/> 
                     <Navbar scrollRef={props.scrollRef} marginTop={props.marginTop} unformatted={true}/> 
                     {/* Unformatted navbar */}
                 </div>

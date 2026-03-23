@@ -1,21 +1,10 @@
 import Member from './member';
 import Wheel from '../../gears/wheel';
+import { currentYear, getTeam } from './team.names'; 
 
 // All image files must be png format
-const members = [
-    'Gavin William Lyle Heatherington',
-    'My Lan Tight',
-    'Taran Flora',
-    'Daniel Li', 
-    'Alex Edwards',
-    'Yusef Soror',
-    'Junpei Ariizumi',
-    'Vivienne Hardy',
-    'Ali Bagheri',
-    'Victor Jiao',
-    'Suvethan Ravichandran',
-    'Amy Zhang',
-]
+const members = getTeam(currentYear); // names defined in team.names.ts
+
 const wideDisplay = 4; // Amount of members shown in each row
 const smallDisplay = 2;
 
@@ -34,7 +23,7 @@ function create_member(index:number, member:string){
     )
 }
 
-function Team(props:any) {
+function Team() {
     // Takes members and automatically finds their images and positions them
     let per_row_count:number = (window.innerWidth >= 1024) ? wideDisplay : smallDisplay
     return (
