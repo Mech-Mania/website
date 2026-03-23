@@ -17,6 +17,8 @@ import Nav from "../components/layout/navbar";
 import Sponsor from "./sponsor.tsx"
 import Footer from "../components/layout/footer";
 import TeamPage from "./team";
+import Scoreboard from "./scoreboard.tsx";
+import ScoreboardAdmin from "./scoreboardAdmin.tsx";
 
 
 function Layout() {
@@ -69,18 +71,19 @@ function Layout() {
                
                 <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-black lg:px-32 box-border z-[0] relative top-0">
                 
-                    
-                    {/* <div style={{borderColor: "#444f",transition: "border-color 1s ease", marginBottom:`0rem`}} className="z-50 bg-black box-content border-[8px] border-solid h-0 -left-[10vw] w-[120vw] flex flex-row items-center  justify-center align-middle">
-                    </div>
-                    
+                    <div
+                        style={{
+                            borderColor: "#444",
+                            marginBottom:`1rem`
 
-                    <div style={{marginBottom:`0rem`}} className={`flex flex-row flex-wrap items-center justify-evenly w-[90%] h-10 translate-y-[-1.5rem]`}>
-                        <Nav></Nav>
-                    </div> */}
-
+                        }}
+                        className="z-50 relative bg-black box-content rounded-[4rem] border-[8px] border-solid h-0 -left-[10vw] w-[120vw]"
+                    />                    
+                    {/*
                     <div style={{marginBottom:`4rem`}}>
                         <Line dir down/>
                     </div>
+                    */}
 
                     <Wheel dir >
                         <div className="animate-bounce pt-4 cursor-pointer">
@@ -94,7 +97,8 @@ function Layout() {
                         <Route path="/" element={<Main/>}/>
                         <Route path="/team" element={<TeamPage/>}/>
                         <Route path="/sponsor" element={<Sponsor/>}/>
-                        <Route path="/scoreboard" element={<PageUnderConstruction/>}/>
+                        <Route path="/scoreboard" element={<Scoreboard width={width}/>}/>
+                        <Route path="/scoreboard/admin" element={<ScoreboardAdmin width={width}/>}/>
                         <Route path="/*" element={<PageNotFound/>}/>
                     </Routes>
 
