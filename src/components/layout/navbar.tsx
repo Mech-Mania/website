@@ -10,7 +10,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
     // I am going to have to think about the mobile version of the navbar
     const navigate = useNavigate();
-    const pages: string[] = ["Home","Team","Sponsor","Scoreboard"];
+    const pages: string[] = ["Home","Team","Scoreboard"];
     const location = useLocation()
     let prev = location.pathname;
     const [show, setShow] = useState(true);

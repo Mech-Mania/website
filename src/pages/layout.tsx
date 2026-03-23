@@ -5,16 +5,13 @@ import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
 import Load from "../components/load/load";
 import Initial from "../components/layout/initial";
-import Line from "../components/gears/line"
 import PageNotFound from "../components/layout/notfound";
-import PageUnderConstruction from "../components/layout/construction";
 import {
     Routes,
     Route,
 } from "react-router-dom";
 import Main from "./main";
 import Nav from "../components/layout/navbar";
-import Sponsor from "./sponsor.tsx"
 import Footer from "../components/layout/footer";
 import TeamPage from "./team";
 import Scoreboard from "./scoreboard.tsx";
@@ -96,7 +93,6 @@ function Layout() {
                     <Routes>
                         <Route path="/" element={<Main/>}/>
                         <Route path="/team" element={<TeamPage/>}/>
-                        <Route path="/sponsor" element={<Sponsor/>}/>
                         <Route path="/scoreboard" element={<Scoreboard width={width}/>}/>
                         <Route path="/scoreboard/admin" element={<ScoreboardAdmin width={width}/>}/>
                         <Route path="/*" element={<PageNotFound/>}/>

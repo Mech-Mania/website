@@ -4,18 +4,12 @@ import Wheel from "../components/gears/wheel";
 import { IconContext } from "react-icons";
 import { FaArrowDown } from "react-icons/fa";
 import Carousel from "../components/index/carousel/carousel";
-import Load from "../components/load/load";
 import Stats from "../components/index/stats/stats";
-import Initial from "../components/layout/initial";
-import Line from "../components/gears/line"
+import Sponsor from "../components/index/sponsor";
 import Email from "../components/index/email";
 import "../index.css";
 
 function Main() {
-
-
-
-
 
     return (
         <>  
@@ -26,15 +20,19 @@ function Main() {
                 </div>
             </Gears>
             
-            <Wheel dir >
+            <Gears dir>
+                <Sponsor />    
+            </Gears>
+
+            <Wheel>
                 <div className="animate-bounce pt-4 cursor-pointer">
                     <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
                         <FaArrowDown/>
                     </IconContext.Provider>
                 </div>
-            </Wheel>
+            </Wheel> 
 
-            <Gears>
+            <Gears dir>
                 <div className="flex flex-col w-[100vw] items-center">
                     <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
                             <div className="flex flex-col max-w-[75vw]">
@@ -50,10 +48,9 @@ function Main() {
                     <br/>
                         <Carousel></Carousel>
                 </div>
-            </Gears>
-
-
-            <Gears dir>
+            </Gears> 
+    
+            <Gears>
                 <div className="flex flex-col items-center">
                     <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
                             <h2>FAQ</h2>
