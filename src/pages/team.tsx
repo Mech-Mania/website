@@ -8,7 +8,6 @@ import Load from "../components/load/load";
 import Team from "../components/index/team/team";
 import Stats from "../components/index/stats/stats";
 import Initial from "../components/layout/initial";
-import Line from "../components/gears/line"
 
 function TeamPage() {
 
