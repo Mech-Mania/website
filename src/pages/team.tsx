@@ -1,17 +1,11 @@
-import { useState, useEffect, useRef } from "react";
 import Gears from "../components/gears/gears";
-import Wheel from "../components/gears/wheel";
-import { IconContext } from "react-icons";
-import { FaArrowDown } from "react-icons/fa";
-import Carousel from "../components/index/carousel/carousel";
-import Load from "../components/load/load";
-import Team from "../components/index/team/team";
-import Stats from "../components/index/stats/stats";
-import Initial from "../components/layout/initial";
+import PastTeam from "../components/index/team/pastTeam";
+import Team from "../components/index/team/teamComp";
+import { getAllTeams, getTeam, startYear } from "../components/index/team/team.names";
 
 function TeamPage() {
 
-
+    
 
 
 
@@ -26,6 +20,17 @@ function TeamPage() {
                     <div className="h-16"/>
                         <Team/>
                     <div className="h-16"/>
+                </div>
+            </div>
+        </Gears>
+
+        <Gears dir>
+            <div className="flex flex-col gap-8 justify-items-center flex-wrap">
+                <div className={`flex ${(window.innerWidth > 1024) ? "flex-row gap-32" : "flex-col gap-16"} justify-center items-start`}>
+            
+                    {getAllTeams().map((team:string[], index:number)=>(
+                        <PastTeam names={team} year={startYear+index}/>
+                    ))}
                 </div>
             </div>
         </Gears>
