@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Footer from './footer';
 import { FiMenu, FiX } from "react-icons/fi";
+import { discord_link, email_link, github_link, info_doc_link, insta_link, youtube_link } from "./hrefconstants";
 
 function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
     // I am going to have to think about the mobile version of the navbar
@@ -117,33 +118,41 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
                         ))
                         }
                     </div>
-
-
                     <div className = "flex flex-row gap-4 fixed right-8">
                         <div className="flex flex-row gap-4">
-                            <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcRzCbZtZTTMCLGpkFmvFpBNVkdZZJNmbSfshSkxKGfrBNSFnLhTHWkMslthLwvSzctQJFwJF" target="_blank" className="align-middle ease-out duration-200 cursor-pointer "> 
-                        <img src="/icons/emailLogo.svg" className="w-8 h-8 hover:scale-110 ease-out duration-200"/>
-                    </a>
-                    
-                    {/* insta */}
-                    <a href="https://www.instagram.com/mechmaniakw/" target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
-                        <img src="/icons/instagramLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
-                    </a>
+                            <a href={email_link} target="_blank" className="align-middle ease-out duration-200 cursor-pointer "> 
+                                <img src="/icons/emailLogo.svg" className="w-8 h-8 hover:scale-110 ease-out duration-200"/>
+                            </a>
+                            
+                            {/* insta */}
+                            <a href={insta_link} target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
+                                <img src="/icons/instagramLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
+                            </a>
 
-                    {/* github */}
-                    <a href="https://github.com/Mech-Mania" target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
-                        <img src="/icons/githubLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
-                    </a>
+                            {/* github */}
+                            <a href={github_link} target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
+                                <img src="/icons/githubLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
+                            </a>
 
-                    {/* youtube */}
-                    <a href="https://www.youtube.com/@MechMania-KW" target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
-                        <img src="/icons/youtubeLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
-                    </a>
+                            {/* youtube */}
+                            <a href={youtube_link} target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
+                                <img src="/icons/youtubeLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
+                            </a>
+                            
+                            {/* discord */}
+                            <a href={discord_link} target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
+                                <img src="/icons/discordLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
+                            </a>
+
+                            
+                            <a href={info_doc_link} target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
+                                <img src="/icons/docsLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
+                            </a>
+
+
+
                     
-                    {/* discord */}
-                    <a href="https://discord.gg/z5pcMevHpK" target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
-                        <img src="/icons/discordLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
-                    </a>
+
                         </div>
                     </div>
                 </div>
