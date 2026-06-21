@@ -14,14 +14,16 @@ function Main() {
     return (
         <>  
             <Gears>
-                <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
+                <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col max-w-[80vw]">
                     <Email></Email>
                     <Stats></Stats>
                 </div>
             </Gears>
             
             <Gears dir>
-                <Sponsor />    
+                <div className="max-w-[80vw]">
+                    <Sponsor />
+                </div>
             </Gears>
 
             <Wheel>
@@ -33,7 +35,7 @@ function Main() {
             </Wheel> 
 
             <Gears dir>
-                <div className="flex flex-col w-[100vw] items-center">
+                <div className="flex flex-col items-center">
                     <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
                             <div className="flex flex-col max-w-[75vw]">
                                 <h2>Who are we?</h2>

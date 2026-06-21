@@ -51,7 +51,7 @@ function Sponsor() {
 
 
                     <div className="flex flex-col items-center">
-                           <p>Interested? Take a look at our <a href="/sponsorPackage.pdf" className="underline text-blue-400" target="_blank">sponsorship package</a> and email us at <a href="mailto:organizers@mechmania.ca" className="underline text-blue-400">organizers@mechmania.ca</a>.</p>
+                           <p>Interested? Take a look at our <a href="/sponsorPackage.pdf" className="underline text-m-accent" target="_blank">sponsorship package</a> and email us at <a href="mailto:organizers@mechmania.ca" className="underline text-m-accent">organizers@mechmania.ca</a>.</p>
                             <br/>
                     </div>
                     <br/>

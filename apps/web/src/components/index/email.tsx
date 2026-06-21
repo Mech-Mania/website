@@ -53,7 +53,7 @@ function Email() {
             <br/>
             {error}
             <div className="mt-2 flex flex-col lg:flex-row gap-2 rounded-full p-2 overflow-hidden bg-m-gray-4">
-                <input onKeyDown = {(e)=>{handleKeyPress(e)}} value={email} onChange = {(e)=>{setEmail(e.target.value)}} placeholder="Enter your email to register!" className="text-center lg:text-left outline-none focus:ring focus:ring-m-black text-m-black p-4 rounded-t-full lg:rounded-l-full lg:rounded-r-none grow"></input>
+                <input onKeyDown = {(e)=>{handleKeyPress(e)}} value={email} onChange = {(e)=>{setEmail(e.target.value)}} placeholder="Enter your email to register!" className="text-center lg:text-left outline-none focus:ring bg-m-gray-1 focus:ring-m-black text-m-black p-4 rounded-t-full lg:rounded-l-full lg:rounded-r-none grow"></input>
                 <button onClick = {()=>{submit(email)}} className="text-m-black p-4 rounded-b-full lg:rounded-l-none lg:rounded-r-full bg-m-gray-1 outline-none focus:ring focus:ring-m-black">
                     Submit
                 </button>
