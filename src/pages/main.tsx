@@ -61,19 +61,17 @@ function Main() {
                                     To participate in Mechmania, you need to be a highschool student at a school in the Waterloo Region and surrounding areas. If your school already has a contact point with us, register a team through them. Otherwise find a willing teacher and at least one team, then join our emailing list and reach out to us at organizers@mechmania.ca. It is preferred that you are the president and/or executive of an engineering-related club at your school to make the process easier. 
                                 </p>
 
-
                                 <h3>What is the format?</h3>
                                 <hr/>
                                 <p>
-                                    Every year shortly after the winter break, we send out the details of the year's competition, including the specifications of the year's game and game pieces, the rulebook, and the code of conduct. Every team then has until the day of the competition to build their robot according to the guidelines, and to ask questions/submit concerns to our email or our <a target="_blank" href="https://discord.gg/z5pcMevHpK">discord</a>.                           
+                                    Every year shortly after the winter break, we send out the details of the year's competition, including the specifications of the year's game and game pieces, the rulebook, and the code of conduct. Every team then has until the day of the competition to build their robot according to the guidelines, and to ask questions/submit concerns to our email or our <a target="_blank" href="https://discord.gg/z5pcMevHpK">Discord</a>.                           
                                 </p>
 
-
-                                <br />
                                 <h3>
                                     Is there a cost to attend?
                                 </h3>
                                 <hr/>
+
                                 <p>
                                 Mechmania strives to be an affordable option for students who would otherwise be unable to access similar robotics and engineering experiences, and we are happy to say that for the 25/26 year, we will be once again able to have a $0 entry fee (with optional costs for food and merch).
                                 </p>
