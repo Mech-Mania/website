@@ -59,11 +59,6 @@ function Footer(props:{scrollRef:any,marginTop:number}) {
                         <p>our discord server!</p> 
                     </a>
 
-                    <a href={info_doc_link} target="_blank" className="flex flex-row gap-2 align-middle ease-out hover:brightness-[25%] duration-200 cursor-pointer group">
-                        <img src="/icons/docsLogo.svg" className="w-6 h-6 group-hover:scale-110 ease-out duration-200"/>
-                        <p>2026 info document</p> 
-                    </a>
-
                 </div>
                 
             </div>

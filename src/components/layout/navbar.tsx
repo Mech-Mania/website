@@ -11,7 +11,7 @@ import { discord_link, email_link, github_link, info_doc_link, insta_link, youtu
 function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
     // I am going to have to think about the mobile version of the navbar
     const navigate = useNavigate();
-    const pages: string[] = ["Home","Team","Scoreboard"];
+    const pages: string[] = ["Home","Team"];
     const location = useLocation()
     let prev = location.pathname;
     const [show, setShow] = useState(true);
@@ -142,16 +142,7 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
                             {/* discord */}
                             <a href={discord_link} target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
                                 <img src="/icons/discordLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
-                            </a>
-
-                            
-                            <a href={info_doc_link} target="_blank" className="align-middle ease-out duration-200 cursor-pointer">
-                                <img src="/icons/docsLogo.svg" className="w-8 h-8 group-hover:scale-110 ease-out duration-200"/>
-                            </a>
-
-
-
-                    
+                            </a> 
 
                         </div>
                     </div>
