@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /*
  * Centralized Colour theme for dark and light, use these
  */
@@ -15,6 +16,3 @@
     --m-gray-1: #eeeeee;
     --m-white: #ffffff;
 }
-
-
-
