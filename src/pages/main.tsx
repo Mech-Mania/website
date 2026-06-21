@@ -14,7 +14,7 @@ function Main() {
     return (
         <>  
             <Gears>
-                <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
+                <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
                     <Email></Email>
                     <Stats></Stats>
                 </div>
@@ -26,15 +26,15 @@ function Main() {
 
             <Wheel>
                 <div className="animate-bounce pt-4 cursor-pointer">
-                    <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
-                        <FaArrowDown/>
+                    <IconContext.Provider value={{size: "4rem" }}>
+                        <FaArrowDown className="text-m-gray-4"/>
                     </IconContext.Provider>
                 </div>
             </Wheel> 
 
             <Gears dir>
                 <div className="flex flex-col w-[100vw] items-center">
-                    <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
+                    <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
                             <div className="flex flex-col max-w-[75vw]">
                                 <h2>Who are we?</h2>
                                 <p>
@@ -52,7 +52,7 @@ function Main() {
     
             <Gears>
                 <div className="flex flex-col items-center">
-                    <div className="cont gap-8 z-50 relative bg-black box-content rounded-[4rem] flex flex-col">
+                    <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
                             <h2>FAQ</h2>
                             <div className="flex flex-col gap-2 max-w-[75vw]">
                                 <h3>How do I participate?</h3>

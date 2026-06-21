@@ -1,0 +1,20 @@
+/*
+ * Centralized Colour theme for dark and light, use these
+ */
+
+:root {
+    --m-accent: #60a5fa;
+    --m-accent-dark: #0f3d76;
+    --m-accent-light: #bcd9fe;
+    --m-black: #000000;
+    --m-gray-6: #111111;
+    --m-gray-5: #444444;
+    --m-gray-4: #888888;
+    --m-gray-3: #aaaaaa;
+    --m-gray-2: #cccccc;
+    --m-gray-1: #eeeeee;
+    --m-white: #ffffff;
+}
+
+
+

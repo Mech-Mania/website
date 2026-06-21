@@ -19,7 +19,7 @@ function Footer(props:{scrollRef:any,marginTop:number}) {
 
                 <div className="flex flex-col gap-1">
                     <h3>Pages</h3>
-                    <div className="h-[0.125rem] w-[100%] bg-[#444] "/> 
+                    <div className="h-[0.125rem] w-[100%] bg-m-gray-5 "/> 
                     <Navbar scrollRef={props.scrollRef} marginTop={props.marginTop} unformatted={true}/> 
                     {/* Unformatted navbar */}
                 </div>
@@ -27,7 +27,7 @@ function Footer(props:{scrollRef:any,marginTop:number}) {
                 <div className="flex flex-col gap-1">
                     {/* Todo, add images to this */}
                     <h3>Contact</h3>
-                    <div className="h-[0.125rem] w-[100%] bg-gradient-to-r from-[#444] to-[#444]"/>
+                    <div className="h-[0.125rem] w-[100%] bg-m-gray-5"/>
 
 
                     <a href={email_link} target="_blank" className="flex flex-row gap-2 align-middle ease-out hover:brightness-[25%] duration-200 cursor-pointer group">

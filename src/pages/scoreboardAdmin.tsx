@@ -175,7 +175,7 @@ function ScoreboardAdmin(props:{width:number}) {
         :
         <>
             <Gears key='1'>
-                <div className="cont gap-8 z-50 bg-black box-content rounded-[4rem] flex flex-col text-center w-[20vw]">
+                <div className="cont gap-8 z-50 bg-m-gray-6 box-content rounded-[4rem] flex flex-col text-center w-[20vw]">
                     <div onClick={()=>{onSave()}} className="hover:brightness-110 transition-all rounded-sm w-full pentagon-left p-4 cursor-pointer bg-white">
                         <h2 style={{ color: 'black'}} className="transition-all text-right">Save</h2>
                     </div>

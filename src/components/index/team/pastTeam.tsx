@@ -5,7 +5,7 @@ function PastTeam(props:{names:string[], year:number}) {
             <div className="flex flex-col gap-1">
                 {/* Todo, add images to this */}
                 <h3>{props.year}</h3>
-                <div className="h-[0.125rem] w-[100%] bg-[#444] "/> 
+                <div className="h-[0.125rem] w-[100%] bg-m-gray-5 "/> 
                 
                 {props.names.map((name:string)=> (
                     <div className="">

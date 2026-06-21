@@ -6,7 +6,7 @@ function Sponsor() {
 
     return (
         <> 
-            <div className="flex flex-col">
+            <div className="cont flex flex-col">
                     <h2>Support us</h2>
                     <br/>
                     <p>Sponsoring MechMania is your chance to directly <strong>support local students and their growth in robotics</strong>. Your contribution helps <strong>make our competition accessible</strong> by providing students with <strong>resources, hands on challenges, and workshops</strong> to build their skills. This is more than just a competition; it’s <strong>an opportunity to empower young innovators from all backgrounds</strong>. By sponsoring, you will gain <strong>visibility in the Waterloo Region’s tech and education community</strong>, showing your commitment to supporting the next generation.</p>
@@ -17,28 +17,28 @@ function Sponsor() {
                     <br/>
                     <div className="flex flex-row flex-wrap gap-8 items-center justify-center">
                         <a href="https://uwaterloo.ca/robohub/" target="_blank" className="w-fit h-fit">
-                            <div className="bg-white rounded-lg h-24 w-fit p-8 gap-8 cursor-pointer box-content">
+                            <div className="bg-m-gray-1 rounded-lg h-24 w-fit p-8 gap-8 cursor-pointer box-content">
                                 <img className="h-24" src="/sponsors/robohub-logo-square.jpg"></img>
                             </div>
                         </a>
                         <br/>
                         
                         <a href="https://www.bepwr.ca/" target="_blank" className="w-fit h-fit">
-                            <div className="bg-white rounded-lg h-24 w-fit p-8 gap-8 cursor-pointer box-content">
+                            <div className="bg-m-gray-1 rounded-lg h-24 w-fit p-8 gap-8 cursor-pointer box-content">
                                 <img className="h-24" src="/sponsors/BEP_logo.png"></img>
                             </div>
                             </a>
                         <br/>
 
                          <a href="https://www.solidworks.com/" target="_blank" className="w-fit h-fit">
-                            <div className="bg-white rounded-lg h-24 w-fit p-8 gap-8 cursor-pointer box-content">
+                            <div className="bg-m-gray-1 rounded-lg h-24 w-fit p-8 gap-8 cursor-pointer box-content">
                                 <img className="h-24" src="/sponsors/solidworks.svg"></img>
                             </div>
                             </a>
                         <br/>  
                         
                         <a href="https://www.7pcb.com/" target="_blank" className="w-fit h-fit">
-                            <div className="bg-white rounded-lg h-24 w-fit p-8 gap-8 cursor-pointer box-content">
+                            <div className="bg-m-gray-1 rounded-lg h-24 w-fit p-8 gap-8 cursor-pointer box-content">
                                 <img className="h-24" src="/sponsors/BITTELE-LOGO.png"></img>
                             </div>
                             </a>

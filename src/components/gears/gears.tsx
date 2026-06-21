@@ -9,7 +9,6 @@ function Gears(props: any) {
     // I've tried for so long to understand what the hell is happening here. I made some progress on reverse engineering it but honestly it's probably a waste of time.
     // I've put some line comments around to hopefully help anyone else who tries to refactor this because before there were none
     const location = useLocation(); // resets animation on link change so that everything is nice and synced
-    const [color, setColor] = useState("#4440");
     const [teeth, setTeeth]: any[] = useState([]);
     const [set, setSet] = useState(0);
     const teethRefs: any = useRef([]); // Ref array to store references to all teeth
@@ -111,7 +110,6 @@ function Gears(props: any) {
             if (currRef.current == null){return}
             updateDimensions();
         }, 1000)
-        setColor("#444f");
         size = window.innerWidth
         let handleResize:any = window.addEventListener("resize", function(){
             if (size!=window.innerWidth){
@@ -156,19 +154,19 @@ function Gears(props: any) {
             <div
                 ref={(el) => (currRef.current = el)}
                 style={{
-                    borderColor: color,
+                    borderColor: "var(--m-gray-5)",
                     transition: "border-color 1s ease",
                     width: currWidth,
                     height: currHeight,
                 }}
-                className="z-50 relative bg-black box-content rounded-[4rem] border-[16px] border-solid"
+                className="z-50 relative bg-m-black box-content rounded-[4rem] border-[16px] border-solid"
             >
                 <div
                     style={{
-                        outlineColor: color,
+                        outlineColor: "var(--m-gray-5)",
                         transition: "outline-color 1s ease",
                     }}
-                    className={`flex h-full w-full items-center justify-center z-50 ${props.nopad ? "" : "px-24 py-12 lg:py-16"} bg-clip-padding relative box-border rounded-[4rem] bg-black outline-[8px] outline outline-[#444]`}
+                    className={`flex h-full w-full items-center justify-center z-50 ${props.nopad ? "" : "px-24 py-12 lg:py-16"} bg-clip-padding relative box-border rounded-[4rem] bg-m-black outline-[8px] outline outline-m-gray-5`}
                 >
                     {props.children}
                 </div>

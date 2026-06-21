@@ -27,6 +27,19 @@ export default {
         'fade-in': 'fadeIn 1s ease-in forwards',
         'loaded': 'fadeOut 1s ease-in 3s forwards',
       },
+      colors: {
+        "m-accent":"var(--m-accent)",
+        "m-accent-dark":"var(--m-accent-dark)",
+        "m-accent-light":"var(--m-accent-light)",
+        "m-black":"var(--m-black)",
+        "m-gray-6":"var(--m-gray-6)",
+        "m-gray-5":"var(--m-gray-5)",
+        "m-gray-4":"var(--m-gray-4)",
+        "m-gray-3":"var(--m-gray-3)",
+        "m-gray-2":"var(--m-gray-2)",
+        "m-gray-1":"var(--m-gray-1)",
+        "m-white":"var(--m-white)"
+      }
     },
   },
   plugins: [],
