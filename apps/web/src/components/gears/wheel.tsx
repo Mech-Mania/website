@@ -35,7 +35,9 @@ function Wheel(props: any) {
                 <div
                     className="absolute w-16 h-16 -z-10 pointer-events-none"
                     key={i}
-                    ref={(el) => (teethRefs.current[i] = el)} // Save the reference
+                    ref={(el) => {
+                          teethRefs.current[i] = el;
+                        }}
                 >
                     <Tooth />
                 </div>
@@ -118,7 +120,7 @@ function Wheel(props: any) {
 
     return (
         <div
-            ref={(el) => (currRef.current = el)}
+            ref={currRef}
             style={{
                 opacity: color,
                 transition: "opacity 1s ease",

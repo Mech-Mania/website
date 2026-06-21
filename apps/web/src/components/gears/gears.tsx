@@ -11,7 +11,7 @@ function Gears(props: any) {
     const location = useLocation(); // resets animation on link change so that everything is nice and synced
     const [teeth, setTeeth]: any[] = useState([]);
     const [set, setSet] = useState(0);
-    const teethRefs: any = useRef([]); // Ref array to store references to all teeth
+    const teethRefs: any = useRef<(HTMLDivElement)[]>([]); // Ref array to store references to all teeth
     const currRef: any = useRef(null);
     const [loader, setLoader] = useState(<></>)
 
@@ -41,7 +41,9 @@ function Gears(props: any) {
                 <div
                     className="absolute w-16 h-16 -z-10 pointer-events-none"
                     key={i}
-                    ref={(el) => (teethRefs.current[i] = el)} // Save the reference
+                    ref={(el) => {
+                      teethRefs.current[i] = el;
+                    }}
                 >
                     <Tooth />
                 </div>
@@ -152,7 +154,7 @@ function Gears(props: any) {
     return (
         <>
             <div
-                ref={(el) => (currRef.current = el)}
+                ref={currRef}
                 style={{
                     borderColor: "var(--m-gray-5)",
                     transition: "border-color 1s ease",
