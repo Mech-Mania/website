@@ -64,9 +64,9 @@ function Layout() {
             </div>
 
             {/* Initial screen cover, email, + navbar & router */}
-            <div style={{ width: width+'px',marginTop: `${marginTop}px` }} className="gap-16 flex flex-col min-h-[120vh] items-center bg-black" ref={scrollRef}>
+            <div style={{ width: width+'px',marginTop: `${marginTop}px` }} className="gap-16 flex flex-col min-h-[120vh] items-center bg-m-gray-6" ref={scrollRef}>
                
-                <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-black lg:px-32 box-border z-[0] relative top-0">
+                <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-m-gray-6 1lg:px-32 box-border z-[0] relative top-0">
                 
                     <div
                         style={{
@@ -74,7 +74,7 @@ function Layout() {
                             marginBottom:`1rem`
 
                         }}
-                        className="z-50 relative bg-black box-content rounded-[4rem] border-[8px] border-solid h-0 -left-[10vw] w-[120vw]"
+                        className="z-50 relative bg-m-black box-content rounded-[4rem] border-[8px] border-solid h-0 -left-[10vw] w-[120vw]"
                     />                    
                     {/*
                     <div style={{marginBottom:`4rem`}}>
@@ -84,8 +84,8 @@ function Layout() {
 
                     <Wheel dir >
                         <div className="animate-bounce pt-4 cursor-pointer">
-                            <IconContext.Provider value={{ color: "#999", size: "4rem" }}>
-                                <FaArrowDown/>
+                        <IconContext.Provider value={{size: "4rem" }}>
+                                <FaArrowDown className="text-m-gray-4"/>
                             </IconContext.Provider>
                         </div>
                     </Wheel>

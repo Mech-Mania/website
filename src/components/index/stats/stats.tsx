@@ -30,7 +30,7 @@ function Stats() {
                 
                 {years.map((year,index)=>(
                     <div key={index} className="w-32">
-                        <div onClick={()=>{buttonClick(years.indexOf(year))}} className="hover:brightness-110 transition-all w-full pentagon-left p-4 cursor-pointer">
+                        <div onClick={()=>{buttonClick(years.indexOf(year))}} className="hover:brightness-110 transition-all w-full p-4 cursor-pointer">
                             <h2 style={{ color:  (years.indexOf(year)==active) ? 'white' : '#aaa' }} className="transition-all text-right">{year}</h2>
                         </div>
                     </div>
@@ -44,8 +44,8 @@ function Stats() {
 
             <div className="flex flex-row flex-wrap gap-4">
                 {[...Array(content.length).keys()].map((e,index)=>(
-                    <div key={index} className="bg-white rounded-lg p-8 flex flex-col items-center justify-center grow">
-                        <h2 className="text-black">{content[index]}</h2>
+                    <div key={index} className="bg-m-gray-1 rounded-lg p-8 flex flex-col items-center justify-center grow">
+                        <h2 className="text-m-black">{content[index]}</h2>
                     </div>
                 ))}
             </div>

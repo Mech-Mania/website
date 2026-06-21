@@ -123,10 +123,10 @@ function Wheel(props: any) {
                 opacity: color,
                 transition: "opacity 1s ease",
             }}
-            className="z-50 relative bg-black box-content border-[#444] rounded-full border-[16px] border-solid"
+            className="z-50 relative bg-m-black box-content border-m-gray-5 rounded-full border-[16px] border-solid"
         >
             <div
-                className="overflow-hidden z-50 bg-clip-padding relative outline-[#444] box-border rounded-full bg-black outline-[8px] outline outline-[#444] w-32 h-32 flex items-center justify-center"
+                className="overflow-hidden z-50 bg-clip-padding relative outline-m-gray-5 box-border rounded-full bg-m-black outline-[8px] outline w-32 h-32 flex items-center justify-center"
             >
                 {props.children}
             </div>
