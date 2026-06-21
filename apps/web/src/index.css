@@ -15,6 +15,7 @@
     justify-content: center;
     text-align: center;
     scroll-behavior: smooth;
+    text-align: left;
 }
 #root {
     display: flex !important;
@@ -29,11 +30,7 @@ body {
     height: 100vh;
     scroll-behavior: smooth;
 }
-@media (min-width: 1024px) {
-    :root {
-        text-align: left;
-    }
-}
+
 
 :root::-webkit-scrollbar {
     display: none;
@@ -86,7 +83,8 @@ strong {
 text-blue-400 underline cursor-pointer
 
 .cont {
-    max-width: 90vw !important;
+    max-width: 90vw;
+    
 }
 
 

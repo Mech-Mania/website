@@ -62,9 +62,9 @@ function Layout() {
             </div>
 
             {/* Initial screen cover, email, + navbar & router */}
-            <div style={{ width: width+'px',marginTop: `${marginTop}px` }} className="gap-16 flex flex-col min-h-[120vh] items-center bg-m-gray-6" ref={scrollRef}>
+            <div style={{width: width+'px', marginTop: `${marginTop}px` }} className="gap-16 flex flex-col min-h-[120vh] items-center bg-m-gray-6" ref={scrollRef}>
                
-                <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-m-gray-6 1lg:px-32 box-border z-[0] relative top-0">
+                <div className="gap-16 flex flex-col items-center justify-start w-full max-h-fit bg-m-gray-6 lg:px-32 box-border z-[0] relative top-0">
                 
                     <div
                         style={{
