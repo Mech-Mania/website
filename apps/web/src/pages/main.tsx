@@ -14,14 +14,16 @@ function Main() {
     return (
         <>  
             <Gears>
-                <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
+                <div className="w-full gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col px-[2rem]">
                     <Email></Email>
                     <Stats></Stats>
                 </div>
             </Gears>
             
             <Gears dir>
-                <Sponsor />    
+                <div className="w-full px-[2rem]">
+                    <Sponsor />
+                </div>
             </Gears>
 
             <Wheel>
@@ -33,9 +35,9 @@ function Main() {
             </Wheel> 
 
             <Gears dir>
-                <div className="flex flex-col w-[100vw] items-center">
-                    <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
-                            <div className="flex flex-col max-w-[75vw]">
+                <div className="flex flex-col items-center w-[120vw]">
+                    <div className="cont w-[80vw] gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
+                            <div className="flex flex-col">
                                 <h2>Who are we?</h2>
                                 <p>
                                     We are a group of passionate highschool students based out of <strong>Waterloo Collegiate Institute</strong> who believe in a world where engineering and robotics opportunities are <strong>accessible</strong> and not blocked by <strong>cost</strong>. 
@@ -47,6 +49,7 @@ function Main() {
                     <br/>
                     <br/>
                         <Carousel></Carousel>
+
                 </div>
             </Gears> 
     
@@ -54,7 +57,7 @@ function Main() {
                 <div className="flex flex-col items-center">
                     <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
                             <h2>FAQ</h2>
-                            <div className="flex flex-col gap-2 max-w-[75vw]">
+                            <div className="flex flex-col gap-2 max-w-[85vw]">
                                 <h3>How do I participate?</h3>
                                 <hr/>
                                 <p>

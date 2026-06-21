@@ -6,7 +6,7 @@ function Sponsor() {
 
     return (
         <> 
-            <div className="cont flex flex-col">
+            <div className="max-w-[90vw] flex flex-col">
                     <h2>Support us</h2>
                     <br/>
                     <p>Sponsoring MechMania is your chance to directly <strong>support local students and their growth in robotics</strong>. Your contribution helps <strong>make our competition accessible</strong> by providing students with <strong>resources, hands on challenges, and workshops</strong> to build their skills. This is more than just a competition; it’s <strong>an opportunity to empower young innovators from all backgrounds</strong>. By sponsoring, you will gain <strong>visibility in the Waterloo Region’s tech and education community</strong>, showing your commitment to supporting the next generation.</p>
@@ -51,7 +51,7 @@ function Sponsor() {
 
 
                     <div className="flex flex-col items-center">
-                           <p>Interested? Take a look at our <a href="/sponsorPackage.pdf" className="underline text-blue-400" target="_blank">sponsorship package</a> and email us at <a href="mailto:organizers@mechmania.ca" className="underline text-blue-400">organizers@mechmania.ca</a>.</p>
+                           <p>Interested? Take a look at our <a href="/sponsorPackage.pdf" className="underline text-m-accent" target="_blank">sponsorship package</a> and email us at <a href="mailto:organizers@mechmania.ca" className="underline text-m-accent">organizers@mechmania.ca</a>.</p>
                             <br/>
                     </div>
                     <br/>

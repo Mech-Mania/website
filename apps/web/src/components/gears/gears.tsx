@@ -159,14 +159,14 @@ function Gears(props: any) {
                     width: currWidth,
                     height: currHeight,
                 }}
-                className="z-50 relative bg-m-black box-content rounded-[4rem] border-[16px] border-solid"
+                className="z-50 relative bg-m-black box-content rounded-[4rem] border-[16px] border-solid cont"
             >
                 <div
                     style={{
                         outlineColor: "var(--m-gray-5)",
                         transition: "outline-color 1s ease",
                     }}
-                    className={`flex h-full w-full items-center justify-center z-50 ${props.nopad ? "" : "px-24 py-12 lg:py-16"} bg-clip-padding relative box-border rounded-[4rem] bg-m-black outline-[8px] outline outline-m-gray-5`}
+                    className={`flex h-full w-full items-center justify-center z-50 ${props.nopad ? "" : "px-24 py-12 lg:py-16"} bg-clip-padding relative box-border rounded-[4rem] bg-m-black outline-8 outline-m-gray-5`}
                 >
                     {props.children}
                 </div>

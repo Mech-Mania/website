@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+.cache
+server/dist
+public/dist
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -24,3 +28,5 @@ dist-ssr
 *.sw?
 .vercel
 .env
+.turbo
+

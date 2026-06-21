@@ -1,2 +1,10 @@
-Website for Mechmania Robotics Competition. Built with React, Typescript, Vite and Tailwindcss.
-All code and components are designed and built from scratch, with the exception of icons from React Icons. 
+
+
+The repository for the Mechmania Website.
+
+Frontend/API runs as a monorepo with Turborepo.
+
+
+Frontend Stack: React, Tailwindcss.
+
+Backend: TBD

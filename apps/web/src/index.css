@@ -1,5 +1,4 @@
-@tailwind base;
-@tailwind components;
+@import "tailwindcss";
 
 :root {
     background-color: var(--m-gray-6);
@@ -16,6 +15,7 @@
     justify-content: center;
     text-align: center;
     scroll-behavior: smooth;
+    text-align: left;
 }
 #root {
     display: flex !important;
@@ -30,11 +30,7 @@ body {
     height: 100vh;
     scroll-behavior: smooth;
 }
-@media (min-width: 1024px) {
-    :root {
-        text-align: left;
-    }
-}
+
 
 :root::-webkit-scrollbar {
     display: none;
@@ -87,6 +83,44 @@ strong {
 text-blue-400 underline cursor-pointer
 
 .cont {
-    max-width: 90vw !important;
+    max-width: 90vw;
+    
 }
-@tailwind utilities;
+
+
+@theme {
+  --color-m-accent: var(--m-accent);
+  --color-m-accent-dark: var(--m-accent-dark);
+  --color-m-accent-light: var(--m-accent-light);
+  --color-m-black: var(--m-black);
+  --color-m-gray-6: var(--m-gray-6);
+  --color-m-gray-5: var(--m-gray-5);
+  --color-m-gray-4: var(--m-gray-4);
+  --color-m-gray-3: var(--m-gray-3);
+  --color-m-gray-2: var(--m-gray-2);
+  --color-m-gray-1: var(--m-gray-1);
+  --color-m-white: var(--m-white);
+  
+
+
+  --animate-slide-right: expandRight 2s ease-out forwards;
+  --animate-slide-down: expandDown 2s ease-out forwards;
+  --animate-fade-in: fadeIn 1s ease-in forwards;
+  --animate-loaded: fadeOut 1s ease-in 3s forwards;
+  @keyframes expandRight {
+    0% { opacity: 0; max-width: 0; max-height: none; }
+    100% { opacity: 1; max-width: 100%; max-height: none; }
+  }
+  @keyframes expandDown {
+    0% { opacity: 0; max-height: 0; max-width: none; }
+    100% { opacity: 1; max-height: 100%; max-width: none; }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes fadeOut {
+    0% { opacity: 1; display: flex; }
+    100% { opacity: 0; display: flex; }
+  }
+}
