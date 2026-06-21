@@ -53,7 +53,7 @@ function Carousel(props: any) {
     
     return (
         <>
-            <div className="flex flex-row" ref={(el) => (currRef.current = el)}>
+            <div className="flex flex-row" ref={currRef}>
                 {images}
                 {images}
                 {images}
