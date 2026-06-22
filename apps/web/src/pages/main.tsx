@@ -36,7 +36,7 @@ function Main() {
 
             <Gears dir>
                 <div className="flex flex-col items-center w-[120vw]">
-                    <div className="cont w-[80vw] gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
+                    <div className="cont max-w-[95vw] pl-4 lg:pl-0 gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
                             <div className="flex flex-col">
                                 <h2>Who are we?</h2>
                                 <p>
@@ -57,7 +57,7 @@ function Main() {
                 <div className="flex flex-col items-center">
                     <div className="cont gap-8 z-50 relative bg-m-black box-content rounded-[4rem] flex flex-col">
                             <h2>FAQ</h2>
-                            <div className="flex flex-col gap-2 max-w-[85vw]">
+                            <div className="flex flex-col gap-2 max-w-[95vw] pl-4 lg:pl-0">
                                 <h3>How do I participate?</h3>
                                 <hr/>
                                 <p>
@@ -67,7 +67,7 @@ function Main() {
                                 <h3>What is the format?</h3>
                                 <hr/>
                                 <p>
-                                    Every year shortly after the winter break, we send out the details of the year's competition, including the specifications of the year's game and game pieces, the rulebook, and the code of conduct. Every team then has until the day of the competition to build their robot according to the guidelines, and to ask questions/submit concerns to our email or our <a target="_blank" href="https://discord.gg/z5pcMevHpK">Discord</a>.                           
+                                    Every year shortly after the winter break, we send out the details of the year's competition, including the specifications of the year's game and game pieces, the rulebook, and the code of conduct. Every team then has until the day of the competition to build their robot according to the guidelines, and to ask questions/submit concerns to our email or our <a className="underline" target="_blank" href="https://discord.gg/z5pcMevHpK">Discord</a>.                           
                                 </p>
 
                                 <h3>
