@@ -163,7 +163,7 @@ function Navbar(props:{scrollRef:any,marginTop:number,unformatted?:boolean}) {
                 }    
             </div>
 
-            <div className={`transition ease-out duration-300 ${(mobileShow)?"":"opacity-0 pointer-events-none"} items-center w-screen h-screen fixed top-0 left-0 bg-m-black`}>
+            <div className={`transition ease-out duration-300 ${(mobileShow)?"":"opacity-0 pointer-events-none"} items-center w-screen h-screen fixed top-0 left-0 bg-m-gray-6`}>
                 <div className="w-full h-full flex items-center justify-center align-middle relative z-0">
                     <Footer scrollRef={props.scrollRef} marginTop={props.marginTop}/>    
                 </div>

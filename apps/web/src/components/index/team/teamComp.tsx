@@ -28,7 +28,7 @@ function Team() {
     let per_row_count:number = (window.innerWidth >= 1024) ? wideDisplay : smallDisplay
     return (
         <>
-        <div className="gap-16 flex-col flex" style={{ maxHeight: "100%" }}>
+        <div className="gap-16 w-full flex-col flex items-start justify-start pl-8 lg:pl-0" style={{ maxHeight: "100%" }}>
             {[...Array(Math.ceil(members.length/per_row_count)).keys()].map((e,index)=>(
                 <div className="items-center justify-center align-middle flex flex-row gap-16" key={index}>
                 
@@ -41,7 +41,6 @@ function Team() {
                 </div>
             ))}
         </div>
-
         </>
 
         

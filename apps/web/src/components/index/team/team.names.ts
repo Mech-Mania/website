@@ -22,21 +22,32 @@ const teams:string[][] = [
     [ // 2026
         'Taran Flora',
         'Daniel Li', 
+        'Alex Edwards',
         'Junpei Ariizumi',
         'Vivienne Hardy',
-        'Alex Edwards',
         'Suvethan Ravichandran',
-        'Yusef Soror',
         'Victor Jiao',
         'Gavin Heatherington',
         'My Lan Tight',
-        'Amy Zhang',
         'Ali Bagheri',
+        'Yusef Soror',
+    ],
+    [ //2027
+        'Alex Edwards',
+        'Vivienne Hardy',
+        'Victor Jiao',
+        'Weston Lalonde',
+        'Edward Zhang',
+        'Kush Suthar',
+        'Yaning Zhu',
+        'Ibrahim Nasfi',
+        'Yusef Soror'
+
     ]
 ];
 
 export const startYear:number = 2024;
-export const currentYear:number = 2026;
+export const currentYear:number = 2027;
 
 
 export const getTeam = (year:number):string[] => {
@@ -44,5 +55,5 @@ export const getTeam = (year:number):string[] => {
 };
 
 export const getAllTeams = ():string[][] => {
-    return teams;
+    return [...teams].reverse();
 };

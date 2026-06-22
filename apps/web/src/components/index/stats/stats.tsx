@@ -4,7 +4,7 @@ import './stats.css'
 const contents = [
         ['5 hours', '5 schools', '7 teams', '80+ students', '0$ entry fee'],
         ['8 hours', '10 schools', '12 teams', '120+ students', '1 champion'],
-        ['8 hours', '10+ schools', 'TBD teams', 'TBD students', '1 champion']
+        ['10 hours', '9 schools', '13 teams', '150+ students']
     ]
 const years = ['2024','2025','2026']
 

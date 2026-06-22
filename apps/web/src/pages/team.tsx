@@ -1,7 +1,7 @@
 import Gears from "../components/gears/gears";
 import PastTeam from "../components/index/team/pastTeam";
 import Team from "../components/index/team/teamComp";
-import { getAllTeams, getTeam, startYear } from "../components/index/team/team.names";
+import { currentYear, getAllTeams, getTeam, startYear } from "../components/index/team/team.names";
 
 function TeamPage() {
 
@@ -29,7 +29,7 @@ function TeamPage() {
                 <div className={`flex ${(window.innerWidth > 1024) ? "flex-row gap-32" : "flex-col gap-16"} justify-center items-start`}>
             
                     {getAllTeams().map((team:string[], index:number)=>(
-                        <PastTeam names={team} year={startYear+index}/>
+                        <PastTeam names={team} year={currentYear-index}/>
                     ))}
                 </div>
             </div>

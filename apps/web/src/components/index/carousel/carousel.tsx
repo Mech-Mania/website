@@ -1,36 +1,53 @@
 import { useEffect, useState, useRef } from "react";
-function Carousel(props: any) {
-    const filePaths = [
-        "/carousel/1.jpg",
-        "/carousel/2.jpg",
-        "/carousel/3.jpg",
-        "/carousel/4.jpg",
-        "/carousel/5.jpg",
-        "/carousel/6.jpg",
-        "/carousel/7.jpg",
-        "/carousel/8.png",
-        "/carousel/9.png",
-        "/carousel/10.png",
-        "/carousel/11.png",
-        "/carousel/12.jpg",
-        "/carousel/13.jpg",
-        "/carousel/14.jpg",
-    ]
+
+const filePaths = [
+    "jpg", //Img 1
+    "jpg", //Img 2
+    "jpg", //Img 3
+    "jpg", //Img 4
+    "jpg", //Img 5
+    "jpg", //Img 6
+    "jpg", //Img 7
+    "png", //Img 8
+    "png", //Img 9
+    "png", //Img 10
+    "png", //Img 11
+    "jpg", //Img 12
+    "jpg", //Img 13
+    "jpg", //Img 14
+    "jpg", //Img 15
+    "jpg", //Img 16
+    "jpg", //Img 17
+    "jpg", //Img 18
+    "jpg", //Img 19
+    "jpg", //Img 20
+    "jpg", //Img 21
+    "jpg", //Img 22
+    "jpg", //Img 23
+]          
+function Carousel(props: any) { 
     
     const [images, setImages] = useState<any>([])
     const currRef: any = useRef(null);
 
     const addImages = () => {
         const lst = [];
-        for (let i = 0; i < filePaths.length; i++) {
+        for (let i = 1; i <= filePaths.length; i++) {
             lst.push(
                 <img
-                    className="h-[281px] w-[374.5px]"
+                    className="h-[281px]"
                     key={i}
-                    src={filePaths[i]}
+                    id={`carousel-image-${i}`}
+                    src={`/carousel/${i}.${filePaths[i-1]}`}
                 ></img>
             );
         }
+        // Shuffle list
+        lst .map(value => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value)
+        
+        //Apply elements
         setImages(lst);
     };
 
